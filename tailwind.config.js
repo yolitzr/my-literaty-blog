@@ -19,6 +19,9 @@ module.exports = {
 				white: '#FEFEFE',
 			},
 		},
+		gridTemplateColumns: {
+			'grid': 'repeat(auto-fill, minmax(450px, 1fr))' 
+		}
 	},
 	variants: {
 		extend: {},

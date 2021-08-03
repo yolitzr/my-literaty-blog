@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types'
+
 export function Hero({ bgHero, titleHero, subTitleHero, authorFullName, editorial, summary }) {
 	return (
 		<div
@@ -24,3 +26,12 @@ export function Hero({ bgHero, titleHero, subTitleHero, authorFullName, editoria
 		</div>
 	);
 }
+
+Hero.propTypes = {
+	bgHero: PropTypes.object,
+	titleHero: PropTypes.string,
+	subTitleHero: PropTypes.string,
+	authorFullName: PropTypes.string,
+	editorial: PropTypes.string,
+	summary: PropTypes.string,
+};
