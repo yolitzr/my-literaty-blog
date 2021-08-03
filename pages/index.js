@@ -30,6 +30,8 @@ export default function Home() {
 			/>
 			<main className="container mx-auto p-8 lg:py-10 lg:px-14">
 				<Grid header="Featured Reviews">
+					<h2>Hola</h2>
+					
 
 				</Grid>
 			</main>

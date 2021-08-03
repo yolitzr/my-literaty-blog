@@ -12,7 +12,7 @@ const initialState = {
 export function useHome() {
     const [booksData, setBooksData] = useState(initialState);
 
-    const featuredBooks = async () => {
+     const featuredBooks = async () => {
 		try {
 			const books = await API.fetchBooks({
 				order: {
@@ -28,17 +28,15 @@ export function useHome() {
 				],
 			});
 
-			setBooksData((prevState) => {
-                return {...prevState.results, ...books.results}
-            });
+			setBooksData(books.results);
 		} catch (error) {
 			console.log(error);
 		}
 	};
 
     useEffect(() => {
-        featuredBooks
-    }, [booksData])
+        featuredBooks()
+    }, [setBooksData])
 
     console.log(booksData)
 
