@@ -6,6 +6,7 @@ import { useHome } from '../hooks/useHome.js';
 import { NavBar } from '../components/NavBar.jsx';
 import { Hero } from '../components/Hero.jsx';
 import { Grid } from '../components/Grid.jsx';
+import { ThumbPost } from '../components/ThumbPost';
 import { Footer } from '../components/Footer.jsx';
 // Images
 import imgHero from '../public/images/bg.jpg'
@@ -30,9 +31,12 @@ export default function Home() {
 			/>
 			<main className="container mx-auto p-8 lg:py-10 lg:px-14">
 				<Grid header="Featured Reviews">
-					<h2>Hola</h2>
-					
-
+					{booksData.map((book) => (
+						<ThumbPost 
+							key={book.id} 
+							title={book.title} 
+						/>
+					))}
 				</Grid>
 			</main>
 			<Footer

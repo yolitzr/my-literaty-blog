@@ -2,15 +2,15 @@ import { useState, useEffect } from "react";
 //API
 import API from '../config/api.js'
 
-const initialState = {
-	results: [],
-	// page: 1,
-	// pages_totals: 0,
-	// results_totals: 0,
-};
+// const initialState = {
+// 	results: [],
+// 	// page: 1,
+// 	// pages_totals: 0,
+// 	// results_totals: 0,
+// };
 
 export function useHome() {
-    const [booksData, setBooksData] = useState(initialState);
+    const [booksData, setBooksData] = useState([]);
 
      const featuredBooks = async () => {
 		try {
@@ -36,36 +36,7 @@ export function useHome() {
 
     useEffect(() => {
         featuredBooks()
-    }, [setBooksData])
-
-    console.log(booksData)
-
-   
-
-    // useEffect(() => {
-    //     const featured = async () => {
-    //         const result = await API.fetchBooks({
-	// 			order: {
-	// 				field: 'book.id',
-	// 				dir: 'desc',
-	// 			},
-	// 			search: [
-	// 				{
-	// 					field: ['book.is_featured'],
-	// 					operator: '=',
-	// 					value: true,
-	// 				},
-	// 			],
-	// 		});
-
-    //         console.log(result)
-        
-
-    //         setBooksData(result.data)
-    //     }
-
-    //     featured();
-    // }, [booksData])
+    }, [])
 
     return { booksData }
 }

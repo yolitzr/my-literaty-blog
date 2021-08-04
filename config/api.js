@@ -1,4 +1,6 @@
 import axios from 'axios';
+// Config
+import { API_URL } from '../config/config.js'
 
 const urlGeneral = 'http://admin.carosbookish.com/api/v1/book/list';
 // const urlDetails = `http://admin.carosbookish.com/api/v1/book/`;
@@ -13,7 +15,7 @@ const defaultConfig = {
 
 const apiSettings = {
 	fetchBooks : async (body) => {
-		return await axios(urlGeneral, {
+		return await axios(`${API_URL}`, {
 			...defaultConfig,
 			data: body,
 		}).then(function (res) {
