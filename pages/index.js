@@ -8,13 +8,14 @@ import { useHome } from '../hooks/useHome.js';
 import { NavBar } from '../components/NavBar.jsx';
 import { Hero } from '../components/Hero.jsx';
 import { Grid } from '../components/Grid.jsx';
+import { Thumb } from '../components/Thumb.jsx';
 import { ThumbPost } from '../components/ThumbPost.jsx';
 import { Footer } from '../components/Footer.jsx';
 // Images
 import imgHero from '../public/images/bg.jpg'
 
 export default function Home() {
-	const { booksData } = useHome();
+	const { featuredData, reviewsData } = useHome();
 
 	return (
 		<Fragment>
@@ -33,13 +34,27 @@ export default function Home() {
 			/>
 			<main className="container mx-auto p-8 lg:py-10 lg:px-14">
 				<Grid header="Featured Reviews">
-					{booksData.map((book) => (
-						<ThumbPost
+					{featuredData.map((book) => (
+						<Thumb
 							key={book.id}
 							cover={`${IMAGE_BASE_URL}${book.image_main.path}`}
 							title={book.title}
 							authorName={book.author.name}
 							authorLastName={book.author.surname}
+							text="Read More"
+						/>
+					))}
+				</Grid>
+				<Grid header="Lastet Reviews">
+					{reviewsData.slice(0, 6).map((review) => (
+						<ThumbPost
+							key={review.id}
+							cover={`${IMAGE_BASE_URL}${review.image_main.path}`}
+							title={review.title}
+							authorName={review.author.name}
+							authorLastName={review.author.surname}
+							editorial={review.editorial}
+							summary={review.summary}
 							text="Read More"
 						/>
 					))}

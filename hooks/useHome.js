@@ -10,11 +10,13 @@ import API from '../config/api.js'
 // };
 
 export function useHome() {
-    const [booksData, setBooksData] = useState([]);
+    const [featuredData, setFeaturedData] = useState([]);
+	const [reviewsData, setReviewsData] = useState([]);
+	const [releasesData, setReleasesData] = useState([]);
 
      const featuredBooks = async () => {
 		try {
-			const books = await API.fetchBooks({
+			const featured = await API.fetchBooks({
 				order: {
 					field: 'book.id',
 					dir: 'desc',
@@ -28,15 +30,40 @@ export function useHome() {
 				],
 			});
 
-			setBooksData(books.results);
+			setFeaturedData(featured.results);
+
 		} catch (error) {
 			console.log(error);
 		}
 	};
 
+	const bookReviews = async () => {
+		try {
+			const reviews = await API.fetchBooks({
+				order: {
+					field: 'book.id',
+					dir: 'desc',
+				},
+				search: [
+					{
+						field: ['review.id'],
+						operator: 'isNotNull',
+						value: 'null',
+					},
+				],
+			});
+
+			setReviewsData(reviews.results);
+
+		} catch (error) {
+			console.log(error);
+		}
+	}
+
     useEffect(() => {
-        featuredBooks()
+        featuredBooks();
+		bookReviews();
     }, [])
 
-    return { booksData }
+    return { featuredData, reviewsData }
 }
