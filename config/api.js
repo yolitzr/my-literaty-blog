@@ -3,12 +3,11 @@ import axios from 'axios';
 import { API_URL } from '../config/config.js'
 
 const urlGeneral = 'http://admin.carosbookish.com/api/v1/book/list';
-// const urlDetails = `http://admin.carosbookish.com/api/v1/book/`;
 
 const defaultConfig = {
 	method: 'POST',
 	headers: {
-		'X-AUTH-TOKEN': 'r0bUsSF2H9LiL1aYoHw',
+		'X-AUTH-TOKEN': process.env.NEXT_PUBLIC_API_KEY,
 		'Content-Type': 'application/json',
 	},
 };

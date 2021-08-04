@@ -78,4 +78,14 @@ blockquote {
 .hero-img p {
     font-family: 'Redressed', cursive;
 }
+
+/* ThumbsPost */
+.blur-featured::after {
+    content: '';
+    position: absolute;
+    top: 0; 
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(360deg, #86425f 0%, #352F4496 100%);
+}
 @tailwind utilities;
