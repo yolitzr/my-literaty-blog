@@ -20,7 +20,7 @@ module.exports = {
 			},
 		},
 		gridTemplateColumns: {
-			'grid': 'repeat(auto-fill, minmax(350px, 1fr))' 
+			'grid': 'repeat(auto-fill, minmax(320px, 1fr))' 
 		}
 	},
 	variants: {

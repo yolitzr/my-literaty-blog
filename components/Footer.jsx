@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 
-export function Footer({titleFooter, subTitleFooter}) {
+export const Footer = ({titleFooter, subTitleFooter}) => {
     return (
 		<footer>
 			<div className="w-full py-10 px-4 bg-book-main">

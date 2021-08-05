@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 
-export function Hero({ bgHero, titleHero, subTitleHero, authorFullName, editorial, summary }) {
+export const Hero = ({ bgHero, titleHero, subTitleHero, authorFullName, editorial, summary }) => {
 	return (
 		<div
 			className="hero-img"

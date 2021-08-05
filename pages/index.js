@@ -5,28 +5,20 @@ import { IMAGE_BASE_URL } from '../config/config.js';
 // Hooks
 import { useHome } from '../hooks/useHome.js';
 //Components
-import { NavBar } from '../components/NavBar.jsx';
+import { Layout } from '../components/layout.js';
 import { Hero } from '../components/Hero.jsx';
 import { Grid } from '../components/Grid.jsx';
 import { Thumb } from '../components/Thumb.jsx';
 import { ThumbPost } from '../components/ThumbPost.jsx';
-import { Footer } from '../components/Footer.jsx';
+import { ThumbBooks } from '../components/ThumbBooks.jsx';
 // Images
 import imgHero from '../public/images/bg.jpg'
 
 export default function Home() {
-	const { featuredData, reviewsData } = useHome();
+	const { featuredData, reviewsData, releasesData } = useHome();
 
 	return (
-		<Fragment>
-			<Head>
-				<title>Amante de los Libros</title>
-				<meta
-					name="viewport"
-					content="initial-scale=1.0, width=device-width"
-				/>
-			</Head>
-			<NavBar />
+		<Layout>
 			<Hero
 				bgHero={imgHero}
 				titleHero="Caro's Bookish"
@@ -46,7 +38,7 @@ export default function Home() {
 					))}
 				</Grid>
 				<Grid header="Lastet Reviews">
-					{reviewsData.slice(0, 6).map((review) => (
+					{reviewsData.slice(0, 4).map((review) => (
 						<ThumbPost
 							key={review.id}
 							cover={`${IMAGE_BASE_URL}${review.image_main.path}`}
@@ -59,11 +51,15 @@ export default function Home() {
 						/>
 					))}
 				</Grid>
+				<Grid header="The Most-Anticipated Upcoming Book Releases 2021">
+					{releasesData.slice(0, 4).map((release) => (
+						<ThumbBooks
+							key={release.id}
+							cover={`${IMAGE_BASE_URL}${release.image_main.path}`}
+						/>
+					))}
+				</Grid>
 			</main>
-			<Footer
-				titleFooter="Caro's Bookish | Copyright ©2021 All rights reserved."
-				subTitleFooter="Designed by Yolitzareth Zacarias for CA Designers in Next.js"
-			/>
-		</Fragment>
+		</Layout>
 	);
 }

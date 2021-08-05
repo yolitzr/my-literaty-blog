@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import Image from 'next/image'
 import Link from 'next/link';
 
-export function ThumbPost({ title, authorName,	authorLastName,	editorial,	summary, text, cover,}) {
+export const ThumbPost = ({ title, authorName,	authorLastName,	editorial,	summary, text, cover,}) => {
 	const myLoader = ({ src }) => {
 		return `${src}`;
 	};
@@ -37,7 +37,7 @@ export function ThumbPost({ title, authorName,	authorLastName,	editorial,	summar
 				<h4 className="mt-1 text-base font-semibold text-center text-book-neutral">
 					{editorial}
 				</h4>
-				<div className="h-44 p-3">
+				<div className="h-44">
 					<p className="mt-6 text-base text-book-gray">{summary}</p>
 				</div>
 			</div>

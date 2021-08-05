@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import Image from 'next/image'
 import Link from 'next/link';
 
-export function Thumb({ title, cover, authorName, authorLastName, text }) {
+export const Thumb = ({ title, cover, authorName, authorLastName, text }) => {
 
     const myLoader = ({src}) => {
         return `${src}`;

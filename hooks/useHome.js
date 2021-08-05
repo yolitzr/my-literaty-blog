@@ -60,10 +60,34 @@ export function useHome() {
 		}
 	}
 
+	const realeseBooks = async () => {
+		try {
+			const releases = await API.fetchBooks({
+				order: {
+					field: 'book.id',
+					dir: 'desc',
+				},
+				search: [
+					{
+						field: ['book.published'],
+						operator: '>=',
+						value: '2021-01-01',
+					},
+				],
+			});
+
+			setReleasesData(releases.results)
+			
+		} catch (error) {
+			console.log(error)
+		}
+	}
+
     useEffect(() => {
         featuredBooks();
 		bookReviews();
+		realeseBooks();
     }, [])
 
-    return { featuredData, reviewsData }
+    return { featuredData, reviewsData, releasesData }
 }

@@ -6,7 +6,7 @@ import Logo from '../public/images/logo.svg';
 // Route
 import { NAV_LINKS } from '../data/NavLinks';
 
-export function NavBar() {
+export const NavBar = () => {
     const [showLinks, setShowLinks] = useState(false);
 
     //Shink Navigation
