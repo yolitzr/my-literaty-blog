@@ -1,11 +1,9 @@
-import { Fragment } from 'react';
-import Head from 'next/head';
 // Config
 import { IMAGE_BASE_URL } from '../config/config.js';
 // Hooks
 import { useHome } from '../hooks/useHome.js';
 //Components
-import { Layout } from '../components/layout.js';
+import { Layout } from '../components/layout.jsx';
 import { Hero } from '../components/Hero.jsx';
 import { Grid } from '../components/Grid.jsx';
 import { Thumb } from '../components/Thumb.jsx';

@@ -2,7 +2,7 @@ import { Fragment } from 'react';
 import Head from 'next/head';
 //Components
 import { NavBar } from './NavBar';
-import { Footer } from '../components/Footer.jsx';
+import { Footer } from './Footer.jsx';
 
 export const Layout = ({ title = 'Amante de los libros', children}) => {
     return (

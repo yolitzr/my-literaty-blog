@@ -1,0 +1,20 @@
+{ 
+    "about": {
+        "title": "About Me",
+        "description": "¡Hi!, I am Yolit , a girl Venezuelan and lover of books, I’ve been passionate about reading for years, the books have been my warm refuge, that place where I can enjoy a thousand emotions. I always read romantic novels, in all their subgenres, erotic, suspense, etc. I am also very fond of Thriller and Noir Novel. Little by little I have been testing with other genres, such as Young Adult, New Adult and Fantasy.\n\nFor a long time I have liked to share my reviews of the books I have read, but I have always written them in Spanish, now as I am studying English, I encouraged not only to share my reviews in this language but to read those books I have always wanted and review them.\n\nI hope everyone feels comfortable in my new little blog and please forgive me if I have any mistakes in my grammar, I am still learning and looking forward to improving.",
+        "images": [
+			{
+				"imgUrl": "../public/images/favorited_reviews.png",
+				"imgAlt": "Reviews Published"
+			},
+			{
+				"imgUrl": "../public/images/pro_reader.png",
+				"imgAlt": "Professional Reader"
+			},
+            {
+				"imgUrl": "../public/images/reviews_10.png",
+				"imgAlt": "Reviews Published"
+			}
+		]
+    }
+}
