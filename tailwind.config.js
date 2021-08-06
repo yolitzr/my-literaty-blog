@@ -17,11 +17,12 @@ module.exports = {
 				gray: '#6d6d6d',
 				black: '#111',
 				white: '#FEFEFE',
+				transparent: '#00000000',
 			},
 		},
 		gridTemplateColumns: {
-			'grid': 'repeat(auto-fill, minmax(320px, 1fr))' 
-		}
+			grid: 'repeat(auto-fill, minmax(320px, 1fr))',
+		},
 	},
 	variants: {
 		extend: {},

@@ -1,7 +1,7 @@
 // Config
 import { IMAGE_BASE_URL } from '../config/config.js';
 // Hooks
-import { useHome } from '../hooks/useHome.js';
+import { useBooks} from '../hooks/useBooks.js';
 //Components
 import { Layout } from '../components/layout.jsx';
 import { Hero } from '../components/Hero.jsx';
@@ -13,7 +13,7 @@ import { ThumbBooks } from '../components/ThumbBooks.jsx';
 import imgHero from '../public/images/bg.jpg'
 
 export default function Home() {
-	const { featuredData, reviewsData, releasesData } = useHome();
+	const { featuredData, reviewsData, releasesData } = useBooks();
 
 	return (
 		<Layout>

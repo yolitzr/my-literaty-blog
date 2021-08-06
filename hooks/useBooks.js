@@ -9,10 +9,12 @@ import API from '../config/api.js'
 // 	// results_totals: 0,
 // };
 
-export function useHome() {
+export function useBooks() {
     const [featuredData, setFeaturedData] = useState([]);
 	const [reviewsData, setReviewsData] = useState([]);
 	const [releasesData, setReleasesData] = useState([]);
+	const [search, setSearch] = useState('')
+	console.log(search)
 
      const featuredBooks = async () => {
 		try {
@@ -48,7 +50,7 @@ export function useHome() {
 					{
 						field: ['review.id'],
 						operator: 'isNotNull',
-						value: 'null',
+						value: null,
 					},
 				],
 			});
@@ -58,7 +60,30 @@ export function useHome() {
 		} catch (error) {
 			console.log(error);
 		}
-	}
+	};
+
+	const searchBooks = async () => {
+		try {
+			const searchs = await API.fetchBooks({
+				order: {
+					field: 'book.id',
+					dir: 'desc',
+				},
+				search: [
+					{
+						field: ['book.title'],
+						operator: '=',
+						value: search,
+					},
+				],
+			});
+
+			setSearch(searchs.results);
+			console.log(searchs.results);
+		} catch (error) {
+			console.log(error);
+		}
+	};
 
 	const realeseBooks = async () => {
 		try {
@@ -87,7 +112,7 @@ export function useHome() {
         featuredBooks();
 		bookReviews();
 		realeseBooks();
-    }, [])
+    }, [search])
 
-    return { featuredData, reviewsData, releasesData }
+    return { featuredData, reviewsData, releasesData, search, setSearch };
 }
