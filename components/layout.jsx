@@ -4,7 +4,7 @@ import Head from 'next/head';
 import { NavBar } from './NavBar';
 import { Footer } from './Footer.jsx';
 
-export const Layout = ({ title = 'Amante de los libros', children}) => {
+export const Layout = ({ title = `Caro's Bookish`, children}) => {
     return (
 		<Fragment>
 			<Head>

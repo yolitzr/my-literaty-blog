@@ -10,9 +10,16 @@ export const SearchBar = ({ setSearchTerm }) => {
 			initial.current = false;
 			return;
 		}
+
+		const timer = setTimeout(() => {
+			setSearchTerm(searchData);
+		}, 500);
+
+		return () => clearTimeout(timer);
+
 	}, [setSearchTerm, searchData]);
 
-	console.log(searchData)
+	console.log(searchData);
 
 
 	return (

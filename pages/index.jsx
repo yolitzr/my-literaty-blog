@@ -23,7 +23,7 @@ export default function Home() {
 				subTitleHero="Compulsive Reader, Book Blogger and Reviewer"
 			/>
 			<main className="container mx-auto p-8 lg:py-10 lg:px-14">
-				<Grid header="Featured Reviews">
+				<Grid header="Featured Releases">
 					{featuredData.map((book) => (
 						<Thumb
 							key={book.id}

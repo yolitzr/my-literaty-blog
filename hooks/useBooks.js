@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 //API
-import API from '../config/api.js'
+import API from '../config/api.js';
 
 // const initialState = {
 // 	results: [],
@@ -10,13 +10,13 @@ import API from '../config/api.js'
 // };
 
 export function useBooks() {
-    const [featuredData, setFeaturedData] = useState([]);
+	const [bookData, setBookData] = useState([]);
+	const [featuredData, setFeaturedData] = useState([]);
 	const [reviewsData, setReviewsData] = useState([]);
 	const [releasesData, setReleasesData] = useState([]);
-	const [search, setSearch] = useState('')
-	console.log(search)
+	const [search, setSearch] = useState('');
 
-     const featuredBooks = async () => {
+	const featuredBooks = async () => {
 		try {
 			const featured = await API.fetchBooks({
 				order: {
@@ -33,53 +33,38 @@ export function useBooks() {
 			});
 
 			setFeaturedData(featured.results);
-
 		} catch (error) {
 			console.log(error);
 		}
 	};
 
-	const bookReviews = async () => {
+	const bookReviews = async (search) => {
 		try {
+			let searchParams = [
+				{
+					field: ['review.id'],
+					operator: 'isNotNull',
+					value: null,
+				},
+			];
+
+			if (search != '') {
+				searchParams.push({
+					field: ['book.title'],
+					operator: '=',
+					value: search,
+				});
+			}
+
 			const reviews = await API.fetchBooks({
 				order: {
 					field: 'book.id',
 					dir: 'desc',
 				},
-				search: [
-					{
-						field: ['review.id'],
-						operator: 'isNotNull',
-						value: null,
-					},
-				],
+				search: searchParams,
 			});
 
 			setReviewsData(reviews.results);
-
-		} catch (error) {
-			console.log(error);
-		}
-	};
-
-	const searchBooks = async () => {
-		try {
-			const searchs = await API.fetchBooks({
-				order: {
-					field: 'book.id',
-					dir: 'desc',
-				},
-				search: [
-					{
-						field: ['book.title'],
-						operator: '=',
-						value: search,
-					},
-				],
-			});
-
-			setSearch(searchs.results);
-			console.log(searchs.results);
 		} catch (error) {
 			console.log(error);
 		}
@@ -101,18 +86,41 @@ export function useBooks() {
 				],
 			});
 
-			setReleasesData(releases.results)
-			
+			setReleasesData(releases.results);
 		} catch (error) {
-			console.log(error)
+			console.log(error);
 		}
-	}
+	};
 
-    useEffect(() => {
-        featuredBooks();
-		bookReviews();
+	// const searchBooks = async (search) => {
+	// 	try {
+	// 		const searchs = await API.fetchBooks({
+	// 			order: {
+	// 				field: 'book.id',
+	// 				dir: 'desc',
+	// 			},
+	// 			search: [
+	// 				{
+	// 					field: ['book.title'],
+	// 					operator: '=',
+	// 					value: search,
+	// 				},
+	// 			],
+	// 		});
+
+	// 		setSearch(searchs.results);
+	// 		console.log(searchs.results);
+	// 	} catch (error) {
+	// 		console.log(error);
+	// 	}
+	// };
+
+	useEffect(() => {
+		bookReviews(search);
+		featuredBooks();
 		realeseBooks();
-    }, [search])
+		// searchBooks(search);
+	}, [search]);
 
-    return { featuredData, reviewsData, releasesData, search, setSearch };
+	return { featuredData, reviewsData, releasesData, search, setSearch };
 }
