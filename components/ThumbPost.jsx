@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import Image from 'next/image'
 import Link from 'next/link';
 
-export const ThumbPost = ({ title, authorName,	authorLastName,	editorial,	summary, text, cover,}) => {
+export const ThumbPost = ({ title, authorName,	authorLastName,	editorial,	summary, text, cover, link}) => {
 	const myLoader = ({ src }) => {
 		return `${src}`;
 	};
@@ -20,14 +20,14 @@ export const ThumbPost = ({ title, authorName,	authorLastName,	editorial,	summar
 				/>
 			</figure>
 			<div className="py-4 px-6 mt-4">
-				<Link href="/">
+				<Link href={/book/ + link}>
 					<a>
 						<h2 className="mb-1 text-2xl font-bold text-center text-book-main hover:opacity-75">
 							{title}
 						</h2>
 					</a>
 				</Link>
-				<Link href="/">
+				<Link href={/book/ + link}>
 					<a className="mb-1 text-xl font-bold text-center text-book-main hover:opacity-75">
 						<h3>
 							{authorName} {authorLastName}
@@ -43,7 +43,7 @@ export const ThumbPost = ({ title, authorName,	authorLastName,	editorial,	summar
 			</div>
 			<div className="px-6 pt-4 pb-2 relative flex justify-center items-center">
 				<div className="absolute top-3 transition-all duration-200 ease-in-out transform hover:translate-y-1 hover:scale-105">
-					<Link href="/">
+					<Link href={/book/ + link}>
 						<a className="px-6 py-3 text-sm font-bold leading-3 tracking-wider uppercase text-book-white bg-book-second">
 							{text}
 						</a>
@@ -51,7 +51,6 @@ export const ThumbPost = ({ title, authorName,	authorLastName,	editorial,	summar
 				</div>
 			</div>
 		</article>
-
 	);
 }
 

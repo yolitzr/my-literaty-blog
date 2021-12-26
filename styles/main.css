@@ -132,6 +132,7 @@ blockquote {
   -webkit-transition: all 0.3s ease-in-out 0s;
   -moz-transition: all 0.3s ease-in-out 0s;
   transition: all 0.3s ease-in-out 0s;
+  background: #2c272a99;
 }
 
 .content:hover .content-details{
@@ -160,6 +161,13 @@ blockquote {
     height: 535px;
 }
 
+/* Details Height */
+.height-custom {
+  height: fit-content;
+}
 
+.info-author h3 {
+  font-family: 'Cinzel Decorative', sans-serif;
+}
 
 @tailwind utilities;

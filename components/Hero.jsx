@@ -4,7 +4,7 @@ export const Hero = ({ bgHero, titleHero, subTitleHero, authorFullName, editoria
 	return (
 		<div
 			className="hero-img"
-			style={{ backgroundImage: `url(${bgHero.src})` }}
+			style={{ backgroundImage: `url(${bgHero})` }}
 		>
 			<div className="flex md:flex-col justify-center items-center mx-auto w-full p-4 z-10">
 				<div className="flex flex-col justify-center w-full h-auto py-4 px-5 mt-16 lg:px-40">
@@ -14,7 +14,7 @@ export const Hero = ({ bgHero, titleHero, subTitleHero, authorFullName, editoria
 					<h4 className="mt-4 sm:text-base text-center italic tracking-wide text-book-light">
 						{subTitleHero}
 					</h4>
-					<h3>{authorFullName}</h3>
+					<h3 className='mt-4 text-2xl font-semibold text-center text-book-light lg:text-3xl'>{authorFullName}</h3>
 					<h4 className="mt-2 text-xl text-center text-book-light">
 						{editorial}
 					</h4>
@@ -24,7 +24,7 @@ export const Hero = ({ bgHero, titleHero, subTitleHero, authorFullName, editoria
 				</div>
 			</div>
 		</div>
-	);
+	)
 }
 
 Hero.propTypes = {

@@ -47,9 +47,9 @@ export const NavBar = () => {
 				<div className="block lg:hidden">
 					<button
 						onClick={() => setShowLinks(!showLinks)}
-						className="flex items-center px-3 py-2 border rounded text-book-light border-teal-light hover:text-white hover:border-white focus:outline-none"
+						className="flex items-center px-3 py-2 border rounded text-book-light border-teal-light hover:text-white hover:border-white"
 					>
-						<i className="fas fa-bars fa-lg"></i>
+						<i className="fas fa-bars fa-lg focus:outline-none"></i>
 					</button>
 				</div>
 				<ul

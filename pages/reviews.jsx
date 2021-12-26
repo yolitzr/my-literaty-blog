@@ -1,18 +1,15 @@
-import { Layout } from '../components/layout.jsx';
+import { Layout } from '../components/layout.jsx'
 // Config
-import { IMAGE_BASE_URL } from '../config/config.js';
+import { IMAGE_BASE_URL } from '../config/config.js'
 //Hook
 import { useBooks } from '../hooks/useBooks'
 //Components
-import { Hero } from '../components/Hero.jsx'
-import { Grid } from '../components/Grid.jsx'
-import { ThumbBooks } from '../components/ThumbBooks.jsx';
-import { SearchBar } from '../components/SearchBar.jsx';
+import { Hero, Grid, ThumbBooks, SearchBar } from '../components/'
 //Images
 import imgHero from '../public/images/bg.jpg';
 
 const ReviewsPage = () => {
-    const { reviewsData, search, setSearch } = useBooks();
+    const { reviewsData, search, setSearch } = useBooks()
 
     return (
 		<Layout>
@@ -33,7 +30,7 @@ const ReviewsPage = () => {
 				</Grid>
 			</main>
 		</Layout>
-	);
+	)
 }
 
-export default ReviewsPage;
+export default ReviewsPage

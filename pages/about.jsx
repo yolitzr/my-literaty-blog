@@ -1,19 +1,13 @@
 import Image from 'next/image'
-import { Layout } from '../components/layout.jsx'
 //Data
 import data from '../data/about.json'
 //Components
-import { Hero } from '../components/Hero.jsx'
+import { Hero, Layout } from '../components/'
 //Images
-import imgHero from '../public/images/bg.jpg';
+import imgHero from '../public/images/bg.jpg'
 import imgMe from '../public/images/me.jpg'
 
 const AboutPage = () => {
-
-	const myLoader = ({ src }) => {
-		return `${src}`;
-	};
-
 	return (
 		<Layout title="About Me">
 			<Hero
@@ -37,7 +31,7 @@ const AboutPage = () => {
 							/>
 						</figure>
 						<div>
-							<p className="text-book-gray mt-6">
+							<p className="text-sm leading-6 text-book-gray mt-6">
 								¡Hi!, I am Yolit , a girl Venezuelan and lover
 								of books, I’ve been passionate about reading for
 								years, the books have been my warm refuge, that
@@ -78,7 +72,7 @@ const AboutPage = () => {
 				</section>
 			</main>
 		</Layout>
-	);
-};
+	)
+}
 
-export default AboutPage;
+export default AboutPage

@@ -1,26 +1,22 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from 'react'
 
 export const SearchBar = ({ setSearchTerm }) => {
-	const [searchData, setSearchData] = useState('');
+	const [searchData, setSearchData] = useState('')
 
-	const initial = useRef(true);
+	const initial = useRef(true)
 
 	useEffect(() => {
 		if (initial.current) {
-			initial.current = false;
-			return;
+			initial.current = false
+			return
 		}
 
 		const timer = setTimeout(() => {
-			setSearchTerm(searchData);
-		}, 500);
+			setSearchTerm(searchData)
+		}, 1000)
 
-		return () => clearTimeout(timer);
-
-	}, [setSearchTerm, searchData]);
-
-	console.log(searchData);
-
+		return () => clearTimeout(timer)
+	}, [setSearchTerm, searchData])
 
 	return (
 		<div className="px-2 py-4 mt-6 lg:mt-12">
@@ -30,7 +26,7 @@ export const SearchBar = ({ setSearchTerm }) => {
 					type="text"
 					placeholder="Search Review"
 					className="w-full py-2 px-6 rounded-l-full bg-book-transparent leading-tight text-book-dark focus:outline-none"
-                    onChange={(e) => setSearchData(e.currentTarget.value)}
+					onChange={(e) => setSearchData(e.currentTarget.value)}
 				/>
 				<div className="p-2">
 					<button className="flex justify-center items-center w-10 h-10 p-2 rounded-full bg-book-main text-book-white hover:bg-book-second focus:outline-none">
@@ -39,5 +35,5 @@ export const SearchBar = ({ setSearchTerm }) => {
 				</div>
 			</div>
 		</div>
-	);
-};
+	)
+}
