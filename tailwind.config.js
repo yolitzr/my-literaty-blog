@@ -22,6 +22,7 @@ module.exports = {
 		},
 		gridTemplateColumns: {
 			grid: 'repeat(auto-fill, minmax(320px, 1fr))',
+			gridTwo: 'repeat(auto-fill, minmax(420px, 1fr))',
 		},
 	},
 	variants: {

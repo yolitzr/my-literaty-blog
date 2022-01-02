@@ -8,6 +8,7 @@ import { ThumbBooks } from './ThumbBooks';
 import { ThumbPost } from './ThumbPost';
 import { Layout } from './layout';
 import { Tabs } from './Tabs'
+import { Wrapper } from "./Wrapper";
 
 export {
 	Footer,
@@ -19,5 +20,6 @@ export {
 	ThumbBooks,
 	ThumbPost,
 	Layout,
-	Tabs
+	Tabs,
+	Wrapper
 }

@@ -1,11 +1,11 @@
 //Components
-import React from 'react';
-import Image from 'next/image';
-import { Layout, Hero, Tabs } from '../../components';
+import React from 'react'
+import Image from 'next/image'
+import { Layout, Hero, Tabs } from '../../components'
 // Config
-import { IMAGE_BASE_URL } from '../../config/config';
-import imgSep from '../../public/images/separator.png';
-import axios from 'axios';
+import { IMAGE_BASE_URL } from '../../config/config'
+import imgSep from '../../public/images/separator.png'
+import axios from 'axios'
 
 const BookDetail = ({ book }) => {
 
@@ -34,10 +34,15 @@ const BookDetail = ({ book }) => {
 						<div className="height-custom flex flex-col lg:col-span-8 shadow-lg">
 							<div className="p-6 md:py-6 md:px-10">
 								<article className="rounded-b-lg">
-									<Tabs
+								{book.review === null  
+								? <Tabs
+										synopsis={book.synopsis}
+									/>
+								 : <Tabs
 										synopsis={book.synopsis}
 										review={book.review.description}
 									/>
+								}
 								</article>
 								<div className="mt-8">
 									<Image
@@ -82,52 +87,25 @@ const BookDetail = ({ book }) => {
 				</section>
 			</main>
 		</Layout>
-	);
-};
-
-export default BookDetail;
-
-export async function getStaticProps({ params }) {
-	const settingSlug = {
-		method: 'GET',
-		headers: {
-			'X-AUTH-TOKEN': process.env.NEXT_PUBLIC_API_KEY,
-			'Content-Type': 'application/json',
-		},
-	};
-	const { data } = await axios(
-		`https://admin.yolitsbooks.com/api/v1/book/${params.slug}`,
-		settingSlug
-	);
-	const book = data;
-
-	return { props: { book } };
+	)
 }
 
-export const getStaticPaths = async () => {
+export async function getServerSideProps({ params }) {
+
 	const settingSlug = {
 		method: 'GET',
 		headers: {
 			'X-AUTH-TOKEN': process.env.NEXT_PUBLIC_API_KEY,
 			'Content-Type': 'application/json',
-		},
-	};
+		}
+	}
 
-	const {
-		data: { results },
-	} = await axios(
-		`http://admin.yolitsbooks.com/api/v1/book/list`,
-		settingSlug
-	);
+	const { data } = await axios(`https://admin.yolitsbooks.com/api/v1/book/${params.slug}`,settingSlug)
 
-	const paths = results.map((book) => {
-		return {
-			params: { slug: book.slug },
-		};
-	});
+	const book = data
 
-	return {
-		paths,
-		fallback: false,
-	};
-};
+  // Pass data to the page via props
+  return { props: { book } }
+}
+
+export default BookDetail;

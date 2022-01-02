@@ -3,12 +3,14 @@ import { IMAGE_BASE_URL } from '../config/config.js'
 // Hooks
 import { useBooks } from '../hooks/useBooks.js'
 //Components
-import { Layout, Hero, Grid, Thumb, ThumbPost, ThumbBooks } from '../components/'
+import { Layout, Hero, Grid, Thumb, ThumbPost, ThumbBooks, Wrapper } from '../components/'
 // Images
 import imgHero from '../public/images/bg.jpg'
 
 export default function Home() {
 	const { featuredData, reviewsData, releasesData } = useBooks()
+
+	console.log(featuredData[0])
 
 	return (
 		<Layout>
@@ -29,7 +31,7 @@ export default function Home() {
 							link={book.slug}
 							text="Read More"
 						/>
-					))}
+					)).splice(0, 4)}
 				</Grid>
 				<Grid header="Lastet Reviews">
 					{reviewsData.slice(0, 4).map((review) => (
@@ -39,6 +41,7 @@ export default function Home() {
 							title={review.title}
 							authorName={review.author.name}
 							authorLastName={review.author.surname}
+							authorImg={`${IMAGE_BASE_URL}${review.author.image.path}`}
 							editorial={review.editorial}
 							summary={review.summary}
 							link={review.slug}
@@ -46,7 +49,12 @@ export default function Home() {
 						/>
 					))}
 				</Grid>
-				<Grid header="The Most-Anticipated Upcoming Book Releases 2021">
+				{/* <Wrapper>
+						<div>
+							Hola
+						</div>
+				</Wrapper> */}
+				<Grid header="The Most-Anticipated Upcoming Book Releases 2022">
 					{releasesData.slice(0, 4).map((release) => (
 						<ThumbBooks
 							key={release.id}
