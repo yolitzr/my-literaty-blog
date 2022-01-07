@@ -9,6 +9,8 @@ import { ThumbPost } from './ThumbPost';
 import { Layout } from './layout';
 import { Tabs } from './Tabs'
 import { Wrapper } from "./Wrapper";
+import { AuthorCard } from "./authorCard";
+import { DisqusComments } from "./DisqusComments";
 
 export {
 	Footer,
@@ -21,5 +23,7 @@ export {
 	ThumbPost,
 	Layout,
 	Tabs,
-	Wrapper
+	Wrapper,
+	AuthorCard,
+	DisqusComments
 }

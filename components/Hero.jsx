@@ -28,7 +28,7 @@ export const Hero = ({ bgHero, titleHero, subTitleHero, authorFullName, editoria
 }
 
 Hero.propTypes = {
-	bgHero: PropTypes.object,
+	bgHero: PropTypes.string,
 	titleHero: PropTypes.string,
 	subTitleHero: PropTypes.string,
 	authorFullName: PropTypes.string,

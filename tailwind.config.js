@@ -3,7 +3,6 @@ module.exports = {
 		'./pages/**/*.{js,ts,jsx,tsx}',
 		'./components/**/*.{js,ts,jsx,tsx}',
 	],
-	darkMode: false, // or 'media' or 'class'
 	theme: {
 		extend: {},
 		colors: {
@@ -21,8 +20,8 @@ module.exports = {
 			},
 		},
 		gridTemplateColumns: {
-			grid: 'repeat(auto-fill, minmax(320px, 1fr))',
-			gridTwo: 'repeat(auto-fill, minmax(420px, 1fr))',
+			grid: 'repeat(auto-fit, minmax(320px, 1fr))',
+			gridTwo: 'repeat(12, minmax(0, 1fr))',
 		},
 	},
 	variants: {

@@ -10,8 +10,6 @@ import imgHero from '../public/images/bg.jpg'
 export default function Home() {
 	const { featuredData, reviewsData, releasesData } = useBooks()
 
-	console.log(featuredData[0])
-
 	return (
 		<Layout>
 			<Hero

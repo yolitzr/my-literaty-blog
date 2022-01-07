@@ -12,7 +12,7 @@ export const Tabs = ({ synopsis, review }) => {
 					<li className="-mb-px mr-2 last:mr-0 flex-auto text-center">
 						<a
 							className={
-								'text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal ' +
+								'text-xs font-bold uppercase px-5 py-3 rounded block leading-normal ' +
 								(openTab === 1
 									? 'text-book-light bg-book-main'
 									: 'text-book-main bg-book-light')
@@ -46,23 +46,25 @@ export const Tabs = ({ synopsis, review }) => {
 						</a>
 					</li>
 				</ul>
-				<div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded">
+				<div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 rounded">
 					<div className="px-4 py-5 flex-auto">
 						<div className="tab-content tab-space">
 							<div
 								className={openTab === 1 ? 'block' : 'hidden'}
 							>
-								<p>
-									{synopsis}
-								</p>
+								<p dangerouslySetInnerHTML={{ __html: synopsis }} />
+
+									{/* {synopsis}
+								</p> */}
 							</div>
               {review && (
                 <div
                   className={openTab === 2 ? 'block' : 'hidden'}
                 >
-                  <p>
+									<p dangerouslySetInnerHTML={{ __html: review }} />
+                  {/* <p>
                     {review}
-                  </p>
+                  </p> */}
                 </div>
               )}
 						</div>

@@ -16,7 +16,7 @@ export const ThumbPost = ({ title, authorName,	authorLastName,	editorial,	summar
 					alt={title}
 					layout="fill"
 					objectFit="cover"
-					className="rounded-t-lg"
+					className="rounded-lg"
 				/>
 			</figure>
 			<div className="py-4 px-6 mt-2">
@@ -33,7 +33,7 @@ export const ThumbPost = ({ title, authorName,	authorLastName,	editorial,	summar
 				<div className="h-full">
 					{/* <p className="mt-6 text-sm text-book-gray truncate">{summary}</p> */}
 					<div className="flex">
-						<figure className='relative h-16 p-8 m-4 object-cover transition duration-500 ease-in-out hover:opacity-95'>
+						<figure className='relative h-16 m-4 object-cover transition duration-500 ease-in-out hover:opacity-95'>
 							<Image
 								loader={myLoader}
 								src={authorImg}
@@ -44,7 +44,7 @@ export const ThumbPost = ({ title, authorName,	authorLastName,	editorial,	summar
 							/>
 						</figure>
 						<div className='flex flex-col justify-center'>
-							<span className=' text-book-dark font-semibold decoration-book-main'>Author</span>
+							<span className=' text-book-dark font-semibold'>Author</span>
 							<Link href={/book/ + link}>
 								<a className="mb-1 text-xl font-bold text-center text-book-main hover:opacity-75">
 									<h3 className='text-base'>
@@ -66,7 +66,7 @@ export const ThumbPost = ({ title, authorName,	authorLastName,	editorial,	summar
 				</div>
 			</div>
 		</article>
-	);
+	)
 }
 
 ThumbPost.propTypes = {
