@@ -19,7 +19,7 @@ export const ThumbPost = ({ title, authorName,	authorLastName,	editorial,	summar
 					className="rounded-lg"
 				/>
 			</figure>
-			<div className="py-4 px-6 mt-2">
+			<div className="py-4 px-6">
 				<Link href={/book/ + link}>
 					<a>
 						<h2 className="mb-1 text-2xl font-bold text-center text-book-main hover:opacity-75">
@@ -30,20 +30,23 @@ export const ThumbPost = ({ title, authorName,	authorLastName,	editorial,	summar
 				<h4 className="mt-1 text-base font-semibold text-center text-book-neutral">
 					{editorial}
 				</h4>
-				<div className="h-full">
-					{/* <p className="mt-6 text-sm text-book-gray truncate">{summary}</p> */}
-					<div className="flex">
-						<figure className='relative h-16 m-4 object-cover transition duration-500 ease-in-out hover:opacity-95'>
+				<div className="flex flex-col">
+					<div className='h-24'>
+						<p className="mt-6 text-sm text-book-gray tracking-wide leading-6 special-truncate">{summary}</p>
+					</div>
+					<div className="flex mt-4">
+						<figure className='relative h-16 m-2 object-cover transition duration-500 ease-in-out hover:opacity-95'>
 							<Image
 								loader={myLoader}
 								src={authorImg}
 								alt={title}
-								layout="fill"
+								width={64}
+								height={64}
 								objectFit="cover"
 								className="rounded-full w-16 h-16"
 							/>
 						</figure>
-						<div className='flex flex-col justify-center'>
+						<div className='flex flex-col justify-center ml-2'>
 							<span className=' text-book-dark font-semibold'>Author</span>
 							<Link href={/book/ + link}>
 								<a className="mb-1 text-xl font-bold text-center text-book-main hover:opacity-75">

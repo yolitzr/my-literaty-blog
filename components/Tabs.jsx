@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 export const Tabs = ({ synopsis, review }) => {
 	const [openTab, setOpenTab] = React.useState(1);
+
 	return (
 		<div className="flex flex-wrap">
 			<div className="w-full">
@@ -52,7 +53,7 @@ export const Tabs = ({ synopsis, review }) => {
 							<div
 								className={openTab === 1 ? 'block' : 'hidden'}
 							>
-								<p dangerouslySetInnerHTML={{ __html: synopsis }} />
+								<div dangerouslySetInnerHTML={{  __html: synopsis  }} />
 
 									{/* {synopsis}
 								</p> */}
@@ -61,7 +62,8 @@ export const Tabs = ({ synopsis, review }) => {
                 <div
                   className={openTab === 2 ? 'block' : 'hidden'}
                 >
-									<p dangerouslySetInnerHTML={{ __html: review }} />
+									<div dangerouslySetInnerHTML={{  __html: review }} />
+									{/* <p dangerouslySetInnerHTML={{ __html: review }} /> */}
                   {/* <p>
                     {review}
                   </p> */}

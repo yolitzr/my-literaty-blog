@@ -2,48 +2,43 @@ import PropTypes from 'prop-types'
 import Image from 'next/image'
 import Link from 'next/link'
 
-export const ThumbBooks = ({ title, cover, text, link }) => {
+export const ThumbBooks = ({ title, cover, text, link, date }) => {
 	const myLoader = ({ src }) => {
 		return `${src}`
 	}
 
 	return (
-		<div className="content mt-6 transition-all duration-200 transform hover:translate-y-1 hover:shadow-xl hover:scale-95">
-			<div className="content-overlay"></div>
-			<div className="p-1">
-				<figure className="w-full height-cover">
-					<Image
-						loader={myLoader}
-						src={cover}
-						alt={title}
-						layout="fill"
-						objectFit="cover"
-					/>
-				</figure>
-				<div className="content-details fadeIn-top">
-					<Link href={/book/ + link}>
-						<a>
-							<h2 className="text-2xl font-bold leading-8 uppercase text-book-white">
-								{title}
-							</h2>
-						</a>
-					</Link>
-					<div className="mt-2">
-						<span className="mr-2 ml-3 font-semibold text-book-light">
-							Publication Date:
-						</span>
+
+		<div className='flex flex-col px-4 py-6 w-full sm:w-1/3 mx-auto'>
+			<Link href={/book/ + link}>
+				<a className='flex flex-col flex-1 w-full rounded overflow-hidden shadow-lg'>
+					<div className='relative w-full h-full overflow-hidden height-cover' >
+						<Image 
+							loader={myLoader}
+							alt={title}
+							src={cover}
+							width={450}
+							height={720}
+							objectFit="cover"
+						/>
+						<div className='flex justify-between items-center w-full absolute bottom-0 text-white p-4 font-bold border-b-8 border-book-second h-20 bg-book-main opacity-90'>
+							<div className='flex flex-col'>
+								<h2 className="text-book-white lg:text-xl">{title}</h2>
+								<span>{date}</span>
+							</div>
+							<div className="border-0 text-center inline-block cursor-pointer px-3 py-1 rounded bg-book-second">
+								<Link href={/book/ + link}>
+									<a className="text-sm tracking-wide uppercase text-book-white">
+										{text}
+									</a>
+								</Link>
+							</div>
+						</div>
 					</div>
-					<div className="border-0 text-center inline-block cursor-pointer px-3 py-1 rounded bg-book-second mt-4">
-						<Link href={/book/ + link}>
-							<a className="text-basse tracking-wide uppercase text-book-white">
-								{text}
-							</a>
-						</Link>
-					</div>
-				</div>
-			</div>
+				</a>
+			</Link>
 		</div>
-	);
+	)
 }
 
 ThumbBooks.propTypes = {

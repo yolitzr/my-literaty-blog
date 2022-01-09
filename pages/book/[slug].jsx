@@ -10,7 +10,6 @@ import axios from 'axios'
 const BookDetail = ({ book }) => {
 	console.log(book)
 	const date = new Date(book.published.date)
-
 	return (
 		<Layout
 			title={`${book.title} by ${book.author.name} ${book.author.surname} | Yolit's Books`}
@@ -70,9 +69,11 @@ const BookDetail = ({ book }) => {
 										</h3>
 										<p className='text-sm leading-6 py-6 px-2 mb-0' dangerouslySetInnerHTML={{ __html: book.author.description }} />
 										<div className='flex justify-center items-center'>
-											{/* {book.author.social_networks.map(icon => {
-												{icon.icon}
-											})} */}
+											{Object.keys(book.author.social_networks).map((social, idx) => (
+												<a href={book.author.social_networks[social].url} key={idx} className="w-10 h-10 mr-3 border-2 border-book-second rounded-full text-book-second hover:bg-book-second hover:text-book-light">
+													<i className={`${book.author.social_networks[social].icon} ${`flex justify-center mt-1 text-lg`}`}></i>
+												</a>
+											)) }
 										</div>
 									</div>
 								</div>
@@ -132,8 +133,11 @@ const BookDetail = ({ book }) => {
 								<div className='mt-8'>
 									<h4 className="text-2xl font-bold text-book-dark">Find this book on:</h4>
 									<div className='flex items-center'>
-										
-
+										{Object.keys(book.purchases).map((purchase, idx) => (
+											<a href={book.purchases[purchase].url} key={idx} target="_blank" rel="noreferrer" className='flex items-center px-3 py-3 mt-4 mr-2 border-2 border-book-second rounded-full text-book-second text-sm tracking-wide hover:bg-book-second hover:text-book-light'>
+												<i className={`${book.purchases[purchase].icon} ${`fa-lg`}`}></i>
+											</a>
+										))}
 									</div>
 								</div>
               </div>

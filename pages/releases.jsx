@@ -9,7 +9,11 @@ import { Hero, Grid, ThumbBooks } from '../components/';
 import imgHero from '../public/images/bg.jpg';
 
 const ReleasesPage = () => {
-	const { releasesData } = useBooks();
+	const { releasesData } = useBooks()
+
+	const releaseDate = new Date(releasesData.published)
+
+	console.log(releasesData.published)
 
 	return (
 		<Layout>
@@ -24,7 +28,10 @@ const ReleasesPage = () => {
 						<ThumbBooks
 							key={releasePage.id}
 							cover={`${IMAGE_BASE_URL}${releasePage.image_main.path}`}
+							title={releasePage.title}
 							link={releasePage.slug}
+							// date={releasePage.published}
+							text="Read More"
 						/>
 					))}
 				</Grid>
