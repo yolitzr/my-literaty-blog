@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@mailchimp/mailchimp_marketing": "^3.0.72",
     "axios": "^0.21.1",
     "disqus-react": "^1.1.2",
     "next": "11.0.1",

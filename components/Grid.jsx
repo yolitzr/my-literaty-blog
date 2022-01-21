@@ -6,7 +6,7 @@ export const Grid = ({header, children}) => {
 			<h3 className="mt-6 text-left text-3xl md:text-4xl font-bold uppercase tracking-wider text-book-main">
 				{header}
 			</h3>
-			<div className="grid gri-cols-1 gap-2 mt-6 md:grid-cols-grid lg:gap-8">
+			<div className="grid gri-cols-1 gap-2 mt-6 md:grid-cols-grid lg:gap-3">
 				{children}
 			</div>
 		</section>

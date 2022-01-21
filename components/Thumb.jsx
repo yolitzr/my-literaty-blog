@@ -9,7 +9,7 @@ export const Thumb = ({ title, cover, authorName, authorLastName, text , link}) 
     }
 
 	return (
-		<div className="relative w-full my-2 mx-auto blur-featured transition-all duration-200 transform hover:translate-y-1 hover:shadow-xl hover:scale-95">
+		<div className="relative w-full mx-auto my-2 blur-featured">
 			<div className="w-full h-44 md:h-64 lg:h-80">
 				<Image
 					loader={myLoader}
@@ -19,15 +19,15 @@ export const Thumb = ({ title, cover, authorName, authorLastName, text , link}) 
 					objectFit="cover"
 				/>
 			</div>
-			<div className="absolute bottom-0 ml-6 mb-6 z-10">
-				<h2 className="text-lg lg:text-3xl font-bold leading-6 tracking-wider text-book-white">
+			<div className="absolute bottom-0 z-10 mb-6 ml-6">
+				<h2 className="text-lg font-bold leading-6 tracking-wider lg:text-3xl text-book-white">
 					{title}
 				</h2>
-				<h3 className="mt-1 text-lg lg:text-2xl font-bold leading-6 tracking-wider text-book-white">
+				<h3 className="mt-1 text-lg font-bold leading-6 tracking-wider lg:text-2xl text-book-white">
 					{authorName} {authorLastName}
 				</h3>
 				<Link href={/book/ + link}>
-					<a className="inline-block mt-2 md:mt-4 py-2 px-3 text-xs md:text-sm uppercase tracking-wider text-book-white bg-book-second hover:border-book-neutral hover:text-book-main">
+					<a className="inline-block px-3 py-2 mt-2 text-xs font-semibold tracking-wider uppercase transition-all duration-200 transform md:mt-4 md:text-sm text-book-white bg-book-second hover:bg-book-dark hover:translate-y-1 hover:shadow-xl hover:scale-100">
 						{text}
 					</a>
 				</Link>

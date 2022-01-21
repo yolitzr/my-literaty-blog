@@ -18,13 +18,17 @@ const ReviewsPage = () => {
 				titleHero="Caro's Bookish"
 				subTitleHero="Compulsive Reader, Book Blogger and Reviewer"
 			/>
-			<main className="container mx-auto p-6 lg:py-10 lg:px-14">
+			<main className="container p-6 mx-auto lg:py-10 lg:px-14">
 				<SearchBar setSearchTerm={setSearch} />
 				<Grid header={search ? 'Search Results' : 'List Reviews'}>
-					{reviewsData.slice(0, 8).map((reviewPage) => (
+					{reviewsData?.slice(0, 8)?.map((reviewPage) => (
 						<ThumbBooks
-							key={reviewPage.id}
-							cover={`${IMAGE_BASE_URL}${reviewPage.image_main.path}`}
+						key={reviewPage?.id}
+						cover={`${IMAGE_BASE_URL}${reviewPage?.image_main?.path}`}
+						title={reviewPage?.title}
+						link={reviewPage?.slug}
+						// date={releasePage.published}
+						text="Read More"
 						/>
 					))}
 				</Grid>

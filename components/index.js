@@ -11,8 +11,10 @@ import { Tabs } from './Tabs'
 import { Wrapper } from "./Wrapper";
 import { AuthorCard } from "./authorCard";
 import { DisqusComments } from "./DisqusComments";
+import { Subscribe } from "./Subscribe";
 
 export {
+	Subscribe,
 	Footer,
 	Grid,
 	Hero,
