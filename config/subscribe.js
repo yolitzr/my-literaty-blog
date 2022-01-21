@@ -5,7 +5,7 @@ mailchimp.setConfig({
   server: process.env.NEXT_PUBLIC_MAILCHIMP_API_SERVER
 })
 
-export default async (req, res) => {
+export default Suscribe = (req, res) => {
   const { email } = req.body
 
   if (!email) {
@@ -13,7 +13,7 @@ export default async (req, res) => {
   }
 
   try {
-    await mailchimp.lists.addListMember(process.env.MAILCHIMP_AUDIENCE_ID, {
+     mailchimp.lists.addListMember(process.env.MAILCHIMP_AUDIENCE_ID, {
       email_address: email,
       status: 'subscribed'
     })

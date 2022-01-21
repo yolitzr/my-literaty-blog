@@ -9,27 +9,27 @@ import imgHero from '../public/images/bg.jpg'
 
 export default function Home() {
 	const { featuredData, reviewsData, releasesData } = useBooks()
-
 	return (
 		<Layout>
 			<Hero
-				bgHero={imgHero}
+				bgHero={imgHero.src}
 				titleHero="Yolit's Books"
 				subTitleHero="Compulsive Reader, Book Blogger and Reviewer"
 			/>
-			<main className="container p-8 mx-auto lg:py-10 lg:px-14">
+			<main className="lg:py-10 lg:px-14 container p-8 mx-auto">
 				<Grid header="Featured Releases">
 					{featuredData?.map((book) => (
-						<Thumb
-							key={book?.id}
-							cover={`${IMAGE_BASE_URL}${book?.image_main?.path}`}
-							title={book?.title}
-							authorName={book?.author?.name}
-							authorLastName={book?.author?.surname}
-							link={book?.slug}
-							text="Read More"
-						/>
-					)).splice(0, 4)}
+							<Thumb
+								key={book?.id}
+								cover={`${IMAGE_BASE_URL}${book?.image_main?.path}`}
+								title={book?.title}
+								authorName={book?.author?.name}
+								authorLastName={book?.author?.surname}
+								link={book?.slug}
+								text="Read More"
+							/>
+						))
+						.splice(0, 4)}
 				</Grid>
 				<Grid header="Lastet Reviews">
 					{reviewsData?.slice(0, 4)?.map((review) => (
@@ -47,7 +47,7 @@ export default function Home() {
 						/>
 					))}
 				</Grid>
-				<Subscribe />
+				{/* <Subscribe /> */}
 				{/* <Wrapper>
 						<div>
 							Hola
@@ -66,5 +66,5 @@ export default function Home() {
 				</Grid>
 			</main>
 		</Layout>
-	)
+	);
 }

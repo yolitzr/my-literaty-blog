@@ -31,11 +31,13 @@ export const ThumbPost = ({ title, authorName,	authorLastName,	editorial,	summar
 					{editorial}
 				</h4>
 				<div className="flex flex-col">
-					<div className='h-24'>
-						<p className="mt-6 text-sm leading-6 tracking-wide text-book-gray special-truncate">{summary}</p>
+					<div className="h-24">
+						<p className="mt-6 text-sm leading-6 tracking-wide text-book-gray special-truncate">
+							{summary}
+						</p>
 					</div>
 					<div className="flex mt-4">
-						<figure className='relative object-cover h-16 m-2 transition duration-500 ease-in-out hover:opacity-95'>
+						<figure className="relative object-cover h-16 m-2 transition duration-500 ease-in-out hover:opacity-95">
 							<Image
 								loader={myLoader}
 								src={authorImg}
@@ -46,11 +48,13 @@ export const ThumbPost = ({ title, authorName,	authorLastName,	editorial,	summar
 								className="w-16 h-16 rounded-full"
 							/>
 						</figure>
-						<div className='flex flex-col justify-center ml-2'>
-							<span className='font-semibold text-book-dark'>Author</span>
+						<div className="flex flex-col justify-center ml-2">
+							<span className="font-semibold text-book-dark">
+								Author
+							</span>
 							<Link href={/book/ + link}>
 								<a className="mb-1 text-xl font-bold text-center text-book-main hover:opacity-75">
-									<h3 className='text-base'>
+									<h3 className="text-base">
 										{authorName} {authorLastName}
 									</h3>
 								</a>
@@ -58,18 +62,18 @@ export const ThumbPost = ({ title, authorName,	authorLastName,	editorial,	summar
 						</div>
 					</div>
 				</div>
-			</div>
-			<div className="relative flex items-center justify-center px-6 pt-4 pb-2">
-				<div className="absolute transition-all duration-200 ease-in-out transform top-3 hover:translate-y-1 hover:scale-100">
-					<Link href={/book/ + link}>
-						<a className="px-6 py-3 text-sm font-semibold leading-3 tracking-wider uppercase text-book-white bg-book-second">
-							{text}
-						</a>
-					</Link>
+				<div className="flex items-center justify-center px-6 pt-4 pb-2 mt-4">
+					<div className="transition-all duration-200 ease-in-out transform top-3 hover:translate-y-1 hover:scale-100">
+						<Link href={/book/ + link}>
+							<a className="px-4 py-2 text-sm font-semibold leading-3 tracking-wider uppercase rounded text-book-white bg-book-second">
+								{text}
+							</a>
+						</Link>
+					</div>
 				</div>
-			</div>
+			</div>	
 		</article>
-	)
+	);
 }
 
 ThumbPost.propTypes = {
