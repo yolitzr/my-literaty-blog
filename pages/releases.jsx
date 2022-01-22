@@ -1,12 +1,12 @@
-import { Layout } from '../components/layout';
+import { Layout } from '../components/layout'
 // Config
-import { IMAGE_BASE_URL } from '../config/config.js';
+import { IMAGE_BASE_URL } from '../config/config.js'
 //Hook
-import { useBooks } from '../hooks/useBooks';
+import { useBooks } from '../hooks/useBooks'
 //Components
-import { Hero, Grid, ThumbBooks } from '../components/';
+import { Hero, Grid, ThumbBooks } from '../components/'
 //Images
-import imgHero from '../public/images/bg.jpg';
+import imgHero from '../public/images/bg.jpg'
 
 const ReleasesPage = () => {
 	const { releasesData } = useBooks()
@@ -35,7 +35,7 @@ const ReleasesPage = () => {
 				</Grid>
 			</main>
 		</Layout>
-	);
-};
+	)
+}
 
-export default ReleasesPage;
+export default ReleasesPage

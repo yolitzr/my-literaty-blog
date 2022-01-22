@@ -34,4 +34,4 @@ Hero.propTypes = {
 	authorFullName: PropTypes.string,
 	editorial: PropTypes.string,
 	summary: PropTypes.string,
-};
+}

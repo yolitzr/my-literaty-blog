@@ -12,11 +12,9 @@ export const AdBanner = () => {
   return (
     <ins
       className="adsbygoogle adbanner-customize"
-      style={{
-        display: "block"
-      }}
+      style={{ display: "block" }}
       data-ad-client={process.env.NEXT_PUBLIC_GOOGLE_ADSENSE}
     />
-  );
+  )
 
 }

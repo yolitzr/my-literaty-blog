@@ -9,6 +9,7 @@ import imgHero from '../public/images/bg.jpg'
 
 export default function Home() {
 	const { featuredData, reviewsData, releasesData } = useBooks()
+
 	return (
 		<Layout>
 			<Hero
@@ -28,11 +29,10 @@ export default function Home() {
 								link={book?.slug}
 								text="Read More"
 							/>
-						))
-						.splice(0, 4)}
+						)).splice(0, 4)}
 				</Grid>
 				<Grid header="Lastet Reviews">
-					{reviewsData?.slice(0, 4)?.map((review) => (
+					{reviewsData?.results?.slice(0,4)?.map((review) => (
 						<ThumbPost
 							key={review?.id}
 							cover={`${IMAGE_BASE_URL}${review?.image_main?.path}`}

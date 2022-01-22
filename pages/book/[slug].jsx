@@ -11,7 +11,7 @@ import axios from 'axios'
 function renderStars(stars) {
 	var indents = [];
 	for (let i = 0; i < stars; i++) {
-		indents.push(<i className="fas fa-star"></i>);
+		indents.push(<i className="fas fa-star"></i>)
 	}
 	return (
 		<span className="fa-2x text-book-main">
@@ -44,14 +44,14 @@ const BookDetail = ({ book }) => {
 								<article className="rounded-b-lg">
 									{book?.review !== null ? (
 										<Tabs
-											synopsis={book?.synopsis}
-											review={book?.review?.description}
+											tabNameOne={book?.synopsis}
+											tabNameTwo={book?.review?.description}
 											tabOne="Synopsis"
 											tabTwo="My Review"
 										/>
 									) : (
 										<Tabs
-											synopsis={book?.synopsis}
+											tabNameOne={book?.synopsis}
 											tabOne="Synopsis"
 										/>
 									)}
@@ -84,37 +84,20 @@ const BookDetail = ({ book }) => {
 									</div>
 									<div className="w-full mt-8 sm:ml-4">
 										<h3 className="text-3xl font-bold leading-9 tracking-wide text-center text-book-main sm:text-4xl">
-											{book?.author?.name}{' '}
-											{book?.author?.surname}
+											{book?.author?.name} {book?.author?.surname}
 										</h3>
 										<p
 											className="px-2 py-6 mb-0 text-sm leading-6"
-											dangerouslySetInnerHTML={{
-												__html: book.author.description,
-											}}
+											dangerouslySetInnerHTML={{__html: book.author.description}}
 										/>
 										<div className="flex items-center justify-center">
-											{Object?.keys(
-												book?.author?.social_networks
-											)?.map((social, idx) => (
-												<a
-													href={
-														book?.author
-															?.social_networks[
-															social
-														]?.url
-													}
+											{Object?.keys(book?.author?.social_networks)?.map((social, idx) => (
+												<a 
+													href={book?.author?.social_networks[social]?.url}
 													key={idx}
 													className="w-10 h-10 mr-3 border-2 rounded-full border-book-second text-book-second hover:bg-book-second hover:text-book-light"
 												>
-													<i
-														className={`${
-															book?.author
-																?.social_networks[
-																social
-															]?.icon
-														} ${`flex justify-center mt-1 text-lg`}`}
-													></i>
+													<i className={`${book?.author?.social_networks[social]?.icon} ${`flex justify-center mt-1 text-lg`}`}></i>
 												</a>
 											))}
 										</div>
@@ -174,11 +157,7 @@ const BookDetail = ({ book }) => {
 										<span className="ml-3 mr-2 font-semibold">
 											Publication Date:
 										</span>
-										<span className="text-base text-book-gray">{`${
-											date?.getMonth() + 1
-										} / ${date?.getDay() + 1} / ${
-											date?.getFullYear() + 1
-										}`}</span>
+										<span className="text-base text-book-gray">{`${date?.getMonth() + 1} / ${date?.getDay() + 1} / ${date?.getFullYear() + 1}`}</span>
 									</div>
 									<div className="flex items-center mt-1">
 										<i className="far fa-file"></i>
@@ -195,29 +174,17 @@ const BookDetail = ({ book }) => {
 										Find this book on:
 									</h4>
 									<div className="flex items-center">
-										{Object.keys(book?.purchases)?.map(
-											(purchase, idx) => (
-												<a
-													href={
-														book?.purchases[
-															purchase
-														]?.url
-													}
+										{Object.keys(book?.purchases)?.map((purchase, idx) => (
+												<a 
+													href={book?.purchases[purchase]?.url}
 													key={idx}
 													target="_blank"
 													rel="noreferrer"
 													className="flex items-center px-3 py-3 mt-4 mr-2 text-sm tracking-wide border-2 rounded-full border-book-second text-book-second hover:bg-book-second hover:text-book-light"
 												>
-													<i
-														className={`${
-															book?.purchases[
-																purchase
-															]?.icon
-														} ${`fa-lg`}`}
-													></i>
+													<i className={`${book?.purchases[purchase]?.icon} ${`fa-lg`}`}></i>
 												</a>
-											)
-										)}
+											))}
 									</div>
 								</div>
 							</div>
@@ -268,7 +235,7 @@ const BookDetail = ({ book }) => {
 				</section>
 			</main>
 		</Layout>
-	);
+	)
 }
 
 export async function getServerSideProps({ params }) {

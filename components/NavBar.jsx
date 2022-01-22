@@ -11,23 +11,21 @@ export const NavBar = () => {
 
     //Shink Navigation
     const scrollFunction = () => {
-        window.onscroll = () => {
-            if (
-                document.body.scrollTop > 100 ||
-                document.documentElement.scrollTop > 35
-            ) {
-                document.getElementById('navbar').style.background =
-                    '#86425f';
-                document.getElementById('navbar').style.transition =
-                    'all 0.5s';
-            } else {
-                document.getElementById('navbar').style.background = 'none';
-            }
-        };
-    };
+			window.onscroll = () => {
+				if (
+					document.body.scrollTop > 100 ||
+					document.documentElement.scrollTop > 35
+				) {
+					document.getElementById('navbar').style.background = '#86425f'
+					document.getElementById('navbar').style.transition = 'all 0.5s'
+				} else {
+					document.getElementById('navbar').style.background = 'none'
+				}
+			}
+    }
 
     useEffect(() => {
-        scrollFunction();
+      scrollFunction()
     }, []);
 
 	return (
@@ -53,10 +51,9 @@ export const NavBar = () => {
 					</button>
 				</div>
 				<ul
-					className={
-						showLinks
-							? 'w-full lg:flex lg:items-center lg:w-auto'
-							: 'hidden lg:block'
+					className={ showLinks
+						? 'w-full lg:flex lg:items-center lg:w-auto'
+						: 'hidden lg:block'
 					}
 				>
 					<li className="flex flex-col justify-center items-center lg:flex-row">
@@ -73,5 +70,5 @@ export const NavBar = () => {
 				</ul>
 			</nav>
 		</header>
-	);
+	)
 }

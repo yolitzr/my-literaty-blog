@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import Image from 'next/image'
-import Link from 'next/link';
+import Link from 'next/link'
 
 export const ThumbPost = ({ title, authorName,	authorLastName,	editorial,	summary, text, cover, link, authorImg }) => {
 	const myLoader = ({ src }) => {
@@ -62,7 +62,7 @@ export const ThumbPost = ({ title, authorName,	authorLastName,	editorial,	summar
 						</div>
 					</div>
 				</div>
-				<div className="flex items-center justify-center px-6 pt-4 pb-2 mt-4">
+				<div className="flex items-center justify-center px-6 pt-4 pb-2 mb-2 mt-2">
 					<div className="transition-all duration-200 ease-in-out transform top-3 hover:translate-y-1 hover:scale-100">
 						<Link href={/book/ + link}>
 							<a className="px-4 py-2 text-sm font-semibold leading-3 tracking-wider uppercase rounded text-book-white bg-book-second">
@@ -73,7 +73,7 @@ export const ThumbPost = ({ title, authorName,	authorLastName,	editorial,	summar
 				</div>
 			</div>	
 		</article>
-	);
+	)
 }
 
 ThumbPost.propTypes = {

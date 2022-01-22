@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types'
 import Image from 'next/image'
-import Link from 'next/link';
+import Link from 'next/link'
 
 export const Thumb = ({ title, cover, authorName, authorLastName, text , link}) => {
 
     const myLoader = ({src}) => {
-        return `${src}`;
+        return `${src}`
     }
 
 	return (
@@ -33,7 +33,7 @@ export const Thumb = ({ title, cover, authorName, authorLastName, text , link}) 
 				</Link>
 			</div>
 		</div>
-	);
+	)
 }
 
 Thumb.propTypes = {

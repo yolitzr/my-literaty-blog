@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 
-export const Tabs = ({ synopsis, review, tabOne, tabTwo }) => {
-	const [openTab, setOpenTab] = React.useState(1);
+export const Tabs = ({ tabNameOne, tabNameTwo, tabOne, tabTwo }) => {
+	const [openTab, setOpenTab] = React.useState(1)
 
 	return (
 		<div className="flex flex-wrap">
@@ -28,7 +28,7 @@ export const Tabs = ({ synopsis, review, tabOne, tabTwo }) => {
 							{tabOne}
 						</a>
 					</li>
-					{review && (
+					{tabNameTwo && (
 						<li className="flex-auto mr-2 -mb-px text-center last:mr-0">
 							<a
 								className={
@@ -55,26 +55,20 @@ export const Tabs = ({ synopsis, review, tabOne, tabTwo }) => {
 							<div className={openTab === 1 ? 'block' : 'hidden'}>
 								<div
 									dangerouslySetInnerHTML={{
-										__html: synopsis,
+										__html: tabNameOne,
 									}}
 								/>
-
-								{/* {synopsis}
-								</p> */}
 							</div>
 							<div className={openTab === 2 ? 'block' : 'hidden'}>
 								<div
-									dangerouslySetInnerHTML={{ __html: review }}
+									dangerouslySetInnerHTML={{ __html: tabNameTwo }}
 								/>
 								{/* <p dangerouslySetInnerHTML={{ __html: review }} /> */}
-								{/* <p>
-									{review}
-								</p> */}
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	);
-};
+	)
+}

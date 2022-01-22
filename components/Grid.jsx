@@ -10,7 +10,7 @@ export const Grid = ({header, children}) => {
 				{children}
 			</div>
 		</section>
-	);
+	)
 }
 
 Grid.propTypes = {
