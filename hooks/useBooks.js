@@ -95,7 +95,7 @@ export function useBooks() {
 			console.log(error)
 		}
 	}
-
+	
 	useEffect(() => {
 		bookReviews(search)
 		featuredBooks()

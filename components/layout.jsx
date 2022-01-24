@@ -20,7 +20,7 @@ export const Layout = ({ title = `Yolit's Books`, children }) => {
 
 			<Footer
 				titleFooter="Yolit's Books | Copyright © 2022 All rights reserved."
-				subTitleFooter="Designed by Yolitzareth Zacarias for CA Designers in Next.js"
+				subTitleFooter="Designed by Yolitzareth Zacarias for ca-tech.dev on Next.js"
 			/>
 		</Fragment>
 	);

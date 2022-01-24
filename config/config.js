@@ -1,6 +1,7 @@
-const API_URL = 'http://admin.yolitsbooks.com/api/v1/book/list';
-const API_URL_DETAILS = 'http://admin.yolitsbooks.com/api/v1/book/'; 
-const IMAGE_BASE_URL = 'http://admin.yolitsbooks.com';
+const API_URL = 'https://yolitsbooks.com/api/v1/book/list';
+const API_URL_DETAILS = 'https://yolitsbooks.com/api/v1/book/'; 
+const IMAGE_BASE_URL = 'https://yolitsbooks.com';
+
 
 export {
     API_URL,

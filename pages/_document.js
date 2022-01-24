@@ -25,6 +25,7 @@ export default class MyDocument extends Document {
           {/* Google Adsense */}
           <script
             async
+            data-ad-client={process.env.NEXT_PUBLIC_GOOGLE_ADSENSE}
             src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
           />
         </Head>

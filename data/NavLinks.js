@@ -19,8 +19,8 @@ export const NAV_LINKS = [
 		url: '/releases',
 		name: 'Book Releases 2022',
 	},
-	{
-		url: '/policies',
-		name: 'Policies',
-	},
+	// {
+	// 	url: '/policies',
+	// 	name: 'Policies',
+	// },
 ];

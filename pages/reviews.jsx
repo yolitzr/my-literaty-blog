@@ -14,14 +14,14 @@ const ReviewsPage = () => {
     return (
 			<Layout>
 				<Hero
-					bgHero={imgHero}
-					titleHero="Caro's Bookish"
+					bgHero={imgHero.src}
+					titleHero="Yolit's Books"
 					subTitleHero="Compulsive Reader, Book Blogger and Reviewer"
 				/>
 				<main className="container p-6 mx-auto lg:py-10 lg:px-14">
 					<SearchBar setSearchTerm={setSearch} />
 					<Grid header={search ? 'Search Results' : 'List Reviews'}>
-						{reviewsData?.slice(0, 8)?.map((reviewPage) => (
+						{reviewsData?.results?.slice(0, 8)?.map((reviewPage) => (
 							<ThumbBooks
 							key={reviewPage?.id}
 							cover={`${IMAGE_BASE_URL}${reviewPage?.image_main?.path}`}

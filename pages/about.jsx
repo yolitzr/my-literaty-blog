@@ -11,8 +11,8 @@ const AboutPage = () => {
 	return (
 		<Layout title="About Me">
 			<Hero
-				bgHero={imgHero}
-				titleHero="Caro's Bookish"
+				bgHero={imgHero.src}
+				titleHero="Yolit's Books"
 				subTitleHero="Compulsive Reader, Book Blogger and Reviewer"
 			/>
 			<main className="container mx-auto p-8 lg:py-10 lg:px-14">
@@ -25,9 +25,9 @@ const AboutPage = () => {
 							<Image
 								alt="Yolitzareth Zacarias"
 								src={imgMe}
-								width="300"
-								height="300"
-								className="w-64 border-4 border-book-dark rounded-full"
+								width="250"
+								height="250"
+								className="rounded-full"
 							/>
 						</figure>
 						<div>

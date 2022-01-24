@@ -16,7 +16,7 @@ const ReleasesPage = () => {
 	return (
 		<Layout>
 			<Hero
-				bgHero={imgHero}
+				bgHero={imgHero.src}
 				titleHero="Yolit's Bookshelf"
 				subTitleHero="Compulsive Reader, Book Blogger and Reviewer"
 			/>
