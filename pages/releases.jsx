@@ -17,7 +17,7 @@ const ReleasesPage = () => {
 		<Layout>
 			<Hero
 				bgHero={imgHero.src}
-				titleHero="Yolit's Bookshelf"
+				titleHero="Yolit's Books"
 				subTitleHero="Compulsive Reader, Book Blogger and Reviewer"
 			/>
 			<main className="container p-6 mx-auto lg:py-10 lg:px-14">

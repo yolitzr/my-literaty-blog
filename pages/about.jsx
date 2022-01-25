@@ -31,7 +31,7 @@ const AboutPage = () => {
 							/>
 						</figure>
 						<div>
-							<p className="text-sm leading-6 text-book-gray mt-6">
+							<p className="text-book-gray mt-6">
 								¡Hi!, I am Yolit , a girl Venezuelan and lover
 								of books, I’ve been passionate about reading for
 								years, the books have been my warm refuge, that

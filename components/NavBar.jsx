@@ -7,7 +7,8 @@ import Logo from '../public/images/logo.svg';
 import { NAV_LINKS } from '../data/NavLinks';
 
 export const NavBar = () => {
-    const [showLinks, setShowLinks] = useState(false);
+    const [showLinks, setShowLinks] = useState(false)
+		const [color, setColor] = useState(false)
 
     //Shink Navigation
     const scrollFunction = () => {
@@ -26,18 +27,28 @@ export const NavBar = () => {
 
     useEffect(() => {
       scrollFunction()
-    }, []);
+
+			if (showLinks === true) {
+				setColor('#86425f')
+				console.log('Hola')
+			}else {
+				setColor('transparent')
+			}
+
+    }, [showLinks]);
 
 	return (
 		<header id="navbar" className="fixed mt-0 w-full z-20">
-			<nav className="flex items-center justify-between flex-wrap mx-auto py-4 px-12 lg:px-32">
+			<nav style={{backgroundColor: color}} className="flex items-center justify-between flex-wrap mx-auto py-4 px-12 lg:px-32">
 				<div className="flex items-center flex-no-shrink text-book-white">
 					<Link href="/">
 						<a>
 							<Image
 								src={Logo}
-								alt="Amante de los Libros"
+								alt="Yolit Loves Books"
 								className="focus:outline-none"
+								width="50"
+								height="50"
 							/>
 						</a>
 					</Link>

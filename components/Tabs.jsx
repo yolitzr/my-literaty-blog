@@ -10,7 +10,7 @@ export const Tabs = ({ tabNameOne, tabNameTwo, tabOne, tabTwo }) => {
 					className="flex flex-row flex-wrap pt-3 pb-4 mb-0 list-none"
 					role="tablist"
 				>
-					<li className="flex-auto mr-2 -mb-px text-center last:mr-0">
+					<li className="flex-auto mr-2 -mb-px text-center last:mr-0 cursor-pointer">
 						<a
 							className={
 								'text-xs font-bold uppercase px-5 py-3 rounded block leading-normal ' +
@@ -25,11 +25,11 @@ export const Tabs = ({ tabNameOne, tabNameTwo, tabOne, tabTwo }) => {
 							data-toggle="tab"
 							role="tablist"
 						>
-							{tabOne}
+							{tabNameOne}
 						</a>
 					</li>
 					{tabNameTwo && (
-						<li className="flex-auto mr-2 -mb-px text-center last:mr-0">
+						<li className="flex-auto mr-2 -mb-px text-center last:mr-0 cursor-pointer">
 							<a
 								className={
 									'text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal ' +
@@ -44,24 +44,26 @@ export const Tabs = ({ tabNameOne, tabNameTwo, tabOne, tabTwo }) => {
 								data-toggle="tab"
 								role="tablist"
 							>
-								{tabTwo}
+								{tabNameTwo}
 							</a>
 						</li>
 					)}
 				</ul>
-				<div className="relative flex flex-col w-full min-w-0 mb-6 break-words bg-white rounded">
-					<div className="flex-auto px-4 py-5">
+				<div className="relative flex flex-col w-full min-w-0 mb-6 break-words bg-book-white rounded">
+					<div className="flex-auto px-2 md:px-4 py-5">
 						<div className="tab-content tab-space">
 							<div className={openTab === 1 ? 'block' : 'hidden'}>
 								<div
 									dangerouslySetInnerHTML={{
-										__html: tabNameOne,
+										__html: tabOne,
 									}}
+									className='text-sm lg:text-base'
 								/>
 							</div>
 							<div className={openTab === 2 ? 'block' : 'hidden'}>
 								<div
-									dangerouslySetInnerHTML={{ __html: tabNameTwo }}
+									dangerouslySetInnerHTML={{ __html: tabTwo }}
+									className='text-sm lg:text-base'
 								/>
 								{/* <p dangerouslySetInnerHTML={{ __html: review }} /> */}
 							</div>

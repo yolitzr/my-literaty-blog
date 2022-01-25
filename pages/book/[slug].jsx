@@ -1,7 +1,7 @@
 //Components
 import React from 'react'
 import Image from 'next/image'
-import { Layout, Hero, Tabs, DisqusComments } from '../../components'
+import { Layout, Hero, Tabs, DisqusComments, AdBanner } from '../../components'
 // Config
 import { IMAGE_BASE_URL } from '../../config/config'
 import imgSep from '../../public/images/separator.png'
@@ -39,20 +39,20 @@ const BookDetail = ({ book }) => {
 				<section>
 					<section className="grid lg:grid-cols-gridTwo lg:mt-12">
 						{/* Sinopsis and Review */}
-						<div className="flex flex-col shadow-lg height-custom lg:col-span-8">
+						<div className="flex flex-col md:shadow-lg height-custom lg:col-span-8">
 							<div className="p-6 md:py-6 md:px-10">
 								<article className="rounded-b-lg">
 									{book?.review !== null ? (
 										<Tabs
-											tabNameOne={book?.synopsis}
-											tabNameTwo={book?.review?.description}
-											tabOne="Synopsis"
-											tabTwo="My Review"
+											tabOne={book?.synopsis}
+											tabTwo={book?.review?.description}
+											tabNameOne="Synopsis"
+											tabNameTwo="My Review"
 										/>
 									) : (
 										<Tabs
-											tabNameOne={book?.synopsis}
-											tabOne="Synopsis"
+											tabOne={book?.synopsis}
+											tabNameOne="Synopsis"
 										/>
 									)}
 								</article>
@@ -188,6 +188,8 @@ const BookDetail = ({ book }) => {
 									</div>
 								</div>
 							</div>
+
+							{/* <AdBanner /> */}
 						</div>
 					</section>
 					<section className="relative">
@@ -256,4 +258,4 @@ export async function getServerSideProps({ params }) {
   return { props: { book } }
 }
 
-export default BookDetail;
+export default BookDetail

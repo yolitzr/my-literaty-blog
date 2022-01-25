@@ -14,11 +14,11 @@ export const Hero = ({ bgHero, titleHero, subTitleHero, authorFullName, editoria
 					<h4 className="mt-4 italic tracking-wide text-center sm:text-base text-book-light">
 						{subTitleHero}
 					</h4>
-					<h3 className='mt-4 text-2xl font-semibold text-center text-book-light lg:text-3xl'>{authorFullName}</h3>
-					<h4 className="mt-2 text-xl text-center text-book-light">
+					<h3 className='mt-4 text-xl font-semibold text-center text-book-light lg:text-3xl'>{authorFullName}</h3>
+					<h4 className="mt-2 text-lg text-center text-book-light">
 						{editorial}
 					</h4>
-					<span className="block w-3/4 mx-auto mt-4 italic text-center text-book-light">
+					<span className="text-xs md:text-sm block w-3/4 mx-auto mt-4 italic text-center text-book-light">
 						{summary}
 					</span>
 				</div>
