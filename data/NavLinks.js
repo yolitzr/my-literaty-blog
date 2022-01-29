@@ -20,6 +20,10 @@ export const NAV_LINKS = [
 		name: 'Book Releases 2022',
 	},
 	{
+		url: '/my-tbr',
+		name: 'My TBR'
+	},
+	{
 		url: '/policies',
 		name: 'Policies',
 	},

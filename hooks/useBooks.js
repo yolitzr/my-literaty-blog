@@ -10,11 +10,26 @@ const initialState = {
 }
 
 export function useBooks() {
-	const [bookData, setBookData] = useState(initialState)
+	const [bookData, setBookData] = useState([])
 	const [featuredData, setFeaturedData] = useState([])
 	const [reviewsData, setReviewsData] = useState(initialState)
 	const [releasesData, setReleasesData] = useState([])
 	const [search, setSearch] = useState('')
+
+	const allBooks = async () => {
+		try {
+			const books = await apiSettings.fetchBooks({
+				order: {
+					field: 'book.id',
+					dir: 'asc',
+				}
+			})
+
+			setBookData(books.results)			
+		} catch (error) {
+			console.log(error)
+		}
+	}
 
 	const featuredBooks = async () => {
 		try {
@@ -95,12 +110,15 @@ export function useBooks() {
 			console.log(error)
 		}
 	}
+
+	console.log(bookData)
 	
 	useEffect(() => {
-		bookReviews(search)
+		bookReviews(search, reviewsData.page + 1)
 		featuredBooks()
 		realeseBooks()
-	}, [search])
+		allBooks()
+	}, [search, reviewsData.page])
 
-	return { featuredData, reviewsData, releasesData, search, setSearch }
+	return { bookData, featuredData, reviewsData, releasesData, search, setSearch }
 }

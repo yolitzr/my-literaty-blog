@@ -189,7 +189,7 @@ const BookDetail = ({ book }) => {
 								</div>
 							</div>
 
-							{/* <AdBanner /> */}
+							<AdBanner />
 						</div>
 					</section>
 					<section className="relative">

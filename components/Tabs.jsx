@@ -54,16 +54,14 @@ export const Tabs = ({ tabNameOne, tabNameTwo, tabOne, tabTwo }) => {
 						<div className="tab-content tab-space">
 							<div className={openTab === 1 ? 'block' : 'hidden'}>
 								<div
-									dangerouslySetInnerHTML={{
-										__html: tabOne,
-									}}
-									className='text-sm lg:text-base'
+									dangerouslySetInnerHTML={{ __html: tabOne }}
+									className='text-sm lg:text-base text-book-gray'
 								/>
 							</div>
 							<div className={openTab === 2 ? 'block' : 'hidden'}>
 								<div
 									dangerouslySetInnerHTML={{ __html: tabTwo }}
-									className='text-sm lg:text-base'
+									className='text-sm lg:text-base text-book-gray'
 								/>
 								{/* <p dangerouslySetInnerHTML={{ __html: review }} /> */}
 							</div>
