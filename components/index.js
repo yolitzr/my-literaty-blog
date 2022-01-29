@@ -9,7 +9,6 @@ import { ThumbPost } from './ThumbPost'
 import { Layout } from './layout'
 import { Tabs } from './Tabs'
 import { Wrapper } from "./Wrapper"
-import { AuthorCard } from "./authorCard"
 import { DisqusComments } from "./DisqusComments"
 import { Subscribe } from "./Subscribe"
 import { AdBanner } from './AdBanner'
@@ -27,7 +26,6 @@ export {
 	Layout,
 	Tabs,
 	Wrapper,
-	AuthorCard,
 	DisqusComments,
 	AdBanner,
 }

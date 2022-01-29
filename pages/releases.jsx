@@ -9,9 +9,9 @@ import { Hero, Grid, ThumbBooks } from '../components/'
 import imgHero from '../public/images/bg.jpg'
 
 const ReleasesPage = () => {
-	const { releasesData } = useBooks()
+	const { releasesData, search, setSearch } = useBooks()
 
-	const releaseDate = new Date(releasesData.published)
+	// const releaseDate = new Date(releasesData.published)
 
 	return (
 		<Layout>

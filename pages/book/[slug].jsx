@@ -35,12 +35,12 @@ const BookDetail = ({ book }) => {
 				editorial={book?.editorial}
 				summary={book?.summary}
 			/>
-			<main className="container px-6 py-10 mx-auto lg:px-12">
+			<main className="container px-4 py-10 mx-auto lg:px-12">
 				<section>
 					<section className="grid lg:grid-cols-gridTwo lg:mt-12">
 						{/* Sinopsis and Review */}
 						<div className="flex flex-col md:shadow-lg height-custom lg:col-span-8">
-							<div className="p-6 md:py-6 md:px-10">
+							<div className="p-4 md:py-6 md:px-10">
 								<article className="rounded-b-lg">
 									{book?.review !== null ? (
 										<Tabs
@@ -72,7 +72,7 @@ const BookDetail = ({ book }) => {
 										About the Author
 									</h3>
 								</div>
-								<div className="flex flex-col items-center justify-center px-8 py-4 mt-10 rounded-lg bg-book-lighter sm:mt-12 lg:mt-14 lg:flex-row">
+								<div className="flex flex-col items-center justify-center px-6 py-4 mt-10 rounded-lg bg-book-lighter sm:mt-12 lg:mt-14 lg:flex-row">
 									<div className="mt-4 md:w-2/5 md:mx-auto md:flex md:justify-center">
 										<Image
 											src={`${IMAGE_BASE_URL}${book?.author?.image?.path}`}

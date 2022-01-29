@@ -39,7 +39,7 @@ export const NavBar = () => {
 
 	return (
 		<header id="navbar" className="fixed mt-0 w-full z-20">
-			<nav style={{backgroundColor: color}} className="flex items-center justify-between flex-wrap mx-auto py-4 px-12 lg:px-32">
+			<nav style={{backgroundColor: color}} className="flex items-center justify-between flex-wrap mx-auto py-4 px-10 lg:px-32">
 				<div className="flex items-center flex-no-shrink text-book-white">
 					<Link href="/">
 						<a>
@@ -47,8 +47,8 @@ export const NavBar = () => {
 								src={Logo}
 								alt="Yolit Loves Books"
 								className="focus:outline-none"
-								width="50"
-								height="50"
+								width="45"
+								height="45"
 							/>
 						</a>
 					</Link>
