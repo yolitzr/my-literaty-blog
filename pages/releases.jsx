@@ -27,6 +27,7 @@ const ReleasesPage = () => {
 							key={releasePage?.id}
 							cover={`${IMAGE_BASE_URL}${releasePage?.image_main?.path}`}
 							title={releasePage?.title}
+							summary={releasePage?.summary}
 							link={releasePage?.slug}
 							// date={releasePage.published}
 							text="Read More"

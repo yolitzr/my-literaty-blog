@@ -26,6 +26,7 @@ const ReviewsPage = () => {
 							key={reviewPage?.id}
 							cover={`${IMAGE_BASE_URL}${reviewPage?.image_main?.path}`}
 							title={reviewPage?.title}
+							summary={reviewPage?.summary}
 							link={reviewPage?.slug}
 							// date={releasePage.published}
 							text="Read More"

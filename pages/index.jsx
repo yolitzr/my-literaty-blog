@@ -3,7 +3,7 @@ import { IMAGE_BASE_URL } from '../config/config.js'
 // Hooks
 import { useBooks } from '../hooks/useBooks.js'
 //Components
-import { Layout, Hero, Grid, Thumb, ThumbPost, ThumbBooks, Subscribe } from '../components/'
+import { Layout, Hero, Grid, Thumb, ThumbPost, ThumbBooks } from '../components/'
 // Images
 import imgHero from '../public/images/bg.jpg'
 
@@ -48,17 +48,13 @@ export default function Home() {
 					))}
 				</Grid>
 				{/* <Subscribe /> */}
-				{/* <Wrapper>
-						<div>
-							Hola
-						</div>
-				</Wrapper> */}
 				<Grid header="The Most-Anticipated Upcoming Book Releases 2022">
 					{releasesData?.slice(0, 4)?.map((release) => (
 						<ThumbBooks
 							key={release?.id}
 							cover={`${IMAGE_BASE_URL}${release?.image_main?.path}`}
 							title={release?.title}
+							summary={release.summary}
 							link={release?.slug}
 							text="Read More"
 						/>

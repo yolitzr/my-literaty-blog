@@ -83,7 +83,7 @@ export function useBooks() {
 				...reviews,
 				results: reviews.page > 1 ? [...prevState.results, ...reviews.results.results] : [...reviews.results] 
 			}))
-			console.log(reviews)
+
 		} catch (error) {
 			console.log(error)
 		}
@@ -110,8 +110,6 @@ export function useBooks() {
 			console.log(error)
 		}
 	}
-
-	console.log(bookData)
 	
 	useEffect(() => {
 		bookReviews(search, reviewsData.page + 1)

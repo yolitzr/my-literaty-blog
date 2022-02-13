@@ -8,7 +8,6 @@ import { ThumbBooks } from './ThumbBooks'
 import { ThumbPost } from './ThumbPost'
 import { Layout } from './layout'
 import { Tabs } from './Tabs'
-import { Wrapper } from "./Wrapper"
 import { DisqusComments } from "./DisqusComments"
 import { Subscribe } from "./Subscribe"
 import { AdBanner } from './AdBanner'
@@ -25,7 +24,6 @@ export {
 	ThumbPost,
 	Layout,
 	Tabs,
-	Wrapper,
 	DisqusComments,
 	AdBanner,
 }

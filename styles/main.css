@@ -90,81 +90,9 @@ blockquote {
     top: 0; 
     width: 100%;
     height: 100%;
-    background-image: linear-gradient(360deg, #86425f 0%, #352F4496 100%);
+    background-image: linear-gradient(360deg, #86425f 0%, #352f443a 100%);
 }
 
-/* ThumbBooks */
-.content {
-  @apply relative;
-}
-
-.content .content-overlay {
-  background: #2c272a99;
-  position: absolute;
-  height: auto;
-  width: 100%;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  opacity: 0;
-  -webkit-transition: all 0.4s ease-in-out 0s;
-  -moz-transition: all 0.4s ease-in-out 0s;
-  transition: all 0.4s ease-in-out 0s;
-}
-
-.content:hover .content-overlay{
-  opacity: 1;
-}
-
-.content-image{
-  width: 100%;
-}
-
-.content-details {
-  position: absolute;
-  text-align: center;
-  padding-left: 1em;
-  padding-right: 1em;
-  width: 100%;
-  height: 100%;
-  top: 50%;
-  left: 50%;
-  opacity: 0;
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  -webkit-transition: all 0.3s ease-in-out 0s;
-  -moz-transition: all 0.3s ease-in-out 0s;
-  transition: all 0.3s ease-in-out 0s;
-  background: #2c272a99;
-}
-
-.content:hover .content-details{
-  top: 50%;
-  left: 50%;
-  opacity: 1;
-}
-
-.content-details h1{
-  color: #fff;
-  font-weight: 500;
-  letter-spacing: 0.15em;
-  margin-bottom: 0.5em;
-  text-transform: uppercase;
-  font-size: 1em;
-}
-.fadeIn-bottom{
-  bottom: 30%;
-}
-
-.fadeIn-top{
-  top: 20%;
-}
-
-.height-cover {
-    height: 535px;
-}
 
 /* Details Height */
 .height-custom {
@@ -183,4 +111,92 @@ blockquote {
   overflow: hidden;
 }
 
+
+/* Cards Cover */
+.height-cover {
+    height: 535px;
+}
+
+.card {
+  @apply relative flex items-end overflow-hidden p-4 w-full text-center text-book-light bg-book-light;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.1), 
+  0 2px 2px rgba(0,0,0,0.1), 
+  0 4px 4px rgba(0,0,0,0.1), 
+  0 8px 8px rgba(0,0,0,0.1),
+  0 16px 16px rgba(0,0,0,0.1);
+}
+
+.card:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 110%;
+  transition: transform calc(700ms * 1.5) cubic-bezier(0.19, 1, 0.22, 1);
+  pointer-events: none;
+  background-image: linear-gradient(360deg, #86425f 0%, #352f443a 50%);
+}
+.card:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 200%;
+  pointer-events: none;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.182) 46.6%, rgba(0, 0, 0, 0.249) 53.1%, rgba(0, 0, 0, 0.320) 58.9%, rgba(0, 0, 0, 0.394) 64.3%, rgba(0, 0, 0, 0.468) 69.3%, rgba(0, 0, 0, 0.540) 74.1%, rgba(0, 0, 0, 0.607) 78.8%, rgba(0, 0, 0, 0.668) 83.6%, rgba(0, 0, 0, 0.721) 88.7%, rgba(0, 0, 0, 0.762) 94.1%, rgba(0, 0, 0, 0.790) 100%);
+  transform: translateY(-50%);
+  transition: transform calc(700ms * 2) cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.content {
+  @apply relative flex flex-col items-center w-full p-2 z-10;
+  transition: transform 700ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.title {
+  @apply text-2xl font-bold leading-normal tracking-wide;
+}
+.text {
+  @apply text-base font-normal italic leading-6 text-book-light;
+}
+.btn {
+  @apply mt-5 py-3 px-4 bg-book-main text-xs font-semibold uppercase tracking-wider text-book-light cursor-pointer border-none hover:bg-book-second;
+}
+
+@media (hover: hover) and (min-width: 600px) {
+  .card:after {
+    transform: translateY(0);
+ }
+  .content {
+    transform: translateY(calc(100% - 4.5rem));
+ }
+  .content > *:not(.title) {
+    opacity: 0;
+    transform: translateY(1rem);
+    transition: transform 700ms cubic-bezier(0.19, 1, 0.22, 1), opacity 700ms cubic-bezier(0.19, 1, 0.22, 1);
+ }
+  .card:hover, .card:focus-within {
+    align-items: center;
+ }
+  .card:hover:before, .card:focus-within:before {
+    transform: translateY(-4%);
+ }
+  .card:hover:after, .card:focus-within:after {
+    transform: translateY(-50%);
+ }
+  .card:hover .content, .card:focus-within .content {
+    transform: translateY(0);
+ }
+  .card:hover .content > *:not(.title), .card:focus-within .content > *:not(.title) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: calc(700ms / 8);
+ }
+  .card:focus-within:before, .card:focus-within:after, .card:focus-within .content, .card:focus-within .content > *:not(.title) {
+    transition-duration: 0s;
+ }
+}
 @tailwind utilities;
