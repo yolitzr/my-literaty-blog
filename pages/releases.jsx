@@ -1,16 +1,15 @@
 import { Layout } from '../components/layout'
 // Config
 import { IMAGE_BASE_URL } from '../config/config.js'
-//Hook
-import { useBooks } from '../hooks/useBooks'
+import { apiSettings } from '../config/api.js'
 //Components
 import { Hero, Grid, ThumbBooks } from '../components/'
 //Images
 import imgHero from '../public/images/bg.jpg'
 
-const ReleasesPage = () => {
-	const { releasesData, search, setSearch } = useBooks()
+const ReleasesPage = ({ releaseData }) => {
 
+	console.log(releaseData)
 	// const releaseDate = new Date(releasesData.published)
 
 	return (
@@ -22,7 +21,7 @@ const ReleasesPage = () => {
 			/>
 			<main className="container p-6 mx-auto lg:py-10 lg:px-14">
 				<Grid header="The Most-Anticipated Upcoming Book Releases 2022">
-					{releasesData?.slice(0, 8)?.map((releasePage) => (
+					{releaseData?.results?.slice(0, 8)?.map((releasePage) => (
 						<ThumbBooks
 							key={releasePage?.id}
 							cover={`${IMAGE_BASE_URL}${releasePage?.image_main?.path}`}
@@ -37,6 +36,21 @@ const ReleasesPage = () => {
 			</main>
 		</Layout>
 	)
+}
+
+export async function getServerSideProps() {
+	const releaseData = await apiSettings.fetchBooks({
+		search: [
+			{
+				field: ['book.published'],
+				operator: '>=',
+				value: '2022-01-01',
+			},
+		],
+	})
+
+  // Pass data to the page via props
+  return { props: { releaseData } }
 }
 
 export default ReleasesPage

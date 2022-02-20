@@ -3,15 +3,15 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 export const ThumbPost = ({ title, authorName,	authorLastName,	editorial,	summary, text, cover, link, authorImg }) => {
-	const myLoader = ({ src }) => {
-		return `${src}`
-	};
+	// const myLoader = ({ src }) => {
+	// 	return `${src}`
+	// };
 
 	return (
 		<article className="flex flex-col flex-wrap w-full max-w-lg mx-auto mt-8 mb-12 rounded-lg border-book-light bg-book-light">
 			<figure className="relative object-cover p-8 m-4 transition duration-500 ease-in-out h-80 hover:opacity-95">
 				<Image
-					loader={myLoader}
+					// loader={myLoader}
 					src={cover}
 					alt={title}
 					layout="fill"
@@ -39,7 +39,7 @@ export const ThumbPost = ({ title, authorName,	authorLastName,	editorial,	summar
 					<div className="flex mt-4">
 						<figure className="relative object-cover h-16 m-2 transition duration-500 ease-in-out hover:opacity-95">
 							<Image
-								loader={myLoader}
+								// loader={myLoader}
 								src={authorImg}
 								alt={title}
 								width={64}
