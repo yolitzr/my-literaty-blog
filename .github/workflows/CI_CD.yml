@@ -24,7 +24,7 @@ jobs:
       with:
         context: .
         push: true
-        tags: ${{ secrets.REGISTRY_HOST }}/${{ secrets.REPOSITORY_NAME }}:latest, ${{ secrets.REGISTRY_HOST }}/${{ secrets.REPOSITORY_NAME }}:${{ secrets.REPOSITORY_VERSION }}.${{ github.run_number }}
+        tags: ${{ secrets.REGISTRY_HOST }}/tolitsbooks:latest, ${{ secrets.REGISTRY_HOST }}/tolitsbooks:${{ secrets.REPOSITORY_VERSION }}.${{ github.run_number }}
 
   deploy-to-server:
     name: deploy to cluster
@@ -38,5 +38,5 @@ jobs:
         username: ${{ secrets.VPS_USER }}
         key: ${{ secrets.VPS_KEY }}
         script: |
-          docker pull ${{ secrets.REGISTRY_HOST }}/${{ secrets.REPOSITORY_NAME }}:latest
+          docker pull ${{ secrets.REGISTRY_HOST }}/tolitsbooks:latest
           docker images
