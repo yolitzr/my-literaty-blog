@@ -1,6 +1,12 @@
-FROM node:latest
+FROM node:14-alpine
+
+# create & set working directory
 WORKDIR /app
-COPY package.json ./
-RUN npm install
 COPY . .
-CMD ["npm", "run", "dev"]
+
+# install dependencies
+RUN npm install
+
+# start app
+RUN npm run build
+CMD ["npm", "start"]
