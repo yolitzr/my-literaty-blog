@@ -1,0 +1,18 @@
+version: '3.8'
+
+networks:
+    net_service:
+        external:
+            name: net_service
+
+services:
+    web:
+        image: docker.ca-tech.dev/yolitsbooks:lastet
+        ports:
+            - 3001:3000
+        networks:
+            - net_service
+        environment:
+            - NEXT_PUBLIC_API_KEY=r0bUsSF2H9LiL1aYoHw
+            - NEXT_PUBLIC_GOOGLE_ANALYTICS=G-BNNJY9VT9C
+            - NEXT_PUBLIC_GOOGLE_ADSENSE=ca-pub-2694092664905698
