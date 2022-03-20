@@ -193,7 +193,7 @@ const BookDetail = ({ book }) => {
 						</div>
 					</section>
 					<section className="relative">
-						<div className="mt-12">
+						{/* <div className="mt-12">
 							<h4 className="text-2xl font-bold text-center uppercase text-book-main">
 								Share this book
 							</h4>
@@ -204,7 +204,7 @@ const BookDetail = ({ book }) => {
 									rel="noreferrer"
 									className="w-10 h-10 mr-3 border-2 rounded-full border-book-second text-book-second hover:bg-book-second hover:text-book-light"
 								>
-									<i className="mx-3 mt-3 fab fa-twitter"></i>
+									<i className="mx-3 mt-3 fab fa-twitter font"></i>
 								</a>
 								<a
 									href=""
@@ -219,7 +219,7 @@ const BookDetail = ({ book }) => {
 									<i className="mx-3 mt-3 fab fa-facebook-f"></i>
 								</a>
 							</div>
-						</div>
+						</div> */}
 
 						<div className="px-8 py-4 mt-10">
 							<h5 className="font-semibold text-center text-book-dark">
