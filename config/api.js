@@ -1,24 +1,22 @@
-import axios from 'axios'
+import axios from 'axios';
 // Config
-import { API_URL, API_URL_DETAILS } from '../config/config.js'
+import { API_URL, API_URL_DETAILS } from '../config/config.js';
 
-const apiSettings = {
-	fetchBooks: async (body) => {
-		const defaultConfig = {
-			method: 'POST',
-			headers: {
-				'X-AUTH-TOKEN': process.env.NEXT_PUBLIC_API_KEY,
-				'Content-Type': 'application/json',
-			},
-		}
-		return await axios(`${API_URL}`, {
-			...defaultConfig,
-			data: body,
-		}).then(function (res) {
-			return res.data
-		})
-	},
-}
+const getBooks = async (body) => {
+	const defaultConfig = {
+		method: 'POST',
+		headers: {
+			'X-AUTH-TOKEN': process.env.NEXT_PUBLIC_API_KEY,
+			'Content-Type': 'application/json',
+		},
+	};
+	const { data } = await axios(`${API_URL}`, {
+		...defaultConfig,
+		data: body,
+	});
+
+	return data;
+};
 
 const apiSlug = {
 	fetchDetail: async (slug) => {
@@ -29,15 +27,31 @@ const apiSlug = {
 				'X-AUTH-TOKEN': process.env.NEXT_PUBLIC_API_KEY,
 				'Content-Type': 'application/json',
 			},
-		}
+		};
 		return await axios(`${API_URL_DETAILS}`, {
 			...configSlug,
 		}).then(function (res) {
-			return res.data
-		})
+			return res.data;
+		});
 	},
-}
+};
 
-export {apiSettings , apiSlug}
+const apiSettings = {
+	fetchBooks: async (body) => {
+		const defaultConfig = {
+			method: 'POST',
+			headers: {
+				'X-AUTH-TOKEN': process.env.NEXT_PUBLIC_API_KEY,
+				'Content-Type': 'application/json',
+			},
+		};
+		return await axios(`${API_URL}`, {
+			...defaultConfig,
+			data: body,
+		}).then(function (res) {
+			return res.data;
+		});
+	},
+};
 
-
+export { apiSlug, getBooks, apiSettings };

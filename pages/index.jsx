@@ -1,12 +1,40 @@
-// Config
-import { IMAGE_BASE_URL } from '../config/config.js'
-//Components
-import { Layout, Hero, Grid, Thumb, ThumbPost, ThumbBooks } from '../components/'
-// Images
-import imgHero from '../public/images/bg.jpg'
-import { apiSettings } from '../config/api.js'
+import { dehydrate, QueryClient, useQuery } from '@tanstack/react-query';
+import { IMAGE_BASE_URL } from '../config/config.js';
+import {
+	Layout,
+	Hero,
+	Grid,
+	Thumb,
+	ThumbPost,
+	ThumbBooks,
+	ThumbFeatured,
+} from '../components/';
+import imgHero from '../public/images/bg.jpg';
+import { getBooks } from '../config/api.js';
+import { getFeaturedBooks, getAnticipatedBooks } from '../hooks/useHome.js';
 
-export default function Home({ featured, reviews, published }) {
+export default function Home() {
+	const bodyReviews = {
+		order: {
+			field: 'book.id',
+			dir: 'desc',
+		},
+		search: [
+			{
+				field: ['review.id'],
+				operator: 'isNotNull',
+				value: null,
+			},
+		],
+	};
+
+	const { data } = useQuery(['reviews', bodyReviews], () =>
+		getBooks(bodyReviews)
+	);
+
+	const { data: featured } = useQuery(['featured'], getFeaturedBooks);
+	const { data: published } = useQuery(['published'], getAnticipatedBooks);
+
 	return (
 		<Layout>
 			<Hero
@@ -16,7 +44,8 @@ export default function Home({ featured, reviews, published }) {
 			/>
 			<main className="lg:py-10 lg:px-14 container p-8 mx-auto">
 				<Grid header="Featured Releases">
-					{featured?.results?.map((book) => (
+					{featured?.results
+						?.map((book) => (
 							<Thumb
 								key={book?.id}
 								cover={`${IMAGE_BASE_URL}${book?.image_main?.path}`}
@@ -26,10 +55,11 @@ export default function Home({ featured, reviews, published }) {
 								link={book?.slug}
 								text="Read More"
 							/>
-						)).splice(0, 4)}
+						))
+						.splice(0, 4)}
 				</Grid>
 				<Grid header="Lastet Reviews">
-					{reviews?.results?.slice(0,4)?.map((review) => (
+					{data?.results?.slice(0, 4)?.map((review) => (
 						<ThumbPost
 							key={review?.id}
 							cover={`${IMAGE_BASE_URL}${review?.image_main?.path}`}
@@ -57,27 +87,14 @@ export default function Home({ featured, reviews, published }) {
 						/>
 					))}
 				</Grid>
+				<ThumbFeatured />
 			</main>
 		</Layout>
 	);
 }
 
 export async function getServerSideProps() {
-	const featured  = await apiSettings.fetchBooks({
-		order: {
-			field: 'book.id',
-			dir: 'desc',
-		},
-		search: [
-			{
-				field: ['book.is_featured'],
-				operator: '=',
-				value: true,
-			},
-		],
-	})
-
-	const reviews  = await apiSettings.fetchBooks({
+	const bodyReviews = {
 		order: {
 			field: 'book.id',
 			dir: 'desc',
@@ -89,22 +106,19 @@ export async function getServerSideProps() {
 				value: null,
 			},
 		],
-	})
+	};
+	const queryClient = new QueryClient();
 
-	const published  = await apiSettings.fetchBooks({
-		order: {
-			field: 'book.id',
-			dir: 'desc',
+	await queryClient.prefetchQuery(['reviews', bodyReviews], () =>
+		getBooks(bodyReviews)
+	);
+
+	await queryClient.prefetchQuery(['featured'], getFeaturedBooks);
+	await queryClient.prefetchQuery(['featured'], getAnticipatedBooks);
+
+	return {
+		props: {
+			dehydrateState: dehydrate(queryClient),
 		},
-		search: [
-			{
-				field: ['book.published'],
-				operator: '>=',
-				value: '2022-01-01',
-			},
-		],
-	})
-
-  // Pass data to the page via props
-  return { props: { featured, reviews, published } }
+	};
 }

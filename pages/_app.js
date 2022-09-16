@@ -1,29 +1,46 @@
-import { useEffect } from 'react'
-import { useRouter } from 'next/router'
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
+import {
+	Hydrate,
+	QueryClient,
+	QueryClientProvider,
+} from '@tanstack/react-query';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import * as ga from '../lib/ga';
+import '../styles/main.css';
 
-import * as ga from '../lib/ga'
-
-import '../styles/main.css'
+// QueryClient
+const queryClient = new QueryClient();
 
 function MyApp({ Component, pageProps }) {
-	const router = useRouter()
+	// React Query
+	const [queryClient] = useState(() => new QueryClient());
 
-  useEffect(() => {
-    const handleRouteChange = (url) => {
-      ga.pageview(url)
-    }
-    //When the component is mounted, subscribe to router changes
-    //and log those page views
-    router.events.on('routeChangeComplete', handleRouteChange)
+	const router = useRouter();
 
-    // If the component is unmounted, unsubscribe
-    // from the event with the `off` method
-    return () => {
-      router.events.off('routeChangeComplete', handleRouteChange)
-    }
-  }, [router.events])
+	useEffect(() => {
+		const handleRouteChange = (url) => {
+			ga.pageview(url);
+		};
+		//When the component is mounted, subscribe to router changes
+		//and log those page views
+		router.events.on('routeChangeComplete', handleRouteChange);
 
-	return <Component {...pageProps} />;
+		// If the component is unmounted, unsubscribe
+		// from the event with the `off` method
+		return () => {
+			router.events.off('routeChangeComplete', handleRouteChange);
+		};
+	}, [router.events]);
+
+	return (
+		<QueryClientProvider client={queryClient}>
+			<Hydrate state={pageProps.dehydratedState}>
+				<Component {...pageProps} />
+				<ReactQueryDevtools initialIsOpen={false} />
+			</Hydrate>
+		</QueryClientProvider>
+	);
 }
 
 export default MyApp;
