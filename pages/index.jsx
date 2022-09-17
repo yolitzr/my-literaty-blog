@@ -8,6 +8,7 @@ import {
 	ThumbPost,
 	ThumbBooks,
 	ThumbFeatured,
+	ThumbReviews,
 } from '../components/';
 import imgHero from '../public/images/bg.jpg';
 import { getBooks } from '../config/api.js';
@@ -42,23 +43,50 @@ export default function Home() {
 				titleHero="Yolit's Books"
 				subTitleHero="Compulsive Reader, Book Blogger and Reviewer"
 			/>
-			<main className="lg:py-10 lg:px-14 container p-8 mx-auto">
-				<Grid header="Featured Releases">
-					{featured?.results
-						?.map((book) => (
-							<Thumb
-								key={book?.id}
-								cover={`${IMAGE_BASE_URL}${book?.image_main?.path}`}
-								title={book?.title}
-								authorName={book?.author?.name}
-								authorLastName={book?.author?.surname}
-								link={book?.slug}
-								text="Read More"
-							/>
-						))
-						.splice(0, 4)}
-				</Grid>
-				<Grid header="Lastet Reviews">
+			<main className="lg:py-10 lg:px-14 container py-8 px-4 mx-auto">
+				<section className="md:py-10 py-5">
+					<h3 className="md:text-4xl text-book-main mt-6 text-3xl font-bold tracking-wider text-left uppercase">
+						Featured Releases
+					</h3>
+					<div className="gri-cols-1 md:grid-cols-fit-320 lg:gap-3 grid gap-2 mt-6">
+						{featured?.results
+							?.map((book) => (
+								<ThumbFeatured
+									key={book?.id}
+									cover={`${IMAGE_BASE_URL}${book?.image_main?.path}`}
+									title={book?.title}
+									authorName={book?.author?.name}
+									authorLastName={book?.author?.surname}
+									link={book?.slug}
+								/>
+							))
+							.splice(0, 4)}
+					</div>
+				</section>
+				<section className="h-full grid gap-4 lg:grid-cols-gridTwo px-4">
+					<section className="lg:col-span-8">
+						<h3 className="md:text-4xl text-book-main mt-6 text-3xl font-semibold text-left uppercase">
+							Most Recent Post
+						</h3>
+						<div className="block mt-6 px-4">
+							{data?.results?.slice(0, 4)?.map((review) => (
+								<ThumbReviews
+									key={review?.id}
+									cover={`${IMAGE_BASE_URL}${review?.image_main?.path}`}
+									title={review?.title}
+									authorName={review?.author?.name}
+									authorLastname={review?.author?.surname}
+									editorial={review?.editorial}
+									preview={review?.summary}
+									link={review?.slug}
+									text="Read More"
+								/>
+							))}
+						</div>
+					</section>
+					<aside className="lg:col-span-4">right</aside>
+				</section>
+				{/* <Grid header="Lastet Reviews">
 					{data?.results?.slice(0, 4)?.map((review) => (
 						<ThumbPost
 							key={review?.id}
@@ -74,7 +102,6 @@ export default function Home() {
 						/>
 					))}
 				</Grid>
-				{/* <Subscribe /> */}
 				<Grid header="The Most-Anticipated Upcoming Book Releases 2022">
 					{published?.results?.slice(0, 4)?.map((release) => (
 						<ThumbBooks
@@ -86,39 +113,8 @@ export default function Home() {
 							text="Read More"
 						/>
 					))}
-				</Grid>
-				<ThumbFeatured />
+				</Grid> */}
 			</main>
 		</Layout>
 	);
-}
-
-export async function getServerSideProps() {
-	const bodyReviews = {
-		order: {
-			field: 'book.id',
-			dir: 'desc',
-		},
-		search: [
-			{
-				field: ['review.id'],
-				operator: 'isNotNull',
-				value: null,
-			},
-		],
-	};
-	const queryClient = new QueryClient();
-
-	await queryClient.prefetchQuery(['reviews', bodyReviews], () =>
-		getBooks(bodyReviews)
-	);
-
-	await queryClient.prefetchQuery(['featured'], getFeaturedBooks);
-	await queryClient.prefetchQuery(['featured'], getAnticipatedBooks);
-
-	return {
-		props: {
-			dehydrateState: dehydrate(queryClient),
-		},
-	};
 }

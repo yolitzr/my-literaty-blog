@@ -20,12 +20,12 @@ module.exports = {
 			},
 		},
 		gridTemplateColumns: {
-			grid: 'repeat(auto-fit, minmax(320px, 1fr))',
+			'fit-320': 'repeat(auto-fit, minmax(320px, 1fr))',
 			gridTwo: 'repeat(12, minmax(0, 1fr))',
 		},
 		fontFamily: {
-      sans: ["Poppins", "sans-serif"]
-    },
+			sans: ['Poppins', 'sans-serif'],
+		},
 	},
 	variants: {
 		extend: {},

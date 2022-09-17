@@ -1,7 +1,7 @@
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 
-export const Footer = ({titleFooter, subTitleFooter}) => {
-    return (
+export const Footer = ({ titleFooter, subTitleFooter }) => {
+	return (
 		<footer>
 			<div className="w-full py-10 px-4 bg-book-main">
 				<div className="mt-2">
@@ -15,9 +15,9 @@ export const Footer = ({titleFooter, subTitleFooter}) => {
 			</div>
 		</footer>
 	);
-}
+};
 
 Footer.propTypes = {
-    titleFooter: PropTypes.string,
-    subTitleFooter: PropTypes.string,
-}
+	titleFooter: PropTypes.string,
+	subTitleFooter: PropTypes.string,
+};

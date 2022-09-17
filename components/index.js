@@ -12,6 +12,7 @@ import { DisqusComments } from './DisqusComments';
 import { Subscribe } from './Subscribe';
 import { AdBanner } from './AdBanner';
 import { ThumbFeatured } from './ThumbFeautred';
+import { ThumbReviews } from './ThumbReviews';
 
 export {
 	Subscribe,
@@ -28,4 +29,5 @@ export {
 	DisqusComments,
 	AdBanner,
 	ThumbFeatured,
+	ThumbReviews,
 };

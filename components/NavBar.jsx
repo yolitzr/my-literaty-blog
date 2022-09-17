@@ -7,39 +7,40 @@ import Logo from '../public/images/logo.svg';
 import { NAV_LINKS } from '../data/NavLinks';
 
 export const NavBar = () => {
-    const [showLinks, setShowLinks] = useState(false)
-		const [color, setColor] = useState(false)
+	const [showLinks, setShowLinks] = useState(false);
+	const [color, setColor] = useState(false);
 
-    //Shink Navigation
-    const scrollFunction = () => {
-			window.onscroll = () => {
-				if (
-					document.body.scrollTop > 100 ||
-					document.documentElement.scrollTop > 35
-				) {
-					document.getElementById('navbar').style.background = '#86425f'
-					document.getElementById('navbar').style.transition = 'all 0.5s'
-				} else {
-					document.getElementById('navbar').style.background = 'none'
-				}
+	//Shink Navigation
+	const scrollFunction = () => {
+		window.onscroll = () => {
+			if (
+				document.body.scrollTop > 100 ||
+				document.documentElement.scrollTop > 35
+			) {
+				document.getElementById('navbar').style.background = '#86425f';
+				document.getElementById('navbar').style.transition = 'all 0.5s';
+			} else {
+				document.getElementById('navbar').style.background = 'none';
 			}
-    }
+		};
+	};
 
-    useEffect(() => {
-      scrollFunction()
+	useEffect(() => {
+		scrollFunction();
 
-			if (showLinks === true) {
-				setColor('#86425f')
-				console.log('Hola')
-			}else {
-				setColor('transparent')
-			}
-
-    }, [showLinks]);
+		if (showLinks === true) {
+			setColor('#86425f');
+		} else {
+			setColor('transparent');
+		}
+	}, [showLinks]);
 
 	return (
 		<header id="navbar" className="fixed mt-0 w-full z-20">
-			<nav style={{backgroundColor: color}} className="flex items-center justify-between flex-wrap mx-auto py-4 px-10 lg:px-32">
+			<nav
+				style={{ backgroundColor: color }}
+				className="flex items-center justify-between flex-wrap mx-auto py-4 px-10 lg:px-32"
+			>
 				<div className="flex items-center flex-no-shrink text-book-white">
 					<Link href="/">
 						<a>
@@ -62,9 +63,10 @@ export const NavBar = () => {
 					</button>
 				</div>
 				<ul
-					className={ showLinks
-						? 'w-full lg:flex lg:items-center lg:w-auto'
-						: 'hidden lg:block'
+					className={
+						showLinks
+							? 'w-full lg:flex lg:items-center lg:w-auto'
+							: 'hidden lg:block'
 					}
 				>
 					<li className="flex flex-col justify-center items-center lg:flex-row">
@@ -81,5 +83,5 @@ export const NavBar = () => {
 				</ul>
 			</nav>
 		</header>
-	)
-}
+	);
+};
