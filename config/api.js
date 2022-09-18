@@ -1,6 +1,6 @@
 import axios from 'axios';
 // Config
-import { API_URL, API_URL_DETAILS } from '../config/config.js';
+import { API_URL, API_URL_DETAILS, API_GENDERS } from '../config/config.js';
 
 const getBooks = async (body) => {
 	const defaultConfig = {
@@ -16,6 +16,22 @@ const getBooks = async (body) => {
 	});
 
 	return data;
+};
+
+const getGenders = async (body) => {
+	const defaultConfig = {
+		method: 'GET',
+		headers: {
+			'X-AUTH-TOKEN': process.env.NEXT_PUBLIC_API_KEY,
+			'Content-Type': 'application/json',
+		},
+	};
+	const { data } = await axios(`${API_GENDERS}`, {
+		...defaultConfig,
+		data: body,
+	});
+
+	return data['hydra:member'];
 };
 
 const apiSlug = {
@@ -38,13 +54,6 @@ const apiSlug = {
 
 const apiSettings = {
 	fetchBooks: async (body) => {
-		const defaultConfig = {
-			method: 'POST',
-			headers: {
-				'X-AUTH-TOKEN': process.env.NEXT_PUBLIC_API_KEY,
-				'Content-Type': 'application/json',
-			},
-		};
 		return await axios(`${API_URL}`, {
 			...defaultConfig,
 			data: body,
@@ -54,4 +63,4 @@ const apiSettings = {
 	},
 };
 
-export { apiSlug, getBooks, apiSettings };
+export { apiSlug, getBooks, apiSettings, getGenders };

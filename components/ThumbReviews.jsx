@@ -56,7 +56,7 @@ export const ThumbReviews = ({
 	</article>
 );
 
-ThumbReviews.PropTypes = {
+ThumbReviews.propTypes = {
 	title: PropTypes.string,
 	cover: PropTypes.string,
 	authorName: PropTypes.string,

@@ -13,6 +13,7 @@ import { Subscribe } from './Subscribe';
 import { AdBanner } from './AdBanner';
 import { ThumbFeatured } from './ThumbFeautred';
 import { ThumbReviews } from './ThumbReviews';
+import { Categories } from './Categories';
 
 export {
 	Subscribe,
@@ -30,4 +31,5 @@ export {
 	AdBanner,
 	ThumbFeatured,
 	ThumbReviews,
+	Categories,
 };
