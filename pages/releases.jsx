@@ -1,15 +1,14 @@
-import { Layout } from '../components/layout'
+import { Layout } from '../components/layout';
 // Config
-import { IMAGE_BASE_URL } from '../config/config.js'
-import { apiSettings } from '../config/api.js'
+import { BASE_URL } from '../config/config.js';
+import { apiSettings } from '../config/api.js';
 //Components
-import { Hero, Grid, ThumbBooks } from '../components/'
+import { Hero, Grid, ThumbBooks } from '../components/';
 //Images
-import imgHero from '../public/images/bg.jpg'
+import imgHero from '../public/images/bg.jpg';
 
 const ReleasesPage = ({ releaseData }) => {
-
-	console.log(releaseData)
+	console.log(releaseData);
 	// const releaseDate = new Date(releasesData.published)
 
 	return (
@@ -24,7 +23,7 @@ const ReleasesPage = ({ releaseData }) => {
 					{releaseData?.results?.slice(0, 8)?.map((releasePage) => (
 						<ThumbBooks
 							key={releasePage?.id}
-							cover={`${IMAGE_BASE_URL}${releasePage?.image_main?.path}`}
+							cover={`${BASE_URL}${releasePage?.image_main?.path}`}
 							title={releasePage?.title}
 							summary={releasePage?.summary}
 							link={releasePage?.slug}
@@ -35,8 +34,8 @@ const ReleasesPage = ({ releaseData }) => {
 				</Grid>
 			</main>
 		</Layout>
-	)
-}
+	);
+};
 
 export async function getServerSideProps() {
 	const releaseData = await apiSettings.fetchBooks({
@@ -47,10 +46,10 @@ export async function getServerSideProps() {
 				value: '2022-01-01',
 			},
 		],
-	})
+	});
 
-  // Pass data to the page via props
-  return { props: { releaseData } }
+	// Pass data to the page via props
+	return { props: { releaseData } };
 }
 
-export default ReleasesPage
+export default ReleasesPage;

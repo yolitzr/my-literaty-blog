@@ -1,5 +1,5 @@
 import { dehydrate, QueryClient, useQuery } from '@tanstack/react-query';
-import { IMAGE_BASE_URL } from '../config/config.js';
+import { BASE_URL } from '../config/config.js';
 import {
 	Layout,
 	Hero,
@@ -55,7 +55,7 @@ export default function Home() {
 							?.map((book) => (
 								<ThumbFeatured
 									key={book?.id}
-									cover={`${IMAGE_BASE_URL}${book?.image_main?.path}`}
+									cover={`${BASE_URL}${book?.image_main?.path}`}
 									title={book?.title}
 									authorName={book?.author?.name}
 									authorLastName={book?.author?.surname}
@@ -74,7 +74,7 @@ export default function Home() {
 							{data?.results?.slice(0, 4)?.map((review) => (
 								<ThumbReviews
 									key={review?.id}
-									cover={`${IMAGE_BASE_URL}${review?.image_main?.path}`}
+									cover={`${BASE_URL}${review?.image_main?.path}`}
 									title={review?.title}
 									authorName={review?.author?.name}
 									authorLastname={review?.author?.surname}
@@ -88,7 +88,7 @@ export default function Home() {
 					</section>
 					<aside className="lg:col-span-4 pl-4">
 						<h3 className="md:text-2xl text-book-main text-3xl font-semibold text-left uppercase">
-							Genres
+							Favotire Genres
 						</h3>
 						<Categories />
 						{/* <SearchBar /> */}
@@ -96,7 +96,7 @@ export default function Home() {
 							{published?.results?.slice(0, 4)?.map((release) => (
 								<ThumbBooks
 									key={release?.id}
-									cover={`${IMAGE_BASE_URL}${release?.image_main?.path}`}
+									cover={`${BASE_URL}${release?.image_main?.path}`}
 									title={release?.title}
 									summary={release.summary}
 									link={release?.slug}

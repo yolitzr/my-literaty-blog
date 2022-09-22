@@ -17,7 +17,7 @@ export const Categories = () => {
 								: 'hidden'
 						}
 					>
-						<Link href="/">
+						<Link href={/genres/ + `${gender.id}`}>
 							<a className="font-semibold mb-0 hover:text-book-second">
 								{gender?.name}
 							</a>

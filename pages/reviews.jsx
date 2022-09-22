@@ -1,41 +1,41 @@
-import { Layout } from '../components/layout.jsx'
+import { Layout } from '../components/layout.jsx';
 // Config
-import { IMAGE_BASE_URL } from '../config/config.js'
+import { BASE_URL } from '../config/config.js';
 //Hook
-import { useBooks } from '../hooks/useBooks'
+import { useBooks } from '../hooks/useBooks';
 //Components
-import { Hero, Grid, ThumbBooks, SearchBar } from '../components/'
+import { Hero, Grid, ThumbBooks, SearchBar } from '../components/';
 //Images
-import imgHero from '../public/images/bg.jpg'
+import imgHero from '../public/images/bg.jpg';
 
 const ReviewsPage = () => {
-    const { reviewsData, search, setSearch } = useBooks()
+	const { reviewsData, search, setSearch } = useBooks();
 
-    return (
-			<Layout>
-				<Hero
-					bgHero={imgHero.src}
-					titleHero="Yolit's Books"
-					subTitleHero="Compulsive Reader, Book Blogger and Reviewer"
-				/>
-				<main className="container p-6 mx-auto lg:py-10 lg:px-14">
-					<SearchBar setSearchTerm={setSearch} />
-					<Grid header={search ? 'Search Results' : 'List Reviews'}>
-						{reviewsData?.results?.slice(0, 8)?.map((reviewPage) => (
-							<ThumbBooks
+	return (
+		<Layout>
+			<Hero
+				bgHero={imgHero.src}
+				titleHero="Yolit's Books"
+				subTitleHero="Compulsive Reader, Book Blogger and Reviewer"
+			/>
+			<main className="container p-6 mx-auto lg:py-10 lg:px-14">
+				<SearchBar setSearchTerm={setSearch} />
+				<Grid header={search ? 'Search Results' : 'List Reviews'}>
+					{reviewsData?.results?.slice(0, 8)?.map((reviewPage) => (
+						<ThumbBooks
 							key={reviewPage?.id}
-							cover={`${IMAGE_BASE_URL}${reviewPage?.image_main?.path}`}
+							cover={`${BASE_URL}${reviewPage?.image_main?.path}`}
 							title={reviewPage?.title}
 							summary={reviewPage?.summary}
 							link={reviewPage?.slug}
 							// date={releasePage.published}
 							text="Read More"
-							/>
-						))}
-					</Grid>
-				</main>
-			</Layout>
-	)
-}
+						/>
+					))}
+				</Grid>
+			</main>
+		</Layout>
+	);
+};
 
-export default ReviewsPage
+export default ReviewsPage;

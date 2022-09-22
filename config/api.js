@@ -1,6 +1,12 @@
 import axios from 'axios';
 // Config
-import { API_URL, API_URL_DETAILS, API_GENDERS } from '../config/config.js';
+import {
+	BASE_URL,
+	API_URL,
+	API_URL_DETAILS,
+	API_GENDERS,
+	API_GENDERS_DETAILS,
+} from '../config/config.js';
 
 const getBooks = async (body) => {
 	const defaultConfig = {
@@ -34,6 +40,43 @@ const getGenders = async (body) => {
 	return data['hydra:member'];
 };
 
+const getBookGenreID = (genre) =>
+	Promise.all(
+		genre.books.map(async (genre) => {
+			const res = await axios(`${BASE_URL}${genre}`, {
+				method: 'GET',
+				headers: {
+					'X-AUTH-TOKEN': process.env.NEXT_PUBLIC_API_KEY,
+					'Content-Type': 'application/json',
+				},
+			});
+
+			return res.data;
+		})
+	);
+
+const getGenresDetails = async (id) => {
+	const configId = {
+		method: 'GET',
+		headers: {
+			'X-AUTH-TOKEN': process.env.NEXT_PUBLIC_API_KEY,
+			'Content-Type': 'application/json',
+		},
+	};
+
+	const { data } = await axios(`${API_GENDERS_DETAILS}` + id, {
+		...configId,
+	});
+
+	return data;
+};
+
+const getImage = (genre) => {
+	const image = genre.find((image) => genre === image_main);
+
+	console.log(image);
+};
+
 const apiSlug = {
 	fetchDetail: async (slug) => {
 		const configSlug = {
@@ -63,4 +106,12 @@ const apiSettings = {
 	},
 };
 
-export { apiSlug, getBooks, apiSettings, getGenders };
+export {
+	apiSlug,
+	getBooks,
+	apiSettings,
+	getGenders,
+	getGenresDetails,
+	getBookGenreID,
+	getImage,
+};
