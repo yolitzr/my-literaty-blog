@@ -15,7 +15,7 @@ export const ThumbReviews = ({
 	<article className="flex flex-col lg:flex-row my-12 max-w-4xl h-full">
 		<Link href={/book/ + link}>
 			<a className="block w-full">
-				<figure className="relative rounded-md w-full h-80 ">
+				<figure className="relative rounded-md w-full h-80 transform hover:scale-95 duration-500 ease-in-out">
 					<Image
 						src={cover}
 						alt={title}

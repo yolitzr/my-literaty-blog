@@ -55,6 +55,20 @@ const getBookGenreID = (genre) =>
 		})
 	);
 
+const getImage = (book) =>
+	Promise.all(
+		book.map(async (image) => {
+			const res = await axios(`${BASE_URL}${image.image_main}`, {
+				method: 'GET',
+				headers: {
+					'X-AUTH-TOKEN': process.env.NEXT_PUBLIC_API_KEY,
+					'Content-Type': 'application/json',
+				},
+			});
+
+			return res.data;
+		})
+	);
 const getGenresDetails = async (id) => {
 	const configId = {
 		method: 'GET',
@@ -69,12 +83,6 @@ const getGenresDetails = async (id) => {
 	});
 
 	return data;
-};
-
-const getImage = (genre) => {
-	const image = genre.find((image) => genre === image_main);
-
-	console.log(image);
 };
 
 const apiSlug = {

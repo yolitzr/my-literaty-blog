@@ -1,6 +1,6 @@
 import { QueryClient, dehydrate, useQuery } from '@tanstack/react-query';
 import { useRouter } from 'next/router';
-import { getGenresDetails, getBookGenreID, getImage } from '../../config/api';
+import { getGenresDetails, getBookGenreID } from '../../config/api';
 import { Layout, Hero } from '../../components';
 import imgHero from '../../public/images/bg.jpg';
 

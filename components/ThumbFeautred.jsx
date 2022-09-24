@@ -12,7 +12,7 @@ export const ThumbFeatured = ({
 	<div className="relative w-full h-full mx-auto my-2">
 		<Link href={/book/ + link}>
 			<a>
-				<figure className="blur-featured relative w-full h-72 md:h-80 lg:h-96">
+				<figure className="blur-featured relative w-full h-72 md:h-80 lg:h-96 transform hover:scale-95 duration-500 ease-in-out">
 					<Image
 						src={cover}
 						alt={title}

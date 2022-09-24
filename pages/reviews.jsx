@@ -1,15 +1,28 @@
-import { Layout } from '../components/layout.jsx';
-// Config
+import { useQuery } from '@tanstack/react-query';
 import { BASE_URL } from '../config/config.js';
-//Hook
-import { useBooks } from '../hooks/useBooks';
-//Components
+import { getBooks } from '../config/api.js';
+import { Layout } from '../components/layout.jsx';
 import { Hero, Grid, ThumbBooks, SearchBar } from '../components/';
 //Images
 import imgHero from '../public/images/bg.jpg';
 
 const ReviewsPage = () => {
-	const { reviewsData, search, setSearch } = useBooks();
+	const bodyReviews = {
+		order: {
+			field: 'book.id',
+			dir: 'desc',
+		},
+		search: [
+			{
+				field: ['review.id'],
+				operator: 'isNotNull',
+				value: null,
+			},
+		],
+	};
+	const { data } = useQuery(['reviews', bodyReviews], () =>
+		getBooks(bodyReviews)
+	);
 
 	return (
 		<Layout>
@@ -19,9 +32,9 @@ const ReviewsPage = () => {
 				subTitleHero="Compulsive Reader, Book Blogger and Reviewer"
 			/>
 			<main className="container p-6 mx-auto lg:py-10 lg:px-14">
-				<SearchBar setSearchTerm={setSearch} />
-				<Grid header={search ? 'Search Results' : 'List Reviews'}>
-					{reviewsData?.results?.slice(0, 8)?.map((reviewPage) => (
+				{/* <SearchBar setSearchTerm={setSearch} /> */}
+				<Grid>
+					{data?.results?.slice(0, 8)?.map((reviewPage) => (
 						<ThumbBooks
 							key={reviewPage?.id}
 							cover={`${BASE_URL}${reviewPage?.image_main?.path}`}

@@ -20,7 +20,7 @@ export const NavBar = () => {
 				document.getElementById('navbar').style.background = '#86425f';
 				document.getElementById('navbar').style.transition = 'all 0.5s';
 			} else {
-				document.getElementById('navbar').style.background = 'none';
+				document.getElementById('navbar').style.background = 'transparent';
 			}
 		};
 	};

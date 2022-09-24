@@ -9,9 +9,6 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import * as ga from '../lib/ga';
 import '../styles/main.css';
 
-// QueryClient
-const queryClient = new QueryClient();
-
 function MyApp({ Component, pageProps }) {
 	// React Query
 	const [queryClient] = useState(() => new QueryClient());
