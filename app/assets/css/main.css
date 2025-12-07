@@ -1,0 +1,119 @@
+@import 'tailwindcss';
+
+@layer base {
+	::-webkit-scrollbar {
+		@apply w-2;
+	}
+
+	::-webkit-scrollbar-track {
+		@apply w-2 bg-book-lighter;
+	}
+
+	::-webkit-scrollbar-thumb {
+		@apply w-2  bg-crimson-900;
+	}
+
+	::-webkit-scrollbar-thumb:hover,
+	::-webkit-scrollbar-thumb:active {
+		@apply bg-crimson-500;
+	}
+
+	*,
+	*:before,
+	*:after {
+		@apply box-border m-0 p-0;
+	}
+
+	/* @font-face {
+		font-family: 'Signatria';
+		font-style: normal;
+		font-weight: 400;
+		font-display: swap;
+
+		src: url('~/assets/font/Signatria.ttf') format('truetype');
+	} */
+
+	p {
+		@apply mb-3;
+		line-height: 1.6rem;
+		color: #636363;
+	}
+
+	blockquote {
+		border-left: 4px solid;
+		border-right: 4px solid;
+		border-color: #ad96a9;
+		font: normal 400 16px Abel;
+		text-align: justify;
+		padding: 10px;
+		background: #f8f4f4;
+		color: #8d8d8d;
+		margin-bottom: 2rem;
+	}
+}
+
+@layer components {
+}
+
+@theme {
+	--font-serif: 'Playfair Display', serif;
+	--font-signatria: 'Signatria', serif;
+	--font-sans: 'Poppins', sans-serif;
+	--font-redressed: 'Redressed', cursive;
+
+	--color-crimson-50: #fef2f2;
+	--color-crimson-100: #fee2e2;
+	--color-crimson-200: #fecaca;
+	--color-crimson-300: #fca5a5;
+	--color-crimson-400: #f87171;
+	--color-crimson-500: #ef4444;
+	--color-crimson-600: #dc2626;
+	--color-crimson-700: #b91c1c;
+	--color-crimson-800: #991b1b;
+	--color-crimson-900: #7f1d1d;
+	--color-book-lighter: #63707714;
+
+	--color-purple-50: #faf6f8;
+	--color-purple-100: #f2e8ee;
+	--color-purple-200: #e4d0dc;
+	--color-purple-300: #d6b8ca;
+	--color-purple-400: #b8809b;
+	--color-purple-500: #86425f;
+	--color-purple-600: #783b56;
+	--color-purple-700: #643348;
+	--color-purple-800: #502a3a;
+	--color-purple-900: #3c212c;
+
+	--color-stone-50: #fafaf9;
+	--color-stone-100: #f5f5f4;
+	--color-stone-200: #e7e5e4;
+	--color-stone-300: #d6d3d1;
+	--color-stone-400: #a8a29e;
+	--color-stone-500: #78716c;
+	--color-stone-600: #57534e;
+	--color-stone-700: #44403c;
+	--color-stone-800: #292524;
+	--color-stone-900: #1c1917;
+
+	--color-gold-50: #fefce8;
+	--color-gold-100: #fef9c3;
+	--color-gold-200: #fef08a;
+	--color-gold-300: #fde047;
+	--color-gold-400: #facc15;
+	--color-gold-500: #eab308;
+	--color-gold-600: #ca8a04;
+	--color-gold-700: #a16207;
+	--color-gold-800: #854d0e;
+	--color-gold-900: #713f12;
+
+	--color-emerald-50: #ecfdf5;
+	--color-emerald-100: #d1fae5;
+	--color-emerald-200: #a7f3d0;
+	--color-emerald-300: #6ee7b7;
+	--color-emerald-400: #34d399;
+	--color-emerald-500: #10b981;
+	--color-emerald-600: #059669;
+	--color-emerald-700: #047857;
+	--color-emerald-800: #065f46;
+	--color-emerald-900: #064e3b;
+}
