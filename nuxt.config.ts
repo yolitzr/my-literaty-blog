@@ -9,7 +9,29 @@ export default defineNuxtConfig({
 		plugins: [tailwindcss()],
 	},
 
-	modules: ['@nuxt/image', '@nuxtjs/i18n', '@nuxt/icon', '@vueuse/nuxt'],
+	app: {
+		head: {
+			title: "Yolit's Bookshelf",
+			htmlAttrs: {
+				lang: 'es',
+			},
+			meta: [
+				{
+					name: 'description',
+					content:
+						"Yolit's Bookshelf - Compulsive Reader, Book Blogger and Reviewer",
+				},
+			],
+		},
+	},
+
+	modules: [
+		'@nuxt/image',
+		'@nuxtjs/i18n',
+		'@nuxt/icon',
+		'@vueuse/nuxt',
+		'@nuxtjs/apollo',
+	],
 
 	// Runtime Config
 	runtimeConfig: {
@@ -20,6 +42,21 @@ export default defineNuxtConfig({
 				import.meta.env.NUXT_PUBLIC_GRAPHQL_ENDPOINT || '/graphql',
 			apiBase: import.meta.env.NUXT_PUBLIC_API_BASE || '/wp-json/wp/v2',
 		},
+	},
+
+	// Apollo Configuration
+	apollo: {
+		clients: {
+			default: {
+				httpEndpoint: import.meta.env.NUXT_PUBLIC_GRAPHQL_ENDPOINT,
+			},
+		},
+	},
+
+	image: {
+		domains: [
+			import.meta.env.NUXT_PUBLIC_WORDPRESS_URL.replace(/https?:\/\//, ''),
+		],
 	},
 
 	// Configuración de i18n

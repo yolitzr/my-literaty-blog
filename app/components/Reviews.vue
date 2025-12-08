@@ -1,27 +1,19 @@
 <script setup>
-const config = useRuntimeConfig();
-
 const props = defineProps({
 	reviews: {
-		type: Array,
+		type: Object,
 		required: true,
 	},
 });
 
 const reviews = computed(() => {
-	return props.reviews.data;
-});
-
-console.log('reviews', reviews.value);
-
-const url = computed(() => {
-	return config.public.NUXT_PUBLIC_STRAPI_URL;
+	return props.reviews.categories.edges.map((edge) => edge.node.posts.nodes);
 });
 </script>
 
 <template>
 	<section
-		class="relative py-16 md:py-18 bg-linear-to-b from-white via-stone-50 to-white"
+		class="relative py-16 md:py-10 bg-linear-to-b from-white via-stone-50 to-white"
 	>
 		<div class="absolute inset-0 overflow-hidden pointer-events-none">
 			<div
@@ -64,16 +56,14 @@ const url = computed(() => {
 				</h2>
 
 				<p class="text-lg text-stone-600 max-w-2xl mx-auto leading-relaxed">
-					Mis impresiones más frescas sobre thrillers, misterio y suspense
-					romántico. Cada reseña es una nueva aventura literaria.
+					Cada reseña es una nueva aventura literaria.
 				</p>
 			</div>
-
 			<div
 				class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-12"
 			>
 				<div
-					v-for="review in reviews"
+					v-for="review in reviews[0]"
 					:key="review.id"
 					class="md:col-span-2 lg:col-span-1 group cursor-pointer"
 				>
@@ -82,52 +72,54 @@ const url = computed(() => {
 					>
 						<div class="relative h-64 md:h-72 overflow-hidden blur-featured">
 							<!-- <div class="absolute top-4 left-4 z-20" v-if="review.is_featured">
-								<span
-									class="absolute top-4 left-4 z-30 px-3 py-1 bg-gradient-to-r from-crimson-600 to-crimson-700 text-white text-xs font-bold rounded-full shadow-lg"
-									style="pointer-events: none;"
-								>
-									⭐ Destacada
-								</span>
-							</div> -->
+        <span
+          class="absolute top-4 left-4 z-30 px-3 py-1 bg-gradient-to-r from-crimson-600 to-crimson-700 text-white text-xs font-bold rounded-full shadow-lg"
+          style="pointer-events: none;"
+        >
+          ⭐ Destacada
+        </span>
+      </div> -->
 							<NuxtImg
-								:src="url + review?.book_cover[0].url || review?.book_cover.url"
-								:alt="review?.book?.title"
+								:src="review?.featuredImage?.node?.sourceUrl"
+								:alt="review?.title"
 								class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
 								sizes="sm:100vw md:50vw lg:400px"
 								loading="eager"
 							/>
 							<div class="absolute bottom-0 ml-6 mb-6 z-10">
-								<h2
-									class="text-lg lg:text-3xl font-bold leading-6 tracking-wider text-book-white"
+								<!-- <h2
+									class="text-md lg:text-md font-bold leading-6 tracking-wider text-white"
 								>
-									{{ review?.book?.title_es }}
-								</h2>
-								<h3
-									class="text-lg lg:text-2xl font-bold leading-6 tracking-wider text-book-white mt-1"
-								>
-									{{ review?.book?.author?.name }}
-									{{ review?.book?.author?.surname }}
-								</h3>
+									{{ review?.title }}
+								</h2> -->
+
+								<!-- <h3
+          class="text-lg lg:text-2xl font-bold leading-6 tracking-wider text-book-white mt-1"
+        >
+          {{ review?.book?.author?.name }}
+          {{ review?.book?.author?.surname }}
+        </h3> -->
 								<!-- <nuxt-link
-							:to="/book/ + book.slug"
-							class="inline-block mt-2 md:mt-4 py-2 px-3 text-xs md:text-sm uppercase tracking-wider text-book-white bg-book-second hover:bg-book-neutral hover:text-book-light"
-						>
-							{{ textButton }}
-						</nuxt-link> -->
+      :to="/book/ + book.slug"
+      class="inline-block mt-2 md:mt-4 py-2 px-3 text-xs md:text-sm uppercase tracking-wider text-book-white bg-book-second hover:bg-book-neutral hover:text-book-light"
+    >
+      {{ textButton }}
+    </nuxt-link> -->
 							</div>
+
 							<div
 								class="absolute bottom-4 right-4 bg-white/95 backdrop-blur-sm rounded-full px-3 py-1 shadow-lg z-20"
 							>
-								<div class="flex items-center gap-1">
-									<span class="text-gold-600 font-bold">{{
-										review.rating
-									}}</span>
-									<div class="flex text-gold-500">
-										<span v-for="star in 5" :key="star" class="text-sm">
-											{{ star <= review.rating ? '★' : '☆' }}
-										</span>
-									</div>
-								</div>
+								<!-- <div class="flex items-center gap-1">
+          <span class="text-gold-600 font-bold">{{
+            review.rating
+          }}</span>
+          <div class="flex text-gold-500">
+            <span v-for="star in 5" :key="star" class="text-sm">
+              {{ star <= review.rating ? '★' : '☆' }}
+            </span>
+          </div>
+        </div> -->
 							</div>
 						</div>
 					</div>
@@ -135,8 +127,6 @@ const url = computed(() => {
 			</div>
 		</div>
 	</section>
-
-	<pre>{{ reviews }}</pre>
 </template>
 
 <style scoped>
