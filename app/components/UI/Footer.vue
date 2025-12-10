@@ -1,5 +1,5 @@
 <script setup>
-const titleFooter = "Yolit's Bookshelf";
+const titleFooter = "Yolit's Bookish";
 const subTitleFooter = 'Compulsive Reader, Book Blogger and Reviewer';
 </script>
 <template>

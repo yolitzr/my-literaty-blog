@@ -4,7 +4,7 @@ export default defineI18nConfig(() => ({
 	locale: 'es',
 	messages: {
 		es: {
-			welcome: "Bienvenido a Yolit's Crimson Bookshelf",
+			welcome: "Bienvenido a Yolit's Bookish",
 			recentReviews: 'Reseñas Recientes',
 			newThisMonth: 'Novedades del Mes',
 			upcomingReleases: 'Próximos Lanzamientos',
@@ -23,7 +23,7 @@ export default defineI18nConfig(() => ({
 			comments: 'Comentarios',
 		},
 		en: {
-			welcome: "Welcome to Yolit's Crimson Bookshelf",
+			welcome: "Welcome to Yolit's Bookish",
 			recentReviews: 'Recent Reviews',
 			newThisMonth: 'New This Month',
 			upcomingReleases: 'Upcoming Releases',

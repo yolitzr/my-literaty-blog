@@ -1,9 +1,18 @@
-export default async function usePosts() {
+export default async function usePosts(limit = 3) {
 	const query = gql`
 		query {
-			posts(first: 10) {
-				nodes {
-					id
+			posts(first: ${limit}, where: { categoryName: "blog" }) {
+				edges {
+					node {
+						id
+						title
+						slug
+						featuredImage {
+							node {
+								sourceUrl
+							}
+						}
+					}
 				}
 			}
 		}

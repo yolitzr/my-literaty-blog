@@ -11,7 +11,7 @@ export default defineNuxtConfig({
 
 	app: {
 		head: {
-			title: "Yolit's Bookshelf",
+			title: "Yolit's Bookish",
 			htmlAttrs: {
 				lang: 'es',
 			},
@@ -19,7 +19,7 @@ export default defineNuxtConfig({
 				{
 					name: 'description',
 					content:
-						"Yolit's Bookshelf - Compulsive Reader, Book Blogger and Reviewer",
+						"Yolit's Bookish - Compulsive Reader, Book Blogger and Reviewer",
 				},
 			],
 		},
@@ -31,6 +31,7 @@ export default defineNuxtConfig({
 		'@nuxt/icon',
 		'@vueuse/nuxt',
 		'@nuxtjs/apollo',
+		'@nuxt/fonts',
 	],
 
 	// Runtime Config
@@ -74,5 +75,39 @@ export default defineNuxtConfig({
 		},
 		strategy: 'prefix_except_default',
 		vueI18n: './i18n.config.ts',
+	},
+
+	fonts: {
+		families: [
+			// Configuración óptima para tus fuentes
+			{
+				name: 'Oswald',
+				provider: 'google',
+				weights: [400, 500, 600, 700],
+				subsets: ['latin'],
+				display: 'swap', // ← Crucial para evitar FOIT
+			},
+			{
+				name: 'Nunito',
+				provider: 'google',
+				weights: [300, 400, 600, 700],
+				subsets: ['latin'],
+				display: 'swap',
+			},
+			{
+				name: 'Playfair Display',
+				provider: 'google',
+				weights: [400, 600],
+				subsets: ['latin'],
+				display: 'swap',
+			},
+			{
+				name: 'Poppins',
+				provider: 'google',
+				weights: [400, 500, 600, 700],
+				subsets: ['latin'],
+				display: 'swap',
+			},
+		],
 	},
 });

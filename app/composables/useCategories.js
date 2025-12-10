@@ -1,4 +1,4 @@
-export default async function useCategories(slug) {
+export default async function useCategories(slug, limit = 3) {
 	const query = gql`
 		query {
 			categories(where: { slug: "${slug}" }) {
@@ -7,7 +7,7 @@ export default async function useCategories(slug) {
 						id
 						name
 						slug
-						posts(first: 3) {
+						posts(first: ${limit}) {
 							nodes {
 								id
 								title
