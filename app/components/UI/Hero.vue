@@ -31,7 +31,7 @@ const url = computed(() => {
 
 <template>
 	<section
-		class="hero relative bg-cover bg-center bg-no-repeat"
+		class="min-h-[calc(50vh-100px)] relative bg-cover bg-center bg-no-repeat py-20"
 		id="home"
 		:style="{ backgroundImage: `url(${bgImage})` }"
 	>
@@ -42,21 +42,25 @@ const url = computed(() => {
 				backdrop-filter: blur(8px);
 				background: linear-gradient(
 					to bottom right,
-					rgba(106, 17, 203, 0.45),
-					rgba(242, 113, 33, 0.25)
+					rgba(106, 17, 203, 0.75),
+					rgba(242, 113, 33, 0.45)
 				);
 			"
 		></div>
 		<div class="container relative z-10">
-			<h2>Donde las páginas cobran vida y las historias encuentran su voz</h2>
-			<p>
-				Explora reseñas honestas, descubrimientos literarios y conversaciones
-				apasionadas sobre libros en español e inglés. Bienvenido a mi rincón
-				bookish.
-			</p>
+			<div class="max-w-2xl mx-auto text-center hero-after-title">
+				<h2 class="mb-8 tracking-wide text-purple-900">
+					Donde las páginas cobran vida y las historias encuentran su voz
+				</h2>
+				<p class="text-white/80 max-w-2xl mx-auto text-center">
+					Explora reseñas honestas, descubrimientos literarios y conversaciones
+					apasionadas sobre libros en español e inglés. Bienvenido a mi rincón
+					bookish.
+				</p>
+			</div>
 
 			<div
-				class="flex flex-col sm:flex-row flex-wrap justify-center gap-4 mb-8 md:mb-12 w-full px-2"
+				class="flex flex-col sm:flex-row flex-wrap justify-center gap-4 mb-8 mt-8 w-full px-2"
 			>
 				<button class="btn">📚 Explorar Reseñas</button>
 				<button class="btn-secondary">✨ Ver Novedades</button>
@@ -64,3 +68,10 @@ const url = computed(() => {
 		</div>
 	</section>
 </template>
+
+<style scoped>
+.hero-after-title h2:after {
+	left: 50%;
+	transform: translateX(-50%);
+}
+</style>

@@ -43,7 +43,9 @@ const books_weekly = computed(() => {
 					<div class="w-2 h-8 bg-custom-600 rounded-full"></div>
 				</div>
 
-				<p class="text-lg text-stone-600 max-w-2xl mx-auto leading-relaxed">
+				<p
+					class="text-lg text-stone-600 max-w-2xl mx-auto leading-relaxed text-center"
+				>
 					Un vistazo de lo que estaré disfrutando en los próximos siete días.
 					Las portadas de lo que está ocupando mis ojos, mis oídos y lo que
 					viene en camino.

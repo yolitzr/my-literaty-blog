@@ -13,7 +13,7 @@ const reviews = computed(() => {
 
 <template>
 	<section
-		class="relative py-16 md:py-10 bg-linear-to-b from-white via-stone-50 to-white"
+		class="relative py-80 md:py-10 bg-linear-to-b from-white via-stone-50 to-white"
 	>
 		<div class="absolute inset-0 overflow-hidden pointer-events-none">
 			<div

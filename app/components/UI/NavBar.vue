@@ -80,14 +80,17 @@ onMounted(() => {
 </script>
 
 <template>
-	<nav id="mainNav">
-		<ul>
-			<li><a href="#home">Inicio</a></li>
-			<li><a href="#reseñas">Reseñas</a></li>
-			<li><a href="#blog">Blog</a></li>
-			<li><a href="#top10">Top 10</a></li>
-			<li><a href="#about">Sobre mí</a></li>
-			<li><a href="#contact">Contacto</a></li>
-		</ul>
+	<nav id="mainNav" class="flex items-center gap-4 font-oswald font-medium">
+		<template
+			v-for="link in links"
+			:key="link.url"
+			class="flex items-center gap-4"
+		>
+			<NuxtLink
+				:to="link.url"
+				class="font-medium text-gray-700 hover:text-purple-600 hover:border-b-2 hover:border-purple-600"
+				>{{ link.name }}</NuxtLink
+			>
+		</template>
 	</nav>
 </template>
