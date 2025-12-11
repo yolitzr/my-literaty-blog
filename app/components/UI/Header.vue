@@ -3,7 +3,7 @@ import Logo from '~/assets/images/logo.vue';
 </script>
 
 <template>
-	<header class="bg-white shadow-md sticky top-0 z-10 py-3">
+	<header class="bg-white shadow-md sticky top-0 z-50 py-3">
 		<div class="container flex justify-between items-center">
 			<div class="flex items-center gap-4">
 				<!-- <div class="logo-image">

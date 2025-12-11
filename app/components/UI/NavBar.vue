@@ -3,13 +3,6 @@ import { ref, computed, onMounted, onBeforeUnmount } from 'vue';
 import Logo from '~/assets/images/logo.vue';
 import { NAV_LINKS } from '~/assets/js/navLinks';
 
-const props = defineProps({
-	headerHeight: {
-		type: String,
-		required: true,
-	},
-});
-
 const showMenu = ref(false);
 const navRef = ref(null);
 const menuBtnRef = ref(null);

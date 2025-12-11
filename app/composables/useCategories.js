@@ -3,25 +3,27 @@ export default async function useCategories(slug, limit = 3) {
 		query {
 			categories(where: { slug: "${slug}" }) {
 				edges {
-					node {
-						id
-						name
-						slug
-						posts(first: ${limit}) {
-							nodes {
-								id
-								title
-								slug
-								featuredImage {
-              node {
-                sourceUrl
-              }
-            }
+				node {
+					slug
+					posts(first: ${limit}) {
+						nodes {
+							id
+							title
+							slug
+							featuredImage {
+								node {
+									sourceUrl
+								}
+							}
+							book {
+								myRating
+								isFeatured
 							}
 						}
 					}
 				}
 			}
+		}
 		}
 	`;
 

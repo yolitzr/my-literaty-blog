@@ -74,4 +74,14 @@ const url = computed(() => {
 	left: 50%;
 	transform: translateX(-50%);
 }
+
+h2:after {
+	content: '';
+	position: absolute;
+	bottom: -10px;
+	left: 0;
+	width: 60px;
+	height: 3px;
+	background-color: var(--color-purple-600);
+}
 </style>
