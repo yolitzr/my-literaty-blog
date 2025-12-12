@@ -42,7 +42,7 @@ const reviews = computed(() => {
 
 					<div class="absolute bottom-0 ml-6 mb-5 z-10">
 						<nuxt-link
-							:to="/book/ + review.slug"
+							:to="'/book-reviews/' + review.slug"
 							class="inline-block text-xs md:text-sm uppercase tracking-wider text-white hover:text-crimson-200 font-bold"
 						>
 							Leer reseña completa
