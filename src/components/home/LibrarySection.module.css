@@ -1,188 +1,196 @@
 .section {
-  padding: var(--spacing-xl) 0;
-  background-color: var(--color-cream);
+	padding: var(--spacing-xl) 0;
+	background-color: var(--color-cream);
 }
 
 .layout {
-  display: grid;
-  grid-template-columns: 1fr 220px;
-  gap: var(--spacing-lg);
-  align-items: start;
+	display: grid;
+	grid-template-columns: 1fr 280px;
+	gap: var(--spacing-lg);
+	align-items: start;
 }
 
 /* ── Tabs ── */
 .tabs {
-  display: flex;
-  gap: 0;
-  margin-bottom: var(--spacing-md);
-  border-bottom: 2px solid var(--color-taupe);
+	display: flex;
+	gap: 0;
+	margin-bottom: var(--spacing-md);
+	border-bottom: 2px solid var(--color-taupe);
 }
 
 .tab {
-  font-family: var(--font-montserrat), Montserrat, sans-serif;
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: var(--color-gray-mid);
-  background: none;
-  border: none;
-  padding: 0.65rem 1rem;
-  cursor: pointer;
-  border-bottom: 2px solid transparent;
-  margin-bottom: -2px;
-  transition: color 0.2s, border-color 0.2s;
-  white-space: nowrap;
+	font-family: var(--font-montserrat), Montserrat, sans-serif;
+	font-size: 0.72rem;
+	font-weight: 600;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	color: var(--color-gray-mid);
+	background: none;
+	border: none;
+	padding: 0.65rem 1rem;
+	cursor: pointer;
+	border-bottom: 2px solid transparent;
+	margin-bottom: -2px;
+	transition:
+		color 0.2s,
+		border-color 0.2s;
+	white-space: nowrap;
 }
 
 .tab:hover {
-  color: var(--color-brown);
+	color: var(--color-brown);
 }
 
 .tabActive {
-  color: var(--color-brown);
-  border-bottom-color: var(--color-brown);
+	color: var(--color-brown);
+	border-bottom-color: var(--color-brown);
 }
 
 /* ── Books grid ── */
 .booksGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
-  gap: 1rem;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+	gap: 1rem;
 }
 
 .bookItem {
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-  text-decoration: none;
-  transition: transform 0.2s;
+	display: flex;
+	flex-direction: column;
+	gap: 0.35rem;
+	text-decoration: none;
+	transition: transform 0.2s;
 }
 
 .bookItem:hover {
-  transform: translateY(-4px);
+	transform: translateY(-4px);
 }
 
 .bookCover {
-  width: 100%;
-  aspect-ratio: 2/3;
-  object-fit: cover;
-  border-radius: 4px;
-  box-shadow: 0 3px 10px rgba(74, 46, 42, 0.15);
-  display: block;
+	width: 100%;
+	aspect-ratio: 2/3;
+	object-fit: cover;
+	border-radius: 4px;
+	box-shadow: 0 3px 10px rgba(74, 46, 42, 0.15);
+	display: block;
 }
 
 .bookCoverPlaceholder {
-  width: 100%;
-  aspect-ratio: 2/3;
-  background: var(--color-beige);
-  border-radius: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.5rem;
+	width: 100%;
+	aspect-ratio: 2/3;
+	background: var(--color-beige);
+	border-radius: 4px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 1.5rem;
 }
 
 .bookTitle {
-  font-size: 0.72rem;
-  font-weight: 600;
-  color: var(--color-brown);
-  line-height: 1.3;
-  margin: 0;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+	font-size: 0.72rem;
+	font-weight: 600;
+	color: var(--color-brown);
+	line-height: 1.3;
+	margin: 0;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
 }
 
 .bookAuthor {
-  font-size: 0.65rem;
-  color: var(--color-gray-mid);
-  margin: 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+	font-size: 0.65rem;
+	color: var(--color-gray-mid);
+	margin: 0;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .empty {
-  color: var(--color-gray-mid);
-  font-style: italic;
-  padding: var(--spacing-md) 0;
+	color: var(--color-gray-mid);
+	font-style: italic;
+	padding: var(--spacing-md) 0;
 }
 
 .viewAll {
-  margin-top: var(--spacing-md);
+	margin-top: var(--spacing-md);
 }
 
 /* ── Stats sidebar ── */
 .stats {
-  background: white;
-  border-radius: var(--border-radius-lg);
-  padding: var(--spacing-md);
-  box-shadow: var(--shadow);
-  position: sticky;
-  top: 180px;
+	background: white;
+	border-radius: var(--border-radius-lg);
+	padding: var(--spacing-md);
+	box-shadow: var(--shadow);
+	position: sticky;
+	top: 180px;
 }
 
 .statsTitle {
-  font-family: var(--font-montserrat), Montserrat, sans-serif;
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--color-brown-soft);
-  margin-bottom: var(--spacing-md);
+	font-family: var(--font-montserrat), Montserrat, sans-serif;
+	font-size: 0.7rem;
+	font-weight: 700;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	color: var(--color-brown-soft);
+	margin-bottom: var(--spacing-md);
 }
 
 .statsList {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-md);
+	list-style: none;
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-md);
 }
 
 .statItem {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
 }
 
 .statIcon {
-  font-size: 1.2rem;
-  color: var(--color-brown-soft);
-  flex-shrink: 0;
+	font-size: 1.2rem;
+	color: var(--color-brown-soft);
+	flex-shrink: 0;
 }
 
 .statNumber {
-  display: block;
-  font-family: var(--font-playfair), "Playfair Display", serif;
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--color-brown);
-  line-height: 1;
+	display: block;
+	font-family: var(--font-playfair), 'Playfair Display', serif;
+	font-size: 1.5rem;
+	font-weight: 700;
+	color: var(--color-brown);
+	line-height: 1;
 }
 
 .statLabel {
-  display: block;
-  font-size: 0.75rem;
-  color: var(--color-gray-mid);
-  margin-top: 0.1rem;
+	display: block;
+	font-size: 0.75rem;
+	color: var(--color-gray-mid);
+	margin-top: 0.1rem;
 }
 
 /* ── Responsive ── */
 @media (max-width: 900px) {
-  .layout {
-    grid-template-columns: 1fr;
-  }
+	.layout {
+		grid-template-columns: 1fr;
+	}
 
-  .stats {
-    position: static;
-  }
+	.stats {
+		position: static;
+	}
 
-  .statsTitle { text-align: center; }
+	.statsTitle {
+		text-align: center;
+	}
 }
 
 @media (max-width: 600px) {
-  .tabs { overflow-x: auto; }
-  .booksGrid { grid-template-columns: repeat(auto-fill, minmax(75px, 1fr)); }
+	.tabs {
+		overflow-x: auto;
+	}
+	.booksGrid {
+		grid-template-columns: repeat(auto-fill, minmax(75px, 1fr));
+	}
 }
