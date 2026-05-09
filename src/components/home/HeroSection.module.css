@@ -1,0 +1,155 @@
+.hero {
+	position: relative;
+	min-height: 520px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	overflow: hidden;
+	/* Gradient de fallback — se sobreescribe con inline style cuando hay imagen de Strapi */
+	background:
+		radial-gradient(ellipse at 30% 60%, #5c2d25 0%, transparent 55%),
+		radial-gradient(ellipse at 75% 30%, #3d1f1a 0%, transparent 50%),
+		linear-gradient(160deg, #2a1510 0%, #1c0e0a 50%, #0f0806 100%);
+	background-size: cover;
+	background-position: center;
+}
+
+/* Decorative warm glow — evoca una vela entre libros */
+.hero::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	background:
+		radial-gradient(
+			ellipse 40% 50% at 20% 70%,
+			rgba(216, 167, 167, 0.12) 0%,
+			transparent 70%
+		),
+		radial-gradient(
+			ellipse 30% 40% at 80% 40%,
+			rgba(107, 79, 79, 0.18) 0%,
+			transparent 60%
+		);
+	pointer-events: none;
+}
+
+/* Decorative top/bottom soft lines */
+.hero::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+	background:
+		linear-gradient(to bottom, rgba(245, 241, 237, 0.03) 0%, transparent 20%),
+		linear-gradient(to top, rgba(245, 241, 237, 0.05) 0%, transparent 25%);
+	pointer-events: none;
+}
+
+.overlay {
+	position: absolute;
+	inset: 0;
+	background: rgba(26, 10, 8, 0.35);
+}
+
+.content {
+	position: relative;
+	z-index: 1;
+	max-width: 680px;
+	padding: var(--spacing-xl) var(--spacing-md);
+}
+
+.eyebrow {
+	font-family: var(--font-lora), Lora, serif;
+	font-style: italic;
+	font-size: 1.1rem;
+	color: var(--color-rose);
+	margin-bottom: 0.5rem;
+	letter-spacing: 0.5px;
+}
+
+.title {
+	font-family: var(--font-playfair), 'Playfair Display', serif;
+	font-style: italic;
+	font-weight: 400;
+	font-size: 4rem;
+	color: var(--color-cream);
+	line-height: 1.15;
+	margin-bottom: var(--spacing-sm);
+	text-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Separador decorativo: ── ♥ ── */
+.separator {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+	max-width: 180px;
+	margin: 0 auto 1.25rem;
+}
+
+.separatorLine {
+	flex: 1;
+	height: 1px;
+	background-color: rgba(245, 241, 237, 0.35);
+	display: block;
+}
+
+.separatorHeart {
+	color: var(--color-rose);
+	font-size: 2rem;
+	line-height: 1;
+}
+
+.subtitle {
+	font-family: var(--font-lora), Lora, serif;
+	font-size: 1.1rem;
+	color: rgba(245, 241, 237, 0.8);
+	max-width: 480px;
+	margin: 0 auto var(--spacing-lg);
+	line-height: 1.7;
+}
+
+/* Botón CTA — fondo semi-transparente cream, no solo outline */
+.cta {
+	font-size: 0.78rem;
+	letter-spacing: 2px;
+	background-color: rgba(245, 241, 237, 0.12) !important;
+	border-color: rgba(245, 241, 237, 0.55) !important;
+	color: var(--color-cream) !important;
+	backdrop-filter: blur(2px);
+	padding: 0.65rem 1.6rem;
+}
+
+.cta:hover {
+	background-color: rgba(245, 241, 237, 0.25) !important;
+	border-color: rgba(245, 241, 237, 0.8) !important;
+	color: var(--color-cream) !important;
+	transform: translateY(-2px);
+}
+
+@media (max-width: 992px) {
+	.title {
+		font-size: 3rem;
+	}
+	.hero {
+		min-height: 420px;
+	}
+}
+
+@media (max-width: 768px) {
+	.title {
+		font-size: 2.4rem;
+	}
+	.hero {
+		min-height: 360px;
+	}
+	.subtitle {
+		font-size: 1rem;
+	}
+}
+
+@media (max-width: 576px) {
+	.title {
+		font-size: 2rem;
+	}
+}

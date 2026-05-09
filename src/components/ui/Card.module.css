@@ -1,0 +1,91 @@
+.card {
+  background-color: white;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-hover);
+}
+
+.cardImg {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.cardImgPlaceholder {
+  height: 200px;
+  width: 100%;
+  background-color: var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+}
+
+.cardContent {
+  padding: var(--spacing-md);
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.cardMeta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  color: var(--color-gray-mid);
+  margin-bottom: var(--spacing-sm);
+}
+
+.cardTag {
+  background-color: var(--color-blush);
+  color: var(--color-brown);
+  padding: 0.2rem 0.7rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.cardExcerpt {
+  margin-bottom: var(--spacing-md);
+  flex-grow: 1;
+  color: var(--color-gray-mid);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.cardLink {
+  font-weight: 600;
+  color: var(--color-brown);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: auto;
+  transition: color 0.3s ease;
+}
+
+.cardLink:hover {
+  color: var(--color-rose);
+}
+
+.cardLink:hover .arrow {
+  transform: translateX(5px);
+}
+
+.arrow {
+  font-size: 0.85rem;
+  transition: transform 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+}

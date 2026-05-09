@@ -1,0 +1,255 @@
+/* ── Sección: fondo beige, sin card blanco alrededor de la reseña ── */
+.section {
+  padding: var(--spacing-xl) 0;
+  background-color: var(--color-cream);
+}
+
+/* Grid externo: review (izq) | about (der) */
+.outerGrid {
+  display: grid;
+  grid-template-columns: 1fr 240px;
+  gap: var(--spacing-lg);
+  align-items: start;
+}
+
+/* Label de columna con línea decorativa */
+.colLabel {
+  font-family: var(--font-montserrat), Montserrat, sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--color-brown-soft);
+  margin-bottom: var(--spacing-sm);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.colLabel::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background-color: var(--color-taupe);
+}
+
+/* ════════════════════════════════════════
+   REVIEW — sin card blanco, flota sobre beige
+   Layout: [portada] [contenido]
+   ════════════════════════════════════════ */
+.reviewLayout {
+  display: flex;
+  gap: var(--spacing-md);
+  align-items: flex-start;
+}
+
+/* Portada: retrato grande con sombra pronunciada */
+.coverWrap {
+  flex-shrink: 0;
+  width: 200px;
+}
+
+.coverImg {
+  display: block;
+  width: 200px;
+  height: 300px;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 6px;
+  box-shadow: 0 16px 48px rgba(74, 46, 42, 0.35);
+}
+
+.coverPlaceholder {
+  width: 200px;
+  height: 300px;
+  border-radius: 6px;
+  background: linear-gradient(160deg, var(--color-brown) 0%, var(--color-brown-mid) 60%, var(--color-brown-soft) 100%);
+  box-shadow: 0 16px 48px rgba(74, 46, 42, 0.35);
+}
+
+/* Contenido: sobre el fondo beige directamente */
+.reviewContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  padding-top: 0.25rem;
+}
+
+.bookTitle {
+  font-family: var(--font-playfair), "Playfair Display", serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 2.1rem;
+  color: var(--color-brown);
+  line-height: 1.15;
+  margin: 0;
+}
+
+.authorName {
+  font-family: var(--font-lora), Lora, serif;
+  font-style: italic;
+  font-size: 0.9rem;
+  color: var(--color-brown-soft);
+  margin: 0;
+}
+
+/* Tags outlined */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.tag {
+  border: 1.5px solid var(--color-rose);
+  color: var(--color-brown);
+  background: transparent;
+  font-family: var(--font-montserrat), Montserrat, sans-serif;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 0.2rem 0.7rem;
+  border-radius: 20px;
+}
+
+/* Estrellas */
+.stars {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  color: var(--color-gold);
+  font-size: 1.1rem;
+}
+
+.ratingNum {
+  font-family: var(--font-montserrat), Montserrat, sans-serif;
+  font-size: 0.82rem;
+  color: var(--color-brown-soft);
+  margin-left: 0.35rem;
+}
+
+/* Extracto */
+.excerpt {
+  font-family: var(--font-lora), Lora, serif;
+  font-size: 0.9rem;
+  color: var(--color-gray-mid);
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* Botón compacto (no full-width) */
+.reviewBtn {
+  display: inline-block;
+  align-self: flex-start;
+  background-color: var(--color-brown);
+  color: var(--color-cream);
+  font-family: var(--font-montserrat), Montserrat, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 0.65rem 1.25rem;
+  border-radius: var(--border-radius);
+  border: 2px solid var(--color-brown);
+  transition: all 0.25s ease;
+  margin-top: 0.25rem;
+}
+
+.reviewBtn:hover {
+  background-color: var(--color-rose);
+  border-color: var(--color-rose);
+  color: white;
+}
+
+/* ════════════════════════════════════════
+   ABOUT CARD — card blanco con foto portrait
+   ════════════════════════════════════════ */
+.aboutCard {
+  background: white;
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.aboutPhotoWrap {
+  width: 100%;
+  height: 230px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.aboutPhoto {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+.aboutBody {
+  padding: 1.1rem var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.aboutBio {
+  font-family: var(--font-lora), Lora, serif;
+  font-size: 0.87rem;
+  color: var(--color-gray-mid);
+  line-height: 1.7;
+  margin: 0;
+}
+
+.aboutLink {
+  font-family: var(--font-montserrat), Montserrat, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--color-brown);
+  transition: color 0.2s;
+  align-self: flex-start;
+}
+
+.aboutLink:hover {
+  color: var(--color-rose);
+}
+
+/* ── Responsive ── */
+@media (max-width: 960px) {
+  .outerGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .reviewLayout {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .coverWrap {
+    width: 160px;
+  }
+
+  .coverImg,
+  .coverPlaceholder {
+    width: 160px;
+    height: 240px;
+  }
+
+  .bookTitle {
+    font-size: 1.6rem;
+    text-align: center;
+  }
+
+  .authorName { text-align: center; }
+  .tags { justify-content: center; }
+  .stars { justify-content: center; }
+  .reviewBtn { align-self: center; }
+}

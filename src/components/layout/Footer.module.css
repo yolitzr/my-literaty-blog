@@ -1,0 +1,99 @@
+.footer {
+  background-color: var(--color-brown);
+  color: var(--color-cream);
+  padding: var(--spacing-xl) 0 var(--spacing-md);
+}
+
+.footerContent {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-xl);
+  margin-bottom: var(--spacing-xl);
+}
+
+.footerBrand h3 {
+  font-family: var(--font-playfair), "Playfair Display", serif;
+  font-style: italic;
+  font-size: 1.6rem;
+  color: var(--color-cream);
+  margin-bottom: var(--spacing-sm);
+  font-weight: 400;
+}
+
+.footerBrand p {
+  color: rgba(245, 241, 237, 0.65);
+  font-size: 0.9rem;
+  line-height: 1.7;
+  font-family: var(--font-lora), Lora, serif;
+}
+
+.socialLinks {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: var(--spacing-sm);
+}
+
+.socialLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  background-color: rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+  transition: all 0.25s ease;
+  font-size: 1rem;
+  color: rgba(245, 241, 237, 0.7);
+}
+
+.socialLink:hover {
+  background-color: var(--color-rose);
+  color: white;
+  transform: translateY(-3px);
+}
+
+.footerLinks h4 {
+  color: var(--color-cream);
+  font-family: var(--font-montserrat), Montserrat, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: var(--spacing-md);
+}
+
+.footerLinks ul {
+  list-style: none;
+}
+
+.footerLinks li {
+  margin-bottom: 0.6rem;
+}
+
+.footerLinks a {
+  color: rgba(245, 241, 237, 0.65);
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
+  font-family: var(--font-lora), Lora, serif;
+}
+
+.footerLinks a:hover {
+  color: var(--color-rose);
+}
+
+.copyright {
+  text-align: center;
+  padding-top: var(--spacing-md);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(245, 241, 237, 0.4);
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  font-family: var(--font-montserrat), Montserrat, sans-serif;
+}
+
+.heart {
+  color: var(--color-rose);
+}

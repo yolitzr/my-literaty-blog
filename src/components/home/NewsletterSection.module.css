@@ -1,0 +1,133 @@
+.section {
+  background-color: var(--color-brown);
+  padding: var(--spacing-xl) 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-xl);
+  align-items: center;
+}
+
+/* ── Quote ── */
+.quoteCol {
+  position: relative;
+  padding-left: var(--spacing-md);
+  border-left: 3px solid var(--color-rose);
+}
+
+.quoteDecor {
+  position: absolute;
+  top: -1rem;
+  left: -0.5rem;
+  font-family: var(--font-playfair), "Playfair Display", serif;
+  font-size: 5rem;
+  color: var(--color-rose);
+  opacity: 0.3;
+  line-height: 1;
+  user-select: none;
+}
+
+.quote {
+  font-family: var(--font-playfair), "Playfair Display", serif;
+  font-style: italic;
+  font-size: 1.15rem;
+  color: rgba(245, 241, 237, 0.9);
+  line-height: 1.7;
+  margin-bottom: var(--spacing-sm);
+}
+
+.quoteAuthor {
+  font-family: var(--font-montserrat), Montserrat, sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 1.5px;
+  color: var(--color-rose);
+  font-style: normal;
+}
+
+/* ── Form ── */
+.formLabel {
+  font-family: var(--font-montserrat), Montserrat, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--color-rose);
+  margin-bottom: 0.5rem;
+}
+
+.formSubtitle {
+  font-family: var(--font-lora), Lora, serif;
+  font-size: 0.9rem;
+  color: rgba(245, 241, 237, 0.7);
+  line-height: 1.65;
+  margin-bottom: var(--spacing-md);
+}
+
+.form {
+  display: flex;
+  gap: 0;
+}
+
+.input {
+  flex-grow: 1;
+  padding: 0.75rem 1rem;
+  border: 2px solid rgba(245, 241, 237, 0.2);
+  border-right: none;
+  border-radius: var(--border-radius) 0 0 var(--border-radius);
+  background-color: rgba(255, 255, 255, 0.07);
+  color: var(--color-cream);
+  font-family: var(--font-lora), Lora, serif;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.input::placeholder {
+  color: rgba(245, 241, 237, 0.4);
+}
+
+.input:focus {
+  border-color: var(--color-rose);
+}
+
+.submitBtn {
+  padding: 0.75rem 1.25rem;
+  background-color: var(--color-rose);
+  color: white;
+  border: 2px solid var(--color-rose);
+  border-radius: 0 var(--border-radius) var(--border-radius) 0;
+  font-family: var(--font-montserrat), Montserrat, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+
+.submitBtn:hover {
+  background-color: var(--color-blush);
+  border-color: var(--color-blush);
+  color: var(--color-brown);
+}
+
+.success {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-sm) var(--spacing-md);
+  color: var(--color-cream);
+  font-size: 0.95rem;
+}
+
+@media (max-width: 768px) {
+  .grid { grid-template-columns: 1fr; gap: var(--spacing-lg); }
+  .form { flex-direction: column; }
+  .input {
+    border-right: 2px solid rgba(245, 241, 237, 0.2);
+    border-radius: var(--border-radius);
+  }
+  .submitBtn { border-radius: var(--border-radius); }
+}

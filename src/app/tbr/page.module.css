@@ -1,0 +1,107 @@
+/* Reutiliza las mismas variables y estructura que book-review */
+
+.page {
+  background-color: white;
+  min-height: 60vh;
+}
+
+.breadcrumb {
+  background-color: var(--color-light);
+  padding: var(--spacing-sm) 0;
+  font-size: 0.9rem;
+  color: var(--color-gray);
+}
+
+.breadcrumb a {
+  color: var(--color-gray);
+  transition: color 0.2s;
+}
+
+.breadcrumb a:hover {
+  color: var(--color-primary);
+}
+
+.breadcrumbSep {
+  margin: 0 0.4rem;
+}
+
+.hero {
+  text-align: center;
+  padding: var(--spacing-lg) 0;
+  margin-bottom: var(--spacing-xl);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.heroTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-sm);
+}
+
+.heroSubtitle {
+  font-size: 1.2rem;
+  color: var(--color-gray);
+  max-width: 600px;
+  margin: 0 auto var(--spacing-lg);
+}
+
+.statsBar {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-xl);
+  margin-top: var(--spacing-md);
+}
+
+.statItem {
+  text-align: center;
+}
+
+.statNumber {
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  line-height: 1;
+  margin-bottom: 5px;
+  font-family: var(--font-playfair), "Playfair Display", serif;
+}
+
+.statLabel {
+  font-size: 0.9rem;
+  color: var(--color-gray);
+}
+
+.content {
+  padding-bottom: var(--spacing-xl);
+}
+
+.sectionTitle {
+  font-size: 1.8rem;
+  margin-bottom: var(--spacing-md);
+  padding-bottom: var(--spacing-xs);
+  position: relative;
+  display: inline-block;
+}
+
+.sectionTitle::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 2px;
+  background-color: var(--color-secondary);
+}
+
+@media (max-width: 768px) {
+  .heroTitle { font-size: 2rem; }
+  .statsBar { gap: var(--spacing-lg); }
+  .statNumber { font-size: 1.6rem; }
+}
+
+@media (max-width: 480px) {
+  .heroSubtitle { font-size: 1rem; }
+  .statsBar { gap: var(--spacing-md); flex-wrap: wrap; }
+  .statItem { width: calc(50% - var(--spacing-sm)); }
+}
