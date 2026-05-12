@@ -289,7 +289,34 @@ export function getLatestWwwWednesday() {
 
 export function getLatestTopTenTuesday() {
   return fetchStrapi<StrapiListResponse<TopTenTuesdayEntry>>('/top-ten-tuesdays', {
+    'populate[cover][fields][0]': 'url',
+    'populate[cover][fields][1]': 'formats',
     'pagination[pageSize]': '1',
+    sort: 'date:desc',
+  })
+}
+
+export function getTopTenTuesdayBySlug(slug: string) {
+  return fetchStrapi<StrapiListResponse<TopTenTuesdayEntry>>('/top-ten-tuesdays', {
+    'filters[slug][$eq]': slug,
+    'populate[items][populate][book][populate][image][fields][0]': 'url',
+    'populate[items][populate][book][populate][image][fields][1]': 'formats',
+    'populate[items][populate][book][populate][author][fields][0]': 'full_name',
+    'populate[items][populate][manual_cover][fields][0]': 'url',
+    'populate[items][populate][manual_cover][fields][1]': 'formats',
+    'populate[items][populate][categories][fields][0]': 'name',
+    'populate[items][populate][categories][fields][1]': 'slug',
+    'populate[categories][fields][0]': 'name',
+    'populate[categories][fields][1]': 'slug',
+  })
+}
+
+export function getRecentTopTenTuesdays(excludeSlug: string, limit = 5) {
+  return fetchStrapi<StrapiListResponse<TopTenTuesdayEntry>>('/top-ten-tuesdays', {
+    'filters[slug][$ne]': excludeSlug,
+    'populate[cover][fields][0]': 'url',
+    'populate[cover][fields][1]': 'formats',
+    'pagination[pageSize]': String(limit),
     sort: 'date:desc',
   })
 }

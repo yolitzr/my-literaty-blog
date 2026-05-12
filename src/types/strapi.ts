@@ -206,13 +206,28 @@ export interface WwwWednesdayEntry {
 	createdAt: string;
 }
 
+export interface TopTenItem {
+	id: number;
+	book?: Book | null;
+	manual_title?: string | null;
+	manual_author?: string | null;
+	manual_cover?: StrapiImage | null;
+	reason?: string | null;
+	position?: number | null;
+	categories?: Category[];
+}
+
 export interface TopTenTuesdayEntry {
 	id: number;
 	documentId: string;
 	topic: string;
 	slug: string;
 	date: string;
+	cover: StrapiImage | null;
 	intro: string | null;
+	content: BlocksContent | null;
+	items?: TopTenItem[];
+	categories?: Category[];
 	createdAt: string;
 }
 

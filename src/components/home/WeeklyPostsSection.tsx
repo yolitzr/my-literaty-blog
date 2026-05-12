@@ -61,6 +61,21 @@ export default function WeeklyPostsSection({
 			isEmpty: !bookishNews,
 		},
 		{
+			day: 'Martes',
+			typeLabel: 'Top 10',
+			typeBgColor: 'var(--color-blush)',
+			typeTextColor: 'var(--color-brown)',
+			title: topTen?.topic ?? 'Próximamente...',
+			description:
+				topTen?.intro?.slice(0, 100) ??
+				'Listas, recomendaciones y contenido extra para los amantes de los libros.',
+			href: topTen
+				? `/blog/top-ten-tuesday/${topTen.slug}`
+				: '/blog/top-ten-tuesday',
+			imageUrl: topTen?.cover ? imgUrl(topTen.cover) : null,
+			isEmpty: !topTen,
+		},
+		{
 			day: 'Miércoles',
 			typeLabel: 'WWW Wednesday',
 			typeBgColor: 'var(--color-brown-soft)',
@@ -78,21 +93,6 @@ export default function WeeklyPostsSection({
 			isEmpty: !wwwWednesday,
 		},
 
-		{
-			day: 'Jueves',
-			typeLabel: 'Top 10',
-			typeBgColor: 'var(--color-blush)',
-			typeTextColor: 'var(--color-brown)',
-			title: topTen?.topic ?? 'Próximamente...',
-			description:
-				topTen?.intro?.slice(0, 100) ??
-				'Listas, recomendaciones y contenido extra para los amantes de los libros.',
-			href: topTen
-				? `/blog/top-ten-tuesday/${topTen.slug}`
-				: '/blog/top-ten-tuesday',
-			imageUrl: null,
-			isEmpty: !topTen,
-		},
 		{
 			day: 'Viernes',
 			typeLabel: 'Reseña',
