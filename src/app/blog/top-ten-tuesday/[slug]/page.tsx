@@ -13,6 +13,9 @@ const TTT_BLOG_URL = 'https://thatartsyreadergirl.com/top-ten-tuesday/';
 const MEME_INTRO =
 	'Top Ten Tuesday es una iniciativa semanal sobre libros que nació en The Broke and the Bookish y ahora continúa en el blog de Jana, That Artsy Reader Girl.';
 
+const MEME_SIDEBAR_TEXT =
+	'Un espacio para compartir nuestras listas semanales y descubrir nuevos libros y recomendaciones.';
+
 function imgUrl(url: string | null | undefined): string | null {
 	if (!url) return null;
 	return url.startsWith('http') ? url : `${STRAPI_URL}${url}`;
@@ -117,35 +120,35 @@ function SidebarWidget({
 // ─── Recent entry item ────────────────────────────────────────────────────────
 
 function RecentEntryItem({ entry }: { entry: TopTenTuesdayEntry }) {
-	const thumbSrc = entry.cover
+	const coverSrc = entry.cover
 		? imgUrl(
-				entry.cover.formats?.thumbnail?.url ??
-					entry.cover.formats?.small?.url ??
+				entry.cover.formats?.small?.url ??
+					entry.cover.formats?.medium?.url ??
 					entry.cover.url,
 			)
 		: null;
 
 	return (
-		<li>
+		<li className={styles.recentItem}>
 			<Link
 				href={`/blog/top-ten-tuesday/${entry.slug}`}
 				className={styles.recentLink}
 			>
-				<div className={styles.recentThumb}>
-					{thumbSrc ? (
+				<div className={styles.recentCover}>
+					{coverSrc ? (
 						// eslint-disable-next-line @next/next/no-img-element
 						<img
-							src={thumbSrc}
+							src={coverSrc}
 							alt={entry.topic}
-							className={styles.recentThumbImg}
+							className={styles.recentCoverImg}
 						/>
 					) : (
-						<div className={styles.recentThumbPlaceholder}>📚</div>
+						<div className={styles.recentCoverPlaceholder}>📚</div>
 					)}
 				</div>
 				<div className={styles.recentInfo}>
-					<time className={styles.recentDate}>{formatDate(entry.date)}</time>
 					<span className={styles.recentTopic}>{entry.topic}</span>
+					<time className={styles.recentDate}>{formatDate(entry.date)}</time>
 				</div>
 			</Link>
 		</li>
@@ -184,7 +187,7 @@ export default async function TopTenTuesdayDetailPage({
 
 	const [entryRes, recentRes] = await Promise.allSettled([
 		getTopTenTuesdayBySlug(slug),
-		getRecentTopTenTuesdays(slug, 5),
+		getRecentTopTenTuesdays(slug, 3),
 	]);
 
 	const entry = entryRes.status === 'fulfilled' ? entryRes.value.data[0] : null;
@@ -293,27 +296,43 @@ export default async function TopTenTuesdayDetailPage({
 
 				{/* ── Sidebar ─────────────────────────────────────────────────────── */}
 				<aside className={styles.sidebar}>
-					<SidebarWidget title="Sobre el Top Ten Tuesday">
-						<p className={styles.widgetText}>{MEME_INTRO}</p>
-						<a
-							href={TTT_BLOG_URL}
-							target="_blank"
-							rel="noopener noreferrer"
-							className={styles.widgetLink}
-						>
-							Visitar blog →
-						</a>
-					</SidebarWidget>
 
-					{recentEntries.length > 0 && (
-						<SidebarWidget title="Entradas de Top Ten Tuesday">
-							<ul className={styles.recentList}>
-								{recentEntries.map((e) => (
-									<RecentEntryItem key={e.id} entry={e} />
-								))}
-							</ul>
-						</SidebarWidget>
-					)}
+					{/* Widget sin título — imagen + texto */}
+					<div className={styles.imageWidget}>
+						{/* eslint-disable-next-line @next/next/no-img-element */}
+						<img
+							src="/t-t-t-sidebar.png"
+							alt=""
+							className={styles.imageWidgetImg}
+							aria-hidden
+						/>
+						<div className={styles.imageWidgetBody}>
+							<p className={styles.imageWidgetText}>{MEME_SIDEBAR_TEXT}</p>
+						</div>
+					</div>
+
+					<div className={styles.recentWidget}>
+						<div className={styles.recentWidgetHeader}>
+							Entradas de Top Ten Tuesday
+						</div>
+						<div className={styles.recentWidgetBody}>
+							{recentEntries.length > 0 ? (
+								<ul className={styles.recentList}>
+									{recentEntries.map((e) => (
+										<RecentEntryItem key={e.id} entry={e} />
+									))}
+								</ul>
+							) : (
+								<p className={styles.widgetText}>Próximamente más entradas.</p>
+							)}
+							<Link
+								href="/blog/top-ten-tuesday"
+								className={styles.recentVerTodas}
+							>
+								Ver Todas →
+							</Link>
+						</div>
+					</div>
 
 					{(entry.categories ?? []).length > 0 && (
 						<SidebarWidget title="Categorías">
