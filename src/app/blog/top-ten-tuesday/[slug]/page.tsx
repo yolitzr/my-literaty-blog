@@ -51,14 +51,16 @@ function BookCard({ item, index }: { item: TopTenItem; index: number }) {
 
 	return (
 		<div className={styles.bookCard}>
-			<div className={styles.coverWrapper}>
+			<div className={styles.coverOuter}>
 				<span className={styles.positionBadge}>{position}</span>
-				{coverSrc ? (
-					// eslint-disable-next-line @next/next/no-img-element
-					<img src={coverSrc} alt={title} className={styles.cover} />
-				) : (
-					<div className={styles.coverPlaceholder}>📚</div>
-				)}
+				<div className={styles.coverWrapper}>
+					{coverSrc ? (
+						// eslint-disable-next-line @next/next/no-img-element
+						<img src={coverSrc} alt={title} className={styles.cover} />
+					) : (
+						<div className={styles.coverPlaceholder}>📚</div>
+					)}
+				</div>
 			</div>
 
 			<div className={styles.bookInfo}>
