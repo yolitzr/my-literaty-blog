@@ -282,7 +282,48 @@ export function getLatestBookishNews() {
 
 export function getLatestWwwWednesday() {
   return fetchStrapi<StrapiListResponse<WwwWednesdayEntry>>('/www-wednesdays', {
+    'populate[cover_image][fields][0]': 'url',
+    'populate[cover_image][fields][1]': 'formats',
+    'populate[reading_next][populate][image][fields][0]': 'url',
+    'populate[reading_next][populate][image][fields][1]': 'formats',
     'pagination[pageSize]': '1',
+    sort: 'date:desc',
+  })
+}
+
+export function getWwwWednesdayBySlug(slug: string) {
+  return fetchStrapi<StrapiListResponse<WwwWednesdayEntry>>('/www-wednesdays', {
+    'filters[slug][$eq]': slug,
+    'populate[cover_image][fields][0]': 'url',
+    'populate[cover_image][fields][1]': 'formats',
+    'populate[cover_image][fields][2]': 'alternativeText',
+    'populate[reading_next][fields][0]': 'title',
+    'populate[reading_next][fields][1]': 'slug',
+    'populate[reading_next][fields][2]': 'serie',
+    'populate[reading_next][fields][3]': 'publication_date',
+    'populate[reading_next][fields][4]': 'pages',
+    'populate[reading_next][fields][5]': 'reading_status',
+    'populate[reading_next][fields][6]': 'owned_format',
+    'populate[reading_next][fields][7]': 'goodreads_link',
+    'populate[reading_next][fields][8]': 'amazon_link',
+    'populate[reading_next][fields][9]': 'synopsis',
+    'populate[reading_next][populate][image][fields][0]': 'url',
+    'populate[reading_next][populate][image][fields][1]': 'formats',
+    'populate[reading_next][populate][author][fields][0]': 'full_name',
+    'populate[reading_next][populate][author][fields][1]': 'slug',
+    'populate[reading_next][populate][genres][fields][0]': 'title',
+    'populate[reading_next][populate][publisher][fields][0]': 'name',
+    'populate[categories][fields][0]': 'name',
+    'populate[categories][fields][1]': 'slug',
+  })
+}
+
+export function getRecentWwwWednesdays(excludeSlug: string, limit = 5) {
+  return fetchStrapi<StrapiListResponse<WwwWednesdayEntry>>('/www-wednesdays', {
+    'filters[slug][$ne]': excludeSlug,
+    'populate[cover_image][fields][0]': 'url',
+    'populate[cover_image][fields][1]': 'formats',
+    'pagination[pageSize]': String(limit),
     sort: 'date:desc',
   })
 }

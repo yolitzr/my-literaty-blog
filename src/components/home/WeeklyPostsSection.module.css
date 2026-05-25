@@ -22,8 +22,10 @@
 }
 
 .card:hover {
-	transform: translateY(-6px);
+	/* transform: translateY(-6px); */
 	box-shadow: var(--shadow-hover);
+	/* background-color: (var(--color-brown) / 0.5); */
+	border-color: var(--color-brown);
 }
 
 .cardEmpty {

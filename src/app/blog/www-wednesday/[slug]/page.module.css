@@ -43,17 +43,6 @@
 	padding-right: 1rem;
 }
 
-.heroEyebrow {
-	font-family: var(--font-montserrat), Montserrat, sans-serif;
-	font-size: 0.7rem;
-	font-weight: 600;
-	text-transform: uppercase;
-	letter-spacing: 0.12em;
-	color: var(--color-brown-soft);
-	margin: 0 0 0.5rem;
-	text-align: center;
-}
-
 .heroTitle {
 	font-family: var(--font-playfair), 'Playfair Display', serif;
 	font-size: 2.75rem;
@@ -83,27 +72,16 @@
 	text-align: center;
 }
 
-.heroIntroLink {
-	color: var(--color-brown);
-	font-weight: 600;
-	text-decoration: underline;
-	display: inline-flex;
+.heroImageWrap {
+	flex-shrink: 0;
+	width: 280px;
+	height: auto;
+	display: flex;
 	align-items: center;
-	gap: 0.25rem;
-	font-size: 0.8rem;
-	white-space: nowrap;
-	text-align: center;
+	justify-content: center;
 }
 
-.heroIntroLink:hover {
-	color: var(--color-rose);
-}
-
-.heroIntroLink svg {
-	font-size: 0.65rem;
-}
-
-.heroAdorno {
+.heroImg {
 	width: 280px;
 	min-width: 280px;
 	height: auto;
@@ -124,14 +102,13 @@
 	box-sizing: border-box;
 }
 
-/* ── Main column ────────────────────────────────────────────────────────────── */
 .mainContent {
 	flex: 1 1 0;
 	min-width: 0;
 }
 
-/* Topic */
-.topicSection {
+/* ── Entry title band ───────────────────────────────────────────────────────── */
+.entryBand {
 	background: rgba(234, 209, 209, 0.5);
 	padding: 1.25rem 1.75rem;
 	margin-bottom: 1rem;
@@ -146,50 +123,270 @@
 	border: 1px solid var(--color-blush);
 }
 
-.topicBadge {
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	gap: 0.4rem;
+.entryEyebrow {
 	font-family: var(--font-montserrat), Montserrat, sans-serif;
 	font-size: 0.65rem;
 	font-weight: 700;
 	text-transform: uppercase;
-	letter-spacing: 0.1em;
+	letter-spacing: 0.12em;
 	color: var(--color-brown-soft);
-	padding: 0.25rem 0.75rem;
-	align-self: center;
+	margin: 0;
 }
 
-.topicTitle {
+.entryTitle {
 	font-family: var(--font-playfair), 'Playfair Display', serif;
-	font-size: 1.5rem;
+	font-size: 1.375rem;
 	font-style: italic;
 	color: var(--color-brown);
 	margin: 0;
-	line-height: 1.3;
+}
+
+/* ── Book spotlight ──────────────────────────────────────────────────────────── */
+.spotlight {
+	overflow: hidden;
+	margin: 0rem 2rem;
+	background: var(--color-cream);
+	border-radius: 8px;
+}
+
+.spotlightRow {
+	display: flex;
+	gap: 2rem;
+	padding: 2rem;
+	align-items: flex-start;
+}
+
+.spotlightCoverWrap {
+	flex-shrink: 0;
+	width: 300px;
+	aspect-ratio: 2 / 3;
+	border-radius: 8px;
+	overflow: hidden;
+	background: var(--color-beige);
+	box-shadow: 0 6px 24px rgba(74, 46, 42, 0.2);
+}
+
+.spotlightCover {
+	width: 300px;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+	transition: transform 0.3s ease;
+}
+
+.spotlightCoverWrap:hover .spotlightCover {
+	transform: scale(1.03);
+}
+
+.spotlightCoverPlaceholder {
+	width: 100%;
+	height: 100%;
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	font-size: 3rem;
+	background: var(--color-beige);
+}
+
+.spotlightInfo {
+	flex: 1;
+	min-width: 0;
+	display: flex;
+	flex-direction: column;
 	gap: 0.5rem;
 }
 
-.topicIcon {
+.spotlightTitle {
+	font-family: var(--font-playfair), 'Playfair Display', serif;
+	font-size: 1.6rem;
+	font-weight: 700;
+	color: var(--color-brown);
+	line-height: 1.2;
+	text-decoration: none;
+	transition: color 0.2s;
+}
+
+.spotlightTitle:hover {
 	color: var(--color-rose);
+}
+
+.spotlightAuthor {
+	font-family: var(--font-lora), Lora, serif;
+	font-size: 0.95rem;
+	font-style: italic;
+	color: var(--color-brown-soft);
+	margin: 0;
+}
+
+.spotlightReason {
+	padding: 0.75rem 1rem;
+	background: var(--color-cream);
+	border-left: 3px solid var(--color-rose);
+	border-radius: 0 6px 6px 0;
+	display: flex;
+	flex-direction: column;
+	gap: 0.25rem;
+	margin: 0.25rem 0;
+}
+
+.reasonLabel {
+	font-family: var(--font-montserrat), Montserrat, sans-serif;
+	font-size: 0.6rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	color: var(--color-rose);
+}
+
+.reasonText {
+	font-size: 0.9rem;
+	color: var(--color-brown-mid);
+	line-height: 1.7;
+	margin: 0;
+}
+
+/* ── Info card (metadata rows) ──────────────────────────────────────────────── */
+.infoCard {
+	display: flex;
+	flex-direction: column;
+
+	border-radius: 8px;
+	overflow: hidden;
+	margin-top: 0.25rem;
+}
+
+.infoRow {
+	display: flex;
+	align-items: center;
+	gap: 0.625rem;
+	padding: 0.5rem 0.875rem;
+	/* border-bottom: 1px solid var(--color-beige); */
+	font-size: 0.8375rem;
+}
+
+.infoIcon {
+	color: var(--color-rose);
+	font-size: 0.75rem;
 	flex-shrink: 0;
-	font-size: 4em;
-	background: var(--color-brown);
-	border-radius: 50%;
-	padding: 0.25rem;
-	width: 24px;
-	height: 24px;
+	width: 14px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
 }
 
-/* Content body */
+.infoLabel {
+	font-family: var(--font-montserrat), Montserrat, sans-serif;
+	font-size: 0.7rem;
+	font-weight: 600;
+	color: var(--color-brown-soft);
+	white-space: nowrap;
+	min-width: 80px;
+}
+
+.infoValue {
+	color: var(--color-brown);
+	font-size: 0.8375rem;
+	line-height: 1.4;
+}
+
+/* ── External links ─────────────────────────────────────────────────────────── */
+.bookLinks {
+	display: flex;
+	gap: 0.5rem;
+	flex-wrap: wrap;
+	margin-top: 0.25rem;
+}
+
+.externalBtn {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.35rem;
+	font-family: var(--font-montserrat), Montserrat, sans-serif;
+	font-size: 0.7rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+	padding: 0.3rem 0.575rem;
+	border: 1px solid var(--color-taupe);
+	border-radius: 20px;
+	color: var(--color-brown);
+	text-decoration: none;
+	background: var(--color-cream);
+	transition: all 0.2s;
+	margin-bottom: 1rem;
+}
+
+.externalBtn:hover {
+	background: var(--color-brown);
+	color: var(--color-cream);
+	border-color: var(--color-brown);
+}
+
+.externalBtn svg {
+	font-size: 0.6rem;
+}
+
+/* ── Synopsis ───────────────────────────────────────────────────────────────── */
+.synopsis {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	padding: 1.5rem;
+}
+
+.synopsisLabel {
+	font-family: var(--font-playfair), 'Playfair Display', serif;
+}
+
+.synopsis p {
+	font-size: 0.875rem;
+	color: var(--color-brown-mid);
+	line-height: 1.75;
+	margin: 0 0 0.5rem;
+}
+
+.synopsis p:last-child {
+	margin-bottom: 0;
+}
+
+/* ── ARC thank-you ──────────────────────────────────────────────────────────── */
+.arcThanks {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	padding: 0.625rem 1rem;
+	background: linear-gradient(
+		135deg,
+		var(--color-blush),
+		rgba(234, 209, 209, 0.4)
+	);
+	border: 1px solid var(--color-rose);
+	border-radius: 6px;
+	font-family: var(--font-montserrat), Montserrat, sans-serif;
+	font-size: 0.7rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+	color: var(--color-brown);
+}
+
+.arcHeart {
+	color: var(--color-rose);
+	font-size: 0.9rem;
+	flex-shrink: 0;
+}
+
+.emptySpotlight {
+	padding: 2rem;
+	background: var(--color-beige);
+	border-radius: 8px;
+	text-align: center;
+	font-size: 0.9rem;
+	color: var(--color-brown-soft);
+}
+
+/* ── Extra content body ─────────────────────────────────────────────────────── */
+
 .contentBody {
 	padding: 1.5rem 2rem;
 	margin-bottom: 0.5rem;
@@ -206,180 +403,16 @@
 	margin-bottom: 0;
 }
 
-/* Books section */
-.booksSection {
-	margin-bottom: 1rem;
-}
-
-.booksSectionTitle {
-	font-family: var(--font-playfair), 'Playfair Display', serif;
-	font-size: 1.25rem;
-	font-style: italic;
-	color: var(--color-brown);
-	margin: 0 0 1.25rem;
-	padding: 1rem 2rem 0.875rem;
-	border-bottom: 2px solid var(--color-blush);
-}
-
-/* Books grid — 5 columns */
-.booksGrid {
-	display: grid;
-	grid-template-columns: repeat(5, 1fr);
-	gap: 1rem;
-
-	padding: 1.25rem 2rem 2rem;
-}
-
-/* Book card */
-.bookCard {
-	display: flex;
-	flex-direction: column;
-	gap: 0.5rem;
-}
-
-.coverOuter {
-	position: relative;
-	aspect-ratio: 2 / 3;
-}
-
-.coverWrapper {
-	width: 100%;
-	height: 100%;
-	border-radius: 6px;
-	overflow: hidden;
-	background: var(--color-beige);
-	box-shadow: 0 3px 10px rgba(74, 46, 42, 0.15);
-}
-
-.positionBadge {
-	position: absolute;
-	top: -8px;
-	left: -8px;
-	z-index: 2;
-	width: 28px;
-	height: 28px;
-	border-radius: 50%;
-	background: var(--color-brown);
-	color: var(--color-cream);
-	font-family: var(--font-montserrat), Montserrat, sans-serif;
-	font-size: 0.8rem;
-	font-weight: 700;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
-}
-
-.cover {
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	display: block;
-	transition: transform 0.3s ease;
-}
-
-.coverWrapper:hover .cover {
-	transform: scale(1.03);
-}
-
-.coverPlaceholder {
-	width: 100%;
-	height: 100%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	font-size: 2rem;
-	background: var(--color-beige);
-}
-
-.bookInfo {
-	display: flex;
-	flex-direction: column;
-	gap: 0.2rem;
-}
-
-.bookTitle {
-	font-family: var(--font-lora), Lora, serif;
-	font-size: 0.8rem;
-	font-weight: 700;
-	color: var(--color-brown);
-	line-height: 1.3;
-	display: -webkit-box;
-	-webkit-line-clamp: 2;
-	-webkit-box-orient: vertical;
-	overflow: hidden;
-	text-decoration: none;
-	text-align: center;
-}
-
-a.bookTitle:hover {
-	color: var(--color-rose);
-}
-
-.bookAuthor {
-	font-size: 0.7rem;
-	font-style: italic;
-	color: var(--color-brown-soft);
-	margin: 0;
-	text-align: center;
-}
-
-.itemCategories {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 0.2rem;
-	margin-top: 0.2rem;
-	text-align: center;
-}
-
-.itemCategoryTag {
-	font-family: var(--font-montserrat), Montserrat, sans-serif;
-	font-size: 0.58rem;
-	font-weight: 700;
-	text-transform: uppercase;
-	letter-spacing: 0.04em;
-	padding: 0.15rem 0.45rem;
-	background: var(--color-sage);
-	color: white;
-	border-radius: 20px;
-	white-space: nowrap;
-}
-
-.bookReason {
-	margin-top: 0.25rem;
-}
-
-.reasonLabel {
-	font-family: var(--font-montserrat), Montserrat, sans-serif;
-	font-size: 0.6rem;
-	font-weight: 700;
-	text-transform: uppercase;
-	letter-spacing: 0.05em;
-	color: var(--color-rose);
-	display: block;
-	margin-bottom: 0.15rem;
-}
-
-.bookReason p {
-	font-size: 0.7rem;
-	color: var(--color-brown-mid);
-	margin: 0;
-	line-height: 1.5;
-	display: -webkit-box;
-	-webkit-line-clamp: 3;
-	-webkit-box-orient: vertical;
-	overflow: hidden;
-}
-
-/* FAQ */
-.faqSection {
+/* ── About section ──────────────────────────────────────────────────────────── */
+.aboutSection {
 	background: var(--color-beige);
 	padding: 2rem;
 	border-top: 3px solid var(--color-rose);
 	text-align: center;
+	margin-top: 1.5rem;
 }
 
-.faqTitle {
+.aboutTitle {
 	font-family: var(--font-playfair), 'Playfair Display', serif;
 	font-size: 1.25rem;
 	font-style: italic;
@@ -387,66 +420,19 @@ a.bookTitle:hover {
 	margin: 0 0 0.875rem;
 }
 
-.faqText {
+.aboutText {
 	font-size: 0.9rem;
 	color: var(--color-brown-mid);
 	line-height: 1.7;
-	margin: 0 auto 0.5rem;
+	margin: 0 auto;
 	max-width: 560px;
-}
-
-.faqBtn {
-	display: inline-block;
-	font-family: var(--font-montserrat), Montserrat, sans-serif;
-	font-size: 0.75rem;
-	font-weight: 700;
-	text-transform: uppercase;
-	letter-spacing: 0.08em;
-	padding: 0.75rem 1.75rem;
-	background: var(--color-brown);
-	color: var(--color-cream);
-	border-radius: 30px;
-	text-decoration: none;
-	transition: background 0.2s;
-}
-
-.faqBtn:hover {
-	background: var(--color-brown-mid);
-	color: var(--color-cream);
-}
-
-/* ── Image widget (sin título) ──────────────────────────────────────────────── */
-.imageWidget {
-	border: 1px solid var(--color-taupe);
-	border-radius: 6px;
-	overflow: hidden;
-	background: var(--color-beige);
-}
-
-.imageWidgetImg {
-	width: 100%;
-	display: block;
-	object-fit: cover;
-}
-
-.imageWidgetBody {
-	background: var(--color-beige);
-	padding: 1rem;
-}
-
-.imageWidgetText {
-	font-size: 0.8125rem;
-	color: var(--color-brown-mid);
-	line-height: 1.65;
-	margin: 0;
-	text-align: center;
 }
 
 /* ── Sidebar ────────────────────────────────────────────────────────────────── */
 .sidebar {
-	flex: 0 0 310px;
-	max-width: 310px;
-	min-width: 260px;
+	flex: 0 0 300px;
+	max-width: 300px;
+	min-width: 250px;
 	align-self: flex-start;
 	position: sticky;
 	top: 90px;
@@ -456,7 +442,6 @@ a.bookTitle:hover {
 	box-sizing: border-box;
 }
 
-/* Widget */
 .widget {
 	border: 1px solid var(--color-taupe);
 	border-radius: 6px;
@@ -464,16 +449,18 @@ a.bookTitle:hover {
 }
 
 .widgetHeader {
+	background: var(--color-beige);
+	border-bottom: 1px solid var(--color-taupe);
 	padding: 0.625rem 1rem;
 }
 
 .widgetHeader span {
 	font-family: var(--font-montserrat), Montserrat, sans-serif;
-	font-size: 0.7rem;
+	font-size: 0.65rem;
 	font-weight: 700;
 	text-transform: uppercase;
-	letter-spacing: 0.1em;
-	color: var(--color-cream);
+	letter-spacing: 0.12em;
+	color: var(--color-brown);
 }
 
 .widgetBody {
@@ -485,22 +472,9 @@ a.bookTitle:hover {
 	font-size: 0.8125rem;
 	color: var(--color-brown-mid);
 	line-height: 1.65;
-	margin: 0 0 0.75rem;
+	margin: 0;
 }
 
-.widgetLink {
-	font-family: var(--font-montserrat), Montserrat, sans-serif;
-	font-size: 0.75rem;
-	font-weight: 600;
-	color: var(--color-brown);
-	text-decoration: underline;
-}
-
-.widgetLink:hover {
-	color: var(--color-rose);
-}
-
-/* ── Recent entries widget ──────────────────────────────────────────────────── */
 .recentWidget {
 	border: 1px solid var(--color-taupe);
 	border-radius: 6px;
@@ -528,7 +502,7 @@ a.bookTitle:hover {
 .recentList {
 	list-style: none;
 	padding: 0;
-	margin: 0 0 1rem;
+	margin: 0;
 	display: flex;
 	flex-direction: column;
 }
@@ -549,13 +523,13 @@ a.bookTitle:hover {
 	padding: 0.75rem 0;
 }
 
-.recentLink:hover .recentTopic {
+.recentLink:hover .recentTitle {
 	color: var(--color-rose);
 }
 
 .recentCover {
-	width: 68px;
-	min-width: 68px;
+	width: 52px;
+	min-width: 52px;
 	aspect-ratio: 2 / 3;
 	border-radius: 4px;
 	overflow: hidden;
@@ -583,53 +557,21 @@ a.bookTitle:hover {
 .recentInfo {
 	display: flex;
 	flex-direction: column;
-	gap: 0.3rem;
+	gap: 0.25rem;
 	min-width: 0;
 	flex: 1;
-	padding-top: 0.25rem;
+	padding-top: 0.2rem;
 }
 
-.recentTopic {
-	font-family: var(--font-lora), Lora, serif;
-	font-size: 0.875rem;
-	font-weight: 600;
+.recentTitle {
+	font-size: 0.8rem;
 	color: var(--color-brown);
-	line-height: 1.4;
+	line-height: 1.35;
 	display: -webkit-box;
-	-webkit-line-clamp: 3;
+	-webkit-line-clamp: 2;
 	-webkit-box-orient: vertical;
 	overflow: hidden;
 	transition: color 0.2s;
-}
-
-.recentDate {
-	font-family: var(--font-lora), Lora, serif;
-	font-size: 0.75rem;
-	color: var(--color-brown-soft);
-	font-style: italic;
-}
-
-.recentVerTodas {
-	display: block;
-	text-align: center;
-	font-family: var(--font-montserrat), Montserrat, sans-serif;
-	font-size: 0.7rem;
-	font-weight: 700;
-	text-transform: uppercase;
-	letter-spacing: 0.1em;
-	padding: 0.65rem 1rem;
-	background: var(--color-beige);
-	border: 1px solid var(--color-taupe);
-	border-radius: 4px;
-	color: var(--color-brown);
-	text-decoration: none;
-	transition: all 0.2s;
-}
-
-.recentVerTodas:hover {
-	background: var(--color-brown);
-	color: var(--color-cream);
-	border-color: var(--color-brown);
 }
 
 .recentDate {
@@ -641,18 +583,6 @@ a.bookTitle:hover {
 	color: var(--color-rose);
 }
 
-.recentTopic {
-	font-size: 0.8rem;
-	color: var(--color-brown);
-	line-height: 1.35;
-	display: -webkit-box;
-	-webkit-line-clamp: 2;
-	-webkit-box-orient: vertical;
-	overflow: hidden;
-	transition: color 0.2s;
-}
-
-/* Categories */
 .categoryTags {
 	display: flex;
 	flex-wrap: wrap;
@@ -677,17 +607,6 @@ a.bookTitle:hover {
 }
 
 /* ── Responsive ─────────────────────────────────────────────────────────────── */
-@media (max-width: 1200px) {
-	.booksGrid {
-		grid-template-columns: repeat(4, 1fr);
-	}
-
-	.sidebar {
-		flex: 0 0 280px;
-		max-width: 280px;
-	}
-}
-
 @media (max-width: 1024px) {
 	.pageWrapper {
 		flex-direction: column;
@@ -707,16 +626,26 @@ a.bookTitle:hover {
 
 @media (max-width: 768px) {
 	.hero {
+		flex-direction: column-reverse;
+		align-items: flex-start;
 		padding: 1.5rem 1rem;
 	}
 
+	.heroImageWrap {
+		width: 100%;
+	}
+
+	.heroImg {
+		width: 100%;
+	}
+
 	.heroAdorno {
-		width: 160px;
-		min-width: 160px;
+		width: 200px;
+		min-width: unset;
 	}
 
 	.heroTitle {
-		font-size: 2.25rem;
+		font-size: 2.1rem;
 	}
 
 	.pageWrapper {
@@ -724,33 +653,39 @@ a.bookTitle:hover {
 		gap: 1rem;
 	}
 
-	.booksGrid {
-		grid-template-columns: repeat(3, 1fr);
-		padding: 1rem;
-		gap: 0.875rem;
+	.spotlightRow {
+		gap: 1.25rem;
+		padding: 1.25rem;
 	}
 
-	.topicSection,
-	.contentBody,
-	.booksSectionTitle {
-		padding: 1rem 1.25rem;
+	.spotlightCoverWrap {
+		width: 140px;
 	}
 
-	.faqSection {
-		padding: 1.5rem 1rem;
+	.spotlightTitle {
+		font-size: 1.3rem;
+	}
+
+	.infoLabel {
+		min-width: 70px;
 	}
 }
 
 @media (max-width: 480px) {
-	.booksGrid {
-		grid-template-columns: repeat(2, 1fr);
+	.spotlightRow {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.spotlightCoverWrap {
+		width: 180px;
+	}
+
+	.spotlightInfo {
+		width: 100%;
 	}
 
 	.heroTitle {
-		font-size: 1.875rem;
-	}
-
-	.heroAdorno {
-		display: none;
+		font-size: 1.75rem;
 	}
 }

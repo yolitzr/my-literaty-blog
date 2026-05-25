@@ -80,16 +80,16 @@ export default function WeeklyPostsSection({
 			typeLabel: 'WWW Wednesday',
 			typeBgColor: 'var(--color-brown-soft)',
 			typeTextColor: 'white',
-			title: wwwWednesday
-				? `WWW Wednesday — ${new Date(wwwWednesday.date).toLocaleDateString('es-ES', { day: 'numeric', month: 'long' })}`
-				: 'Próximamente...',
-			description:
-				wwwWednesday?.intro ??
-				'Estoy leyendo esto, ya leí esto, lo siguiente será...',
+			title: wwwWednesday?.title ?? 'Próximamente...',
+			description: 'Próximas lecturas que muero por leer.',
 			href: wwwWednesday
 				? `/blog/www-wednesday/${wwwWednesday.slug}`
 				: '/blog/www-wednesday',
-			imageUrl: null,
+			imageUrl: wwwWednesday?.reading_next?.image
+				? imgUrl(wwwWednesday.reading_next.image)
+				: wwwWednesday?.cover_image
+					? imgUrl(wwwWednesday.cover_image)
+					: null,
 			isEmpty: !wwwWednesday,
 		},
 

@@ -44,7 +44,7 @@ export default function RootLayout({
       <body>
         <StyledComponentsRegistry>
           <Header />
-          <main style={{ flex: 1 }}>{children}</main>
+          <main style={{ flex: 1, background: '#fff' }}>{children}</main>
           <Footer />
         </StyledComponentsRegistry>
       </body>

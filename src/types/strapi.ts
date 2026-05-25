@@ -194,15 +194,15 @@ export interface BookishNewsEntry {
 export interface WwwWednesdayEntry {
 	id: number;
 	documentId: string;
+	title: string;
 	date: string;
 	slug: string;
+	cover_image: StrapiImage | null;
 	intro: string | null;
-	currently_reading?: Book | null;
-	currently_progress: number | null;
-	currently_thoughts: string | null;
-	recently_finished?: Book | null;
-	recently_rating: number | null;
+	content: BlocksContent | null;
 	reading_next?: Book | null;
+	reading_next_reason: string | null;
+	categories?: Category[];
 	createdAt: string;
 }
 
