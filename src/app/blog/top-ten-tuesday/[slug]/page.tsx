@@ -296,7 +296,6 @@ export default async function TopTenTuesdayDetailPage({
 
 				{/* ── Sidebar ─────────────────────────────────────────────────────── */}
 				<aside className={styles.sidebar}>
-
 					{/* Widget sin título — imagen + texto */}
 					<div className={styles.imageWidget}>
 						{/* eslint-disable-next-line @next/next/no-img-element */}

@@ -75,7 +75,7 @@
 }
 
 .heroIntro {
-	font-size: 0.875rem;
+	font-size: 0.95rem;
 	color: var(--color-brown-mid);
 	line-height: 1.7;
 	margin: 0;
@@ -193,8 +193,8 @@
 .contentBody {
 	padding: 1.5rem 2rem;
 	margin-bottom: 0.5rem;
-	font-size: 0.9375rem;
-	line-height: 1.8;
+	font-size: 1.0625rem;
+	line-height: 1.6;
 	color: var(--color-brown-mid);
 }
 
@@ -225,7 +225,7 @@
 .booksGrid {
 	display: grid;
 	grid-template-columns: repeat(5, 1fr);
-	gap: 1rem;
+	gap: 1.25rem;
 
 	padding: 1.25rem 2rem 2rem;
 }
@@ -435,7 +435,7 @@ a.bookTitle:hover {
 }
 
 .imageWidgetText {
-	font-size: 0.8125rem;
+	font-size: 0.95rem;
 	color: var(--color-brown-mid);
 	line-height: 1.65;
 	margin: 0;

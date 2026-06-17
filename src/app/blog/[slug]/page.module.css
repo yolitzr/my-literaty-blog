@@ -93,21 +93,6 @@
 }
 
 /* Post content */
-.postIntro {
-	font-size: 1.125rem;
-	color: var(--color-stone-700);
-	padding: var(--spacing-lg);
-	background: linear-gradient(
-		135deg,
-		var(--color-purple-50) 0%,
-		var(--color-stone-50) 100%
-	);
-	border-left: 3px solid var(--color-purple-400);
-	margin-bottom: var(--spacing-xl);
-	border-radius: var(--border-radius);
-	line-height: 1.7;
-	font-style: italic;
-}
 .postBody {
 	font-size: 1.0625rem;
 	line-height: 1.75;

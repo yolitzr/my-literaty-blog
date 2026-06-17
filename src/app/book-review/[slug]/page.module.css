@@ -37,14 +37,14 @@
 	min-width: 0;
 	max-width: 900px;
 	background: white;
-	padding: var(--spacing-xl);
+	padding: 0rem 2rem 2rem 1rem;
 	box-sizing: border-box;
 }
 
 /* Review header */
 .reviewHeader {
-	margin-bottom: var(--spacing-xl);
-	padding-bottom: var(--spacing-lg);
+	margin-bottom: var(--spacing-sm);
+	padding-bottom: var(--spacing-sm);
 	border-bottom: 1px solid var(--color-stone-200);
 }
 
@@ -79,22 +79,6 @@
 }
 
 /* Review content */
-.reviewIntro {
-	font-size: 1.125rem;
-	color: var(--color-stone-700);
-	padding: var(--spacing-lg);
-	background: linear-gradient(
-		135deg,
-		var(--color-purple-50) 0%,
-		var(--color-stone-50) 100%
-	);
-	border-left: 3px solid var(--color-purple-400);
-	margin-bottom: var(--spacing-xl);
-	border-radius: var(--border-radius);
-	line-height: 1.7;
-	font-style: italic;
-}
-
 .reviewBody {
 	font-size: 1.0625rem;
 	line-height: 1.75;
@@ -369,7 +353,7 @@
 
 .synopsisText {
 	color: var(--color-stone-800);
-	font-size: 0.875rem;
+	font-size: 1.0625rem;
 	line-height: 1.6;
 	text-align: justify;
 }

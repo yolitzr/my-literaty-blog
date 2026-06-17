@@ -105,9 +105,6 @@ export default async function ReviewDetailPage({
       : null;
 
   const contentBlocks = review.content ?? [];
-  const hasIntro = contentBlocks[0]?.type === "paragraph";
-  const introParagraph = hasIntro ? contentBlocks.slice(0, 1) : [];
-  const bodyBlocks = hasIntro ? contentBlocks.slice(1) : contentBlocks;
 
   return (
     <>
@@ -147,13 +144,8 @@ export default async function ReviewDetailPage({
           </header>
 
           <article>
-            {hasIntro && (
-              <div className={styles.reviewIntro}>
-                <BlocksRenderer content={introParagraph} />
-              </div>
-            )}
             <div className={styles.reviewBody}>
-              <BlocksRenderer content={bodyBlocks} />
+              <BlocksRenderer content={contentBlocks} />
             </div>
           </article>
 

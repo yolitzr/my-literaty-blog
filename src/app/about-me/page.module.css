@@ -98,7 +98,7 @@
   background-color: var(--color-accent);
 }
 .introText p {
-  font-size: 1.15rem;
+  font-size: 1.0625rem;
   color: var(--color-primary);
   line-height: 1.8;
   margin-bottom: var(--spacing-md);

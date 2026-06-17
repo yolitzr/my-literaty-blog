@@ -76,9 +76,6 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   const readingTime = Math.max(1, Math.ceil(countWords(post.content) / 200));
 
   const contentBlocks = post.content ?? [];
-  const hasIntro = contentBlocks[0]?.type === "paragraph";
-  const introParagraph = hasIntro ? contentBlocks.slice(0, 1) : [];
-  const bodyBlocks = hasIntro ? contentBlocks.slice(1) : contentBlocks;
 
   // Count posts per category
   const totalPosts = categories.length; // proxy stat
@@ -140,13 +137,8 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           </header>
 
           <article>
-            {hasIntro && (
-              <div className={styles.postIntro}>
-                <BlocksRenderer content={introParagraph} />
-              </div>
-            )}
             <div className={styles.postBody}>
-              <BlocksRenderer content={bodyBlocks} />
+              <BlocksRenderer content={contentBlocks} />
             </div>
           </article>
 

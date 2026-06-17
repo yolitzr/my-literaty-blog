@@ -259,7 +259,7 @@
 .synopsisText {
 	line-height: 1.75;
 	color: var(--color-stone-700);
-	font-size: 1rem;
+	font-size: 1.0625rem;
 }
 
 .synopsisText p {
@@ -400,7 +400,7 @@
 .reviewBody {
 	line-height: 1.8;
 	color: var(--color-stone-700);
-	font-size: 1rem;
+	font-size: 1.0625rem;
 }
 
 .reviewBody p {
